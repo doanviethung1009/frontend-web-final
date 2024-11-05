@@ -18,3 +18,16 @@ Currently, two official plugins are available:
 - update github
 echo "# Frontend_travel_up" >> README.md
 Install Required Dependencies: => npm install antd axios react-toastify react-router-dom i18next react-i18next
+npm install -D sass-embedded
+Fix warning Deprecation [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0. => css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  }, 
+and update config run ipv4 and localhost for react vite.config.js
+server: {
+    host: '0.0.0.0',
+    port: 3050, // Specify the port, default is 5173 if you want to change it
+  }
