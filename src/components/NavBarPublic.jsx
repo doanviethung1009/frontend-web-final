@@ -1,29 +1,105 @@
-import { Menu } from 'antd';
-
+import { useEffect, useState, useCallback } from "react";
+import { Button, Menu, } from 'antd';
+import DataItemsPublic from "../contents/DataItemsPublic";
+import "../styles/NavBar.scss"
+import { useTranslation } from "react-i18next";
 
 const NavBarPublic = () => {
-    const { SubMenu } = Menu
+    const [current, setCurrent] = useState('about');
+    const [checkLang, setCheckLang] = useState('vi');
+    const { t, i18n } = useTranslation();
 
+    const handleOnChangeLanguageButton = (lang) => {
+        console.log('>>check language', lang);
+        // i18n.changeLanguage(i18n.language === lang ? 'vi' : 'en');
+        i18n.changeLanguage(lang);
+        setCheckLang(lang);
+    }
+
+    // Memoize handleOnChangeLanguage to ensure it doesn't change on each render
+    const handleOnChangeLanguage = useCallback((key) => {
+        if (key) {
+            i18n.changeLanguage(key);
+            console.log(`Language changed to: ${key}`);
+        }
+    }, [i18n]);
+
+
+    useEffect(() => {
+        newFunction();
+
+        function newFunction() {
+            handleOnChangeLanguage(checkLang);
+        }
+    }, [checkLang, handleOnChangeLanguage])
+
+    const onClick = (e) => {
+        console.log('click ', e);
+        if (e.key === 'en') {
+            setCheckLang(e.key);
+        } else if (e.key === 'vi') {
+            setCheckLang(e.key);
+        }
+        setCurrent(e.key);
+    };
+
+
+
+    // const items = [
+    //     {
+    //         key: 'en',
+    //         label: 'en',
+    //         onClick: () => handleOnChangeLanguage('en')
+
+    //     },
+    //     {
+    //         key: 'vi',
+    //         label: 'vi',
+    //         onClick: () => handleOnChangeLanguage('vi')
+    //     },
+
+    // ]
+
+    const menuItems = DataItemsPublic.map((item) => (
+        {
+            key: item.key,
+            label: t(item.key),
+            icon: item.icon,
+            children: item.children?.map((child) => ({
+                key: child.key,
+                label: t(child.key),
+                icon: child.icon,
+                children: child.children?.map((grandchild) => ({
+                    key: grandchild.key,
+                    label: t(grandchild.key),
+                    icon: grandchild.icon,
+                }))?.filter((grandchild) => grandchild.key !== 'popupClassName'),
+            })),
+
+        }
+    ))
     return (
-        <div>
-            <Menu mode="horizontal">
-                <Menu.Item key="home">
-                    Home
-                </Menu.Item>
-
-                <SubMenu key="submenu" title="Settings">
-                    <Menu.Item key="profile">Profile</Menu.Item>
-                    <Menu.Item key="preferences">Preferences</Menu.Item>
-
-                    <SubMenu key="more-settings" title="More Settings">
-                        <Menu.Item key="privacy">Privacy</Menu.Item>
-                        <Menu.Item key="security">Security</Menu.Item>
-                    </SubMenu>
-                </SubMenu>
-
-                <Menu.Item key="about">About</Menu.Item>
-            </Menu>
-        </div>
+        <div className="container">
+            <div className="logo">
+                <p >
+                    Vecotra
+                </p>
+            </div>
+            <div className="MenuAdmin">
+                <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={menuItems} />
+            </div>
+            <div className="containerLang">
+                {checkLang === 'en' ? <Button className="btnLang" onClick={() => handleOnChangeLanguageButton('vi')}>
+                    vi
+                </Button> :
+                    <Button className="btnLang" onClick={() => handleOnChangeLanguageButton('en')}>
+                        en
+                    </Button>
+                }
+                {/* <Button onClick={() => handleOnChangeLanguage([checkLang])}>
+            </Button> */}
+            </div>
+        </div >
     );
 };
 

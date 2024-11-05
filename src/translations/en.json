@@ -31,5 +31,6 @@
     "login": "Login",
     "logout": "Logout",
     "team": "Our Team",
-    "tourCancellation": "Tour Cancellation Policy"
+    "tourCancellation": "Tour Cancellation Policy",
+    "language": "Language"
 }

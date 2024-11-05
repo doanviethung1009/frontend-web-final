@@ -125,29 +125,26 @@
         }
     }
 
-    .containerButton {
-        // width: 5%;
-        // top: 0;
-        // display: block !important;
-        height: 20px;
-        top: 5%;
-        margin-top: 20px;
-        z-index: 100000000;
+    .containerLang {
+        display: flex;
+        justify-content: flex-end;
+        // width: 100%;
+        margin: 0 0;
+        padding-top: 20px;
 
-        // float: right;
-        // position: ;
-        button {
-            width: 100px;
-            display: inline !important;
-            // position: relative;
+        .btnLang {
+            color: white;
+            background-color: transparent !important;
+            border-radius: 10%;
         }
-
     }
 }
 
-
+//iphone 14promax
 @media only screen and (max-width: 450px) {
     .container {
+        // align-items: center;
+        // justify-content: center;
         width: 430px;
         // border-bottom: 1px solid #333;
         height: 50px;
@@ -165,23 +162,35 @@
         }
 
         .MenuAdmin {
-            display: inline;
             justify-items: normal;
+            display: flex;
+            justify-content: flex-end;
             top: 2%;
             width: 60px;
-            float: right;
+            // float: right;
             padding-right: 20px;
-            padding-left: 0;
+            padding-left: 160px;
+        }
+
+        .containerLang {
+
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
         }
     }
 
 }
 
+//iphone 12pro
 @media only screen and (max-width: 390px) {
     .container {
         align-items: center;
         justify-content: center;
-        width: 370px;
+        width: 390px;
         // border-bottom: 1px solid #333;
         height: 50px;
 
@@ -199,12 +208,24 @@
 
         .MenuAdmin {
             justify-items: normal;
+            display: flex;
+            justify-content: flex-end;
             top: 2%;
-            width: 60px;
+            width: 50px;
             float: right;
             // padding-right: 20px;
-            padding-left: 20px;
+            padding-left: 120px;
 
+        }
+
+        .containerLang {
+
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
         }
     }
 

@@ -1,8 +1,9 @@
 
 import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 
-const DataItemsAdmin = [
+const DataItemsPublic = [
     {
         label: 'About us',
         key: 'about',
@@ -43,7 +44,7 @@ const DataItemsAdmin = [
                 key: "vietnam",
                 children: [
                     {
-                        label: 'Northern Vietnam',
+                        label: (<Link to={"/travelVietnam/northernVietnam"}>Northern Vietname</Link>),
                         key: 'northern',
                     },
                     {
@@ -148,8 +149,22 @@ const DataItemsAdmin = [
 
         ]
     },
+    {
+        key: "language",
+        label: "Language",
+        children: [
+            {
+                key: "en",
+                label: "English",
+            },
+            {
+                key: "vi",
+                label: "Vietnamese",
+            }
+        ],
+    }
 ];
 
-export default DataItemsAdmin;
+export default DataItemsPublic;
 
 

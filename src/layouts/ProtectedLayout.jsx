@@ -1,12 +1,16 @@
 import NavBarAdmin from "../components/NavBarAdmin";
-import Home from "../pages/Home";
+import Login from "../pages/Login";
 
 const ProtectedLayout = () => {
     return (
         <div>
-            <NavBarAdmin />
-            <Home />
-            {/* <NavBarPublic /> */}
+            <header>
+                <NavBarAdmin />
+            </header>
+            <main>
+                <Login />
+            </main>
+
         </div>
     );
 };
