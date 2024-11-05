@@ -31,3 +31,7 @@ server: {
     host: '0.0.0.0',
     port: 3050, // Specify the port, default is 5173 if you want to change it
   }
+
+
+update lib for i18n:
+npm install i18next react-i18next i18next-browser-languagedetector

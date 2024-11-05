@@ -6,23 +6,24 @@ const DataItemsAdmin = [
     {
         label: 'About us',
         key: 'about',
+        labelKey: 'about',
         icon: <MailOutlined />,
         children: [
             {
                 label: 'Our Story',
-                key: 'Story',
+                key: 'story',
             },
             {
                 label: 'Mission & Vision',
-                key: 'Mission',
+                key: 'mission',
             },
             {
                 label: 'Our Team',
-                key: 'Team',
+                key: 'team',
             },
             {
                 label: 'Sustainability',
-                key: 'Sustainability',
+                key: 'sustainability',
             },
             {
                 label: 'Impact',
@@ -32,57 +33,60 @@ const DataItemsAdmin = [
     },
     {
         label: 'Product',
-        key: 'Product',
+        key: 'product',
         icon: <SettingOutlined />,
         children: [
             {
-                type: 'group',
+                // type: 'group',
                 label: 'Vietnam Travel',
                 popupClassName: true,
+                key: "vietnam",
                 children: [
                     {
                         label: 'Northern Vietnam',
-                        key: 'Northern',
+                        key: 'northern',
                     },
                     {
                         label: 'Central Vietnam',
-                        key: 'Central',
+                        key: 'central',
                     },
                     {
                         label: 'Southern Vietnam',
-                        key: 'Southern',
+                        key: 'southern',
                     },
                 ],
             },
             {
-                type: 'group',
+                // type: 'group',
                 label: 'Overseas Travel',
+                key: 'overseas',
                 children: [
                     {
                         label: 'Asia Destinations',
-                        key: 'Asia',
+                        key: 'asia',
                     },
                     {
                         label: 'Global Adventures',
-                        key: 'Global',
+                        key: 'global',
                     },
                 ],
             },
             {
-                type: 'group',
+                // type: 'group',
                 label: 'Event Organization',
+                key: 'event',
                 children: [
                     {
                         label: 'Corporate Retreats',
-                        key: 'Corporate',
+                        key: 'corporate',
                     },
                     {
                         label: 'Private Events',
-                        key: 'Private',
+                        key: 'private',
                     },
                     {
                         label: 'Community Events',
-                        key: 'Community',
+                        key: 'community',
                     },
                 ],
             },
@@ -95,51 +99,51 @@ const DataItemsAdmin = [
         children: [
             {
                 label: "Strategic Partnerships",
-                key: 'partner:1',
+                key: 'strategicPartnerships',
             },
             {
                 label: "Local Collaborators",
-                key: 'partner:2',
+                key: 'localCollaborators',
             },
             {
                 label: "Eco - Accommodations",
-                key: 'partner:3',
+                key: 'ecoAccommodations',
             },
             {
                 label: "Conservation Organizations",
-                key: 'partner:4',
+                key: 'conservationOrganizations',
             },
             {
                 label: "Join as a Partner",
-                key: 'partner:5',
+                key: 'joinPartnerships',
             }
         ]
         // disabled: true,zs
     },
 
     {
-        key: 'Guide',
+        key: 'guide',
         label: "Travel Guide",
         children: [
             {
                 label: "Vietnam Destinations",
-                key: 'travelGuide:1',
+                key: 'travelGuide1',
             },
             {
                 label: "Sustainable Travel Tips",
-                key: 'travelGuide:2',
+                key: 'travelGuide2',
             },
             {
                 label: "Cultural Etiquette",
-                key: 'travelGuide:3',
+                key: 'travelGuide3',
             },
             {
                 label: "Local Food & Souvenirs",
-                key: 'travelGuide:4',
+                key: 'travelGuide4',
             },
             {
                 label: "Travel Checklist",
-                key: 'travelGuide:5',
+                key: 'travelGuide5',
             },
 
         ]

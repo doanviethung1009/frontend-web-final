@@ -7,17 +7,25 @@
         position: relative;
         width: 100%;
         /* Set the desired width */
-        height: 100%;
+        height: auto;
         /* Set the desired height */
         overflow: hidden;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
 
         video {
-
-            // width: 100%;
-            height: 100%;
-            margin-left: 50vw;
-            transform: translate(-50%);
+            width: 100%;
+            // height: auto;
+            // margin-left: 50vw;
+            // transform: translate(-50%);
             object-fit: cover;
+            top: 0;
+            left: 0 !important;
+            width: 100%;
+            height: 100vh;
+            display: block;
         }
 
     }
@@ -26,7 +34,6 @@
         position: absolute;
         z-index: 100;
         color: white;
-        float: bottom;
         top: 90%
     }
 }

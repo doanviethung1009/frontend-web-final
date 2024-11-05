@@ -6,6 +6,7 @@ const ProtectedLayout = () => {
         <div>
             <NavBarAdmin />
             <Home />
+            {/* <NavBarPublic /> */}
         </div>
     );
 };

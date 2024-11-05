@@ -1,10 +1,14 @@
 {
-    "about": "About us",
+    "home": "Trang Chủ",
+    "dashboard": "Bảng Điều Khiển",
+    "product": "Sản Phẩm",
+    "services": "Dịch Vụ",
+    "login": "Đăng Nhập",
+    "about": "Về chúng tôi",
     "story": "Our Story",
     "mission": "Mission & Vision",
     "sustainability": "Sustainability",
     "impact": "Impact",
-    "product": "Product",
     "vietnam": "Vietnam Travel",
     "northern": "Northern Vietnam",
     "central": "Central Vietnam",
@@ -28,8 +32,6 @@
     "travelGuide3": "Cultural Etiquette",
     "travelGuide4": "Local Food & Souvenirs",
     "travelGuide5": "Travel Checklist",
-    "login": "Login",
     "logout": "Logout",
-    "team": "Our Team",
-    "tourCancellation": "Tour Cancellation Policy"
+    "team": "Our Team"
 }

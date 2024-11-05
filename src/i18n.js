@@ -1,14 +1,15 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
-import tranlationEN from "./translations/en.json"
+import translationEN from "./translations/en.json"
 import translationVI from "./translations/vi.json"
+import I18nextBrowserLanguageDetector from "i18next-browser-languagedetector";
 
 
 
-i18next.use(initReactI18next).init({
+i18next.use(I18nextBrowserLanguageDetector).use(initReactI18next).init({
     resources: {
         en: {
-            translation: tranlationEN
+            translation: translationEN
         },
         vi: {
             translation: translationVI
