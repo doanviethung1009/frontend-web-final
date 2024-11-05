@@ -17,9 +17,4 @@ Currently, two official plugins are available:
 
 - update github
 echo "# Frontend_travel_up" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin <https://github.com/doanviethung1009/Frontend_travel_up.git>
-git push -u origin main
+Install Required Dependencies: => npm install antd axios react-toastify react-router-dom i18next react-i18next
