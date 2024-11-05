@@ -5,34 +5,34 @@ import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/ico
 const DataItemsAdmin = [
     {
         label: 'About us',
-        key: 'About us',
+        key: 'about',
         icon: <MailOutlined />,
         children: [
             {
                 label: 'Our Story',
-                key: 'about:1',
+                key: 'Story',
             },
             {
                 label: 'Mission & Vision',
-                key: 'about:2',
+                key: 'Mission',
             },
             {
                 label: 'Our Team',
-                key: 'about:3',
+                key: 'Team',
             },
             {
                 label: 'Sustainability',
-                key: 'about:2',
+                key: 'Sustainability',
             },
             {
                 label: 'Impact',
-                key: 'about:3',
+                key: 'Impact',
             },
         ]
     },
     {
         label: 'Product',
-        key: 'SubMenu',
+        key: 'Product',
         icon: <SettingOutlined />,
         children: [
             {
@@ -42,15 +42,15 @@ const DataItemsAdmin = [
                 children: [
                     {
                         label: 'Northern Vietnam',
-                        key: 'setting:1',
+                        key: 'Northern',
                     },
                     {
                         label: 'Central Vietnam',
-                        key: 'setting:2',
+                        key: 'Central',
                     },
                     {
                         label: 'Southern Vietnam',
-                        key: 'setting:2',
+                        key: 'Southern',
                     },
                 ],
             },
@@ -59,12 +59,12 @@ const DataItemsAdmin = [
                 label: 'Overseas Travel',
                 children: [
                     {
-                        label: 'Option 3',
-                        key: 'setting:3',
+                        label: 'Asia Destinations',
+                        key: 'Asia',
                     },
                     {
-                        label: 'Option 4',
-                        key: 'setting:4',
+                        label: 'Global Adventures',
+                        key: 'Global',
                     },
                 ],
             },
@@ -73,12 +73,16 @@ const DataItemsAdmin = [
                 label: 'Event Organization',
                 children: [
                     {
-                        label: 'Option 3',
-                        key: 'setting:3',
+                        label: 'Corporate Retreats',
+                        key: 'Corporate',
                     },
                     {
-                        label: 'Option 4',
-                        key: 'setting:4',
+                        label: 'Private Events',
+                        key: 'Private',
+                    },
+                    {
+                        label: 'Community Events',
+                        key: 'Community',
                     },
                 ],
             },
@@ -86,7 +90,7 @@ const DataItemsAdmin = [
     },
     {
         label: 'Partner',
-        key: 'app',
+        key: 'partner',
         icon: <AppstoreOutlined />,
         children: [
             {
@@ -114,7 +118,7 @@ const DataItemsAdmin = [
     },
 
     {
-        key: 'alipay',
+        key: 'Guide',
         label: "Travel Guide",
         children: [
             {
