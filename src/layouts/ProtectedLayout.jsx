@@ -1,5 +1,5 @@
+import { Outlet } from "react-router-dom";
 import NavBarAdmin from "../components/NavBarAdmin";
-import Login from "../pages/Login";
 
 const ProtectedLayout = () => {
     return (
@@ -8,7 +8,7 @@ const ProtectedLayout = () => {
                 <NavBarAdmin />
             </header>
             <main>
-                <Login />
+                <Outlet />
             </main>
 
         </div>

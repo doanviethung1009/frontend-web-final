@@ -1,14 +1,42 @@
 import { Button, Checkbox, Form, Input } from 'antd';
+import { loginUser } from '../services/apiService';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
-    const onFinish = (values) => {
-        console.log('Success:', values);
-    };
+    // const onFinish = (values) => {
+    //     console.log('Success:', values);
+    // };
+
+    // make redirect with hook
+    const navigate = useNavigate();
+
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
+    const handleOnLogin = async (values) => {
+        // Call API to login
+        // console.log('Login values:', values);
+
+        // console.log('Data from API:', data);
+        try {
+            let message = await loginUser(values);
+            console.log('Message:', message);
+            if (message && message.errCode === 0) {
+                // console.log('Success:', message.data)
+                toast.success('Logged in successfully');
+                navigate("/profile");  // Redirect to home or protected page
+            } else {
+                toast.error(`login page: ${message.message}`);
+            }
+        } catch (error) {
+            console.log('Failed:', error);
+        }
+    }
     return (
+
         <div className="containerLogin">
             <div className="headerLogin">
 
@@ -28,13 +56,14 @@ const Login = () => {
                     initialValues={{
                         remember: true,
                     }}
-                    onFinish={onFinish}
+                    // onFinish={onFinish}
+                    onFinish={handleOnLogin}
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
                 >
                     <Form.Item
                         label="Username"
-                        name="username"
+                        name="userName"
                         rules={[
                             {
                                 required: true,
@@ -47,7 +76,7 @@ const Login = () => {
 
                     <Form.Item
                         label="Password"
-                        name="password"
+                        name="userPassword"
                         rules={[
                             {
                                 required: true,
@@ -80,9 +109,10 @@ const Login = () => {
                         </Button>
                     </Form.Item>
                 </Form>
+                {/* <ToastContainer position="top-right" autoClose={3000} /> */}
             </div>
 
-        </div>
+        </div >
     );
 };
 

@@ -1,4 +1,5 @@
 import { Menu } from 'antd';
+import { Link } from 'react-router-dom';
 
 const NavBarAdmin = () => {
     const { SubMenu } = Menu
@@ -10,8 +11,16 @@ const NavBarAdmin = () => {
                 </Menu.Item>
 
                 <SubMenu key="submenu" title="Settings">
-                    <Menu.Item key="profile">Profile</Menu.Item>
-                    <Menu.Item key="preferences">Preferences</Menu.Item>
+                    <Menu.Item key="profile">
+                        <Link to={"/profile"}>
+                            Profile
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="preferences">
+                        <Link to={"/tourAdmin"}>
+                            Tour Admin
+                        </Link>
+                    </Menu.Item>
 
                     <SubMenu key="more-settings" title="More Settings">
                         <Menu.Item key="privacy">Privacy</Menu.Item>
