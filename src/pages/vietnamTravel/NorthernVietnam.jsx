@@ -3,7 +3,6 @@ const NorthernVietnam = () => {
     return (
         <div>
             northernVietnam page
-            test
         </div>
     );
 };

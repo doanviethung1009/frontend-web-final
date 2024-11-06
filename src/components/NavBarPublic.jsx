@@ -3,6 +3,7 @@ import { Button, Menu, } from 'antd';
 import DataItemsPublic from "../contents/DataItemsPublic";
 import "../styles/NavBar.scss"
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const NavBarPublic = () => {
     const [current, setCurrent] = useState('about');
@@ -67,11 +68,11 @@ const NavBarPublic = () => {
             icon: item.icon,
             children: item.children?.map((child) => ({
                 key: child.key,
-                label: t(child.key),
+                label: <Link to={`${child.label}`} >{t(child.key)}</Link>,
                 icon: child.icon,
                 children: child.children?.map((grandchild) => ({
                     key: grandchild.key,
-                    label: t(grandchild.key),
+                    label: (<Link to={`${grandchild.label}`}>{t(grandchild.key)}</Link>),
                     icon: grandchild.icon,
                 }))?.filter((grandchild) => grandchild.key !== 'popupClassName'),
             })),
@@ -81,9 +82,9 @@ const NavBarPublic = () => {
     return (
         <div className="container">
             <div className="logo">
-                <p >
+                <p>  <a href="/"  >
                     Vecotra
-                </p>
+                </a></p>
             </div>
             <div className="MenuAdmin">
                 <Menu onClick={onClick} selectedKeys={[current]} mode="horizontal" items={menuItems} />

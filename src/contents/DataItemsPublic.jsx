@@ -11,7 +11,7 @@ const DataItemsPublic = [
         icon: <MailOutlined />,
         children: [
             {
-                label: 'Our Story',
+                label: "/about/story",
                 key: 'story',
             },
             {
@@ -38,17 +38,17 @@ const DataItemsPublic = [
         icon: <SettingOutlined />,
         children: [
             {
-                // type: 'group',
+                type: 'group',
                 label: 'Vietnam Travel',
                 popupClassName: true,
                 key: "vietnam",
                 children: [
                     {
-                        label: (<Link to={"/travelVietnam/northernVietnam"}>Northern Vietname</Link>),
+                        label: "/products/travelVietnam/northernVietnam",
                         key: 'northern',
                     },
                     {
-                        label: 'Central Vietnam',
+                        label: "/products/travelVietnam/centralVietnam",
                         key: 'central',
                     },
                     {
@@ -58,7 +58,7 @@ const DataItemsPublic = [
                 ],
             },
             {
-                // type: 'group',
+                type: 'group',
                 label: 'Overseas Travel',
                 key: 'overseas',
                 children: [
@@ -73,7 +73,7 @@ const DataItemsPublic = [
                 ],
             },
             {
-                // type: 'group',
+                type: 'group',
                 label: 'Event Organization',
                 key: 'event',
                 children: [

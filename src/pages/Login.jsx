@@ -27,7 +27,7 @@ const Login = () => {
             if (message && message.errCode === 0) {
                 // console.log('Success:', message.data)
                 toast.success('Logged in successfully');
-                navigate("/profile");  // Redirect to home or protected page
+                navigate("/tourAdmin");  // Redirect to home or protected page
             } else {
                 toast.error(`login page: ${message.message}`);
             }
