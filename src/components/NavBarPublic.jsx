@@ -7,9 +7,10 @@ import { Link } from "react-router-dom";
 
 const NavBarPublic = () => {
     const [current, setCurrent] = useState('about');
-    const [checkLang, setCheckLang] = useState('vi');
+    const [checkLang, setCheckLang] = useState('en');
     const { t, i18n } = useTranslation();
 
+    // Change language and update state
     const handleOnChangeLanguageButton = (lang) => {
         console.log('>>check language', lang);
         // i18n.changeLanguage(i18n.language === lang ? 'vi' : 'en');
@@ -34,6 +35,7 @@ const NavBarPublic = () => {
         }
     }, [checkLang, handleOnChangeLanguage])
 
+    // Handle menu click events
     const onClick = (e) => {
         console.log('click ', e);
         if (e.key === 'en') {
@@ -61,24 +63,58 @@ const NavBarPublic = () => {
 
     // ]
 
-    const menuItems = DataItemsPublic.map((item) => (
-        {
-            key: item.key,
-            label: t(item.key),
-            icon: item.icon,
-            children: item.children?.map((child) => ({
+
+    // Create menu items based on DataItemsPublic
+    const menuItems = DataItemsPublic.map((item) => ({
+        key: item.key,
+        label: t(item.key),
+        icon: item.icon,
+        children: item.children?.map((child) => {
+            // Check if the child's key is "en" or "vi" and set the label accordingly
+            let label = (child.key === "en" || child.key === "vi" || child.children)
+                ? t(child.key) // Use Link if key is "en" or "vi"
+                : <Link to={`${child.label}`}>{t(child.key)}</Link>; // Otherwise, just use translated text
+            // need to return to render the child
+            return {
                 key: child.key,
-                label: <Link to={`${child.label}`} >{t(child.key)}</Link>,
+                label,
                 icon: child.icon,
                 children: child.children?.map((grandchild) => ({
                     key: grandchild.key,
-                    label: (<Link to={`${grandchild.label}`}>{t(grandchild.key)}</Link>),
+                    label: <Link to={`${grandchild.label}`}>{t(grandchild.key)}</Link>,
                     icon: grandchild.icon,
-                }))?.filter((grandchild) => grandchild.key !== 'popupClassName'),
-            })),
+                })).filter((grandchild) => grandchild.key !== 'popupClassName'),
+            };
+        }),
+    }));
 
-        }
-    ))
+    // const menuItems2 = DataItemsPublic.map((item) => (
+    //     {
+    //         key: item.key,
+    //         label: t(item.key),
+    //         icon: item.icon,
+    //         children: item.children?.map((child) => ({
+    //             key: child.key,
+    //             label: <Link to={`${child.label}`} >{t(child.key)}</Link>,
+    //             icon: child.icon,
+    //             children: child.children?.map((grandchild) => {
+    //                 let key = grandchild.key;
+    //                 let icon = grandchild.icon;
+    //                 let label = (grandchild.key === "en" || grandchild.key === "vi")
+    //                     ? t(grandchild.key)   // Use Link if key is "en" or "vi"
+    //                     : <Link to={`${grandchild.label}`}>{t(grandchild.key)}</Link>;  // Otherwise, just use translated text
+    //                 console.log("check", label)
+    //                 return {
+    //                     key,
+    //                     icon,
+    //                     label,
+    //                 }
+    //             })
+    //         })
+    //         )
+    //     }
+    // ))
+
     return (
         <div className="container">
             <div className="logo">
