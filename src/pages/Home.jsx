@@ -28,7 +28,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <SearchBar />
+            {/* <SearchBar /> */}
         </div>
 
     );

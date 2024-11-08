@@ -7,13 +7,13 @@ const NavBarAdmin = () => {
         <div>
             <Menu mode="horizontal">
                 <Menu.Item key="home">
-                    Home
+                    <Link to={"/"}>Home</Link>
                 </Menu.Item>
 
                 <SubMenu key="submenu" title="Settings">
                     <Menu.Item key="profile">
-                        <Link to={"/profile"}>
-                            Profile
+                        <Link to={"/createTour"}>
+                            Create Tour
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="preferences">

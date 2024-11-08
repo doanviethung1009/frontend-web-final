@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import PublicLayout from "./layouts/PublicLayout";
 import Home from "./pages/Home";
 import CentralVietnam from "./pages/vietnamTravel/CentralVietnam";
@@ -15,6 +15,7 @@ import ProtectedRoute2 from './components/ProtectedRouteN';
 import Strategics from './pages/publicPages/partners/Strategics';
 import Stories from './pages/publicPages/abouts/Stories';
 import VietnamDestinations from './pages/publicPages/guides/VietnamDestinations';
+import CreateTour from './pages/adminPages/CreateTour';
 const App2 = () => {
     const router = createBrowserRouter([
         {
@@ -101,6 +102,16 @@ const App2 = () => {
                 {
                     path: '/login',
                     element: <Login />
+                },
+                {
+                    path: '/createTour',
+                    element:
+                        (
+                            // <CreateTour />
+                            <ProtectedRoute>
+                                <CreateTour />
+                            </ProtectedRoute>
+                        )
                 }
             ]
         }
