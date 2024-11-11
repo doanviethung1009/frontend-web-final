@@ -9,28 +9,6 @@ const DataItemsPublic = [
         key: 'about',
         labelKey: 'about',
         icon: <MailOutlined />,
-        children: [
-            {
-                label: "/about/story",
-                key: 'story',
-            },
-            {
-                label: 'Mission & Vision',
-                key: 'mission',
-            },
-            {
-                label: 'Our Team',
-                key: 'team',
-            },
-            {
-                label: 'Sustainability',
-                key: 'sustainability',
-            },
-            {
-                label: 'Impact',
-                key: 'Impact',
-            },
-        ]
     },
     {
         label: 'Product',

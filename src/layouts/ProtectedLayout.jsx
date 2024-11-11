@@ -1,14 +1,21 @@
 import { Outlet } from "react-router-dom";
 import NavBarAdmin from "../components/NavBarAdmin";
 
-const ProtectedLayout = () => {
+const ProtectedLayout = (props) => {
+    const { checkLang, setCheckLang } = props;
     return (
         <div>
             <header>
-                <NavBarAdmin />
+                <NavBarAdmin
+                    checkLang={checkLang}
+                    setCheckLang={setCheckLang}
+                />
             </header>
             <main>
-                <Outlet />
+                <Outlet
+                    checkLang={checkLang}
+                    setCheckLang={setCheckLang}
+                />
             </main>
 
         </div>

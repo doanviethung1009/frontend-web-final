@@ -5,16 +5,18 @@ import "../styles/NavBar.scss"
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 
-const NavBarPublic = () => {
+const NavBarPublic = (props) => {
     const [current, setCurrent] = useState('about');
-    const [checkLang, setCheckLang] = useState('en');
+    // const [checkLang, setCheckLang] = useState('en');
+    const { checkLang, setCheckLang } = props;
     const { t, i18n } = useTranslation();
 
     // Change language and update state
     const handleOnChangeLanguageButton = (lang) => {
         console.log('>>check language', lang);
+        // console.log("check i18n", i18n.language)
         // i18n.changeLanguage(i18n.language === lang ? 'vi' : 'en');
-        i18n.changeLanguage(lang);
+        // i18n.changeLanguage(lang);
         setCheckLang(lang);
     }
 
@@ -28,11 +30,7 @@ const NavBarPublic = () => {
 
 
     useEffect(() => {
-        newFunction();
-
-        function newFunction() {
-            handleOnChangeLanguage(checkLang);
-        }
+        handleOnChangeLanguage(checkLang);
     }, [checkLang, handleOnChangeLanguage])
 
     // Handle menu click events

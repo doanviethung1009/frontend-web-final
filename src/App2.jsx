@@ -8,7 +8,7 @@ import ProtectedLayout from './layouts/ProtectedLayout';
 import Profile from './pages/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Fragment } from 'react';
+import { Fragment, useState } from 'react';
 import TourAdmin from './pages/adminPages/TourAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoute2 from './components/ProtectedRouteN';
@@ -16,11 +16,18 @@ import Strategics from './pages/publicPages/partners/Strategics';
 import Stories from './pages/publicPages/abouts/Stories';
 import VietnamDestinations from './pages/publicPages/guides/VietnamDestinations';
 import CreateTour from './pages/adminPages/CreateTour';
+
+
 const App2 = () => {
+    const [checkLang, setCheckLang] = useState('en')
+
     const router = createBrowserRouter([
         {
             path: '/',
-            element: <PublicLayout />,
+            element: <PublicLayout
+                checkLang={checkLang}
+                setCheckLang={setCheckLang}
+            />,
             children: [
                 {
                     index: true,
@@ -88,7 +95,10 @@ const App2 = () => {
         },
         {
             path: '/',
-            element: <ProtectedLayout />,
+            element: <ProtectedLayout
+                checkLang={checkLang}
+                setCheckLang={setCheckLang}
+            />,
             children: [
                 {
                     index: true,

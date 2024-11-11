@@ -3,28 +3,28 @@ import { Button, Form, Input, Space, Select, DatePicker, Mentions, InputNumber }
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 import Checkbox from 'antd/es/checkbox/Checkbox';
-const SubmitButton = ({ form, children }) => {
-    const [submittable, setSubmittable] = React.useState(false);
 
-    // Watch all values
-    const values = Form.useWatch([], form);
-    React.useEffect(() => {
-        form
-            .validateFields({
-                validateOnly: true,
-            })
-            .then(() => setSubmittable(true))
-            .catch(() => setSubmittable(false));
-    }, [form, values]);
-    return (
-        <Button type="primary" htmlType="submit" disabled={!submittable}>
-            {children}
-        </Button>
-    );
-};
-const onFinish = (data) => {
-    console.log('Received values of form:', data);
-}
+
+
+// const SubmitButton = ({ form, children }) => {
+//     const [submittable, setSubmittable] = React.useState(false);
+
+//     // Watch all values
+//     const values = Form.useWatch([], form);
+//     React.useEffect(() => {
+//         form
+//             .validateFields({
+//                 validateOnly: true,
+//             })
+//             .then(() => setSubmittable(true))
+//             .catch(() => setSubmittable(false));
+//     }, [form, values]);
+//     return (
+//         <Button type="primary" htmlType="submit" disabled={!submittable}>
+//             {children}
+//         </Button>
+//     );
+// };
 
 const formItemLayout = {
     labelCol: {
@@ -49,7 +49,6 @@ const config = {
         {
             // type: 'object',
             required: true,
-            message: 'Please select time!',
         },
     ],
 };
@@ -58,15 +57,40 @@ const rangeConfig = {
         {
             type: 'array',
             required: true,
-            message: 'Please select time!',
         },
     ],
 };
-const CreateTourComponent = () => {
+
+const CreateTourComponent = (props) => {
+    const { checkLang, setCheckLang } = props;
     const { Option } = Select;
     const [component1Disabled, setComponent1Disabled] = useState("false");
     const [component2Disabled, setComponent2Disabled] = useState("false");
     const [form] = Form.useForm();
+    const onFinish = (values) => {
+        console.log('Received values from form: ', values);
+    };
+
+    // create tourPrices 
+    const [disabled, setDisabled] = useState(false);
+    const toggle = () => {
+        setDisabled(!disabled);
+    };
+    const selectAfter = (
+        <Select
+            defaultValue="USD"
+            style={{
+                width: 60,
+            }}
+        >
+            <Option value="USD">$</Option>
+            <Option value="EUR">€</Option>
+            <Option value="GBP">£</Option>
+            <Option value="CNY">¥</Option>
+        </Select>
+    );
+    // create tourPrices 
+
     return (
         <Form
             {...formItemLayout}
@@ -74,7 +98,8 @@ const CreateTourComponent = () => {
             name="validateOnly"
             layout="vertical"
             autoComplete="off"
-            onFinish={onFinish}>
+            onFinish={onFinish}
+        >
             <Form.Item
                 label="Ngôn ngữ bài viết"
                 name="language"
@@ -214,7 +239,6 @@ const CreateTourComponent = () => {
 
             <Form.Item
                 label="Khởi hành"
-
             >
                 <Checkbox checked={component1Disabled}
                     onChange={(e) => {
@@ -306,15 +330,22 @@ const CreateTourComponent = () => {
             <Form.Item
                 label=" Giá tour"
                 name="tourPrice"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please choose!',
-                    },
-                ]}
+
             >
-                <InputNumber value="price" />
+
+                <InputNumber
+                    addonAfter={selectAfter}
+                    defaultValue={100}
+                    // suffix="VND"
+                    disabled={disabled}
+                    value="price" />
+
+                <Button onClick={toggle} type="primary">
+                    Toggle disabled
+                </Button>
             </Form.Item>
+
+
             <Form.Item
                 label="Tổng quan"
                 name="tourDescription"
@@ -396,7 +427,10 @@ const CreateTourComponent = () => {
 
             <Form.Item>
                 <Space>
-                    <SubmitButton form={form}>Submit</SubmitButton>
+                    <Button type="primary" htmlType="submit">
+                        Submit
+                    </Button>
+                    {/* <SubmitButton form={form}>Submit</SubmitButton> */}
                     <Button htmlType="reset">Reset</Button>
                 </Space>
             </Form.Item>
@@ -404,3 +438,5 @@ const CreateTourComponent = () => {
     );
 };
 export default CreateTourComponent;
+
+
