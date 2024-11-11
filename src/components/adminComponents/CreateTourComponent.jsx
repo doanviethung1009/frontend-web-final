@@ -1,33 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Button, Form, Input, Space, Select, DatePicker, Mentions, InputNumber } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
-
+import { createTourAPI } from '../../services/apiService';
 import Checkbox from 'antd/es/checkbox/Checkbox';
 
 
 
-// const SubmitButton = ({ form, children }) => {
-//     const [submittable, setSubmittable] = React.useState(false);
-
-//     // Watch all values
-//     const values = Form.useWatch([], form);
-//     React.useEffect(() => {
-//         form
-//             .validateFields({
-//                 validateOnly: true,
-//             })
-//             .then(() => setSubmittable(true))
-//             .catch(() => setSubmittable(false));
-//     }, [form, values]);
-//     return (
-//         <Button type="primary" htmlType="submit" disabled={!submittable}>
-//             {children}
-//         </Button>
-//     );
-// };
-
 const formItemLayout = {
     labelCol: {
+        lg: {
+            span: 120,
+        },
         xs: {
             span: 24,
         },
@@ -36,6 +19,9 @@ const formItemLayout = {
         },
     },
     wrapperCol: {
+        lg: {
+            span: 32,
+        },
         xs: {
             span: 24,
         },
@@ -44,6 +30,12 @@ const formItemLayout = {
         },
     },
 };
+
+const custLayout = {
+    style: {
+        width: '550px'
+    }
+}
 const config = {
     rules: [
         {
@@ -64,32 +56,18 @@ const rangeConfig = {
 const CreateTourComponent = (props) => {
     const { checkLang, setCheckLang } = props;
     const { Option } = Select;
+
+    const [form] = Form.useForm();
+
+    const onFinish = async (values) => {
+        console.log('Received values from form: ', values);
+        // call api to create a new Tour
+        let res = await createTourAPI(values)
+        console.log(res);
+    };
     const [component1Disabled, setComponent1Disabled] = useState("false");
     const [component2Disabled, setComponent2Disabled] = useState("false");
-    const [form] = Form.useForm();
-    const onFinish = (values) => {
-        console.log('Received values from form: ', values);
-    };
 
-    // create tourPrices 
-    const [disabled, setDisabled] = useState(false);
-    const toggle = () => {
-        setDisabled(!disabled);
-    };
-    const selectAfter = (
-        <Select
-            defaultValue="USD"
-            style={{
-                width: 60,
-            }}
-        >
-            <Option value="USD">$</Option>
-            <Option value="EUR">€</Option>
-            <Option value="GBP">£</Option>
-            <Option value="CNY">¥</Option>
-        </Select>
-    );
-    // create tourPrices 
 
     return (
         <Form
@@ -100,22 +78,14 @@ const CreateTourComponent = (props) => {
             autoComplete="off"
             onFinish={onFinish}
         >
-            <Form.Item
-                label="Ngôn ngữ bài viết"
-                name="language"
-                {...config}
-            >
-                <Select mode="single" placeholder="">
-                    <Option value="en">EN</Option>
-                    <Option value="vi">VI</Option>
-                </Select>
-            </Form.Item>
+
             <Form.Item
                 label="Category"
-                name="category"
+                name="tourCategory"
                 {...config}
+                {...custLayout}
             >
-                <Select mode="single" placeholder="">
+                <Select mode="single" placeholder="" {...custLayout}>
                     <Option value="inbound">Inbound</Option>
                     <Option value="outbound">Outbound</Option>
                 </Select>
@@ -125,24 +95,27 @@ const CreateTourComponent = (props) => {
                 label="Tên tour"
                 name="tourName"
                 {...config}
+                {...custLayout}
             >
-                <Input />
+                <Input {...custLayout} />
             </Form.Item>
 
             {/* input words use for seo  */}
             <Form.Item
                 label="Từ khóa SEO"
                 name="seoTag"
+                {...custLayout}
             >
-                <Mentions />
+                <Mentions {...custLayout} />
             </Form.Item>
 
             <Form.Item
                 label="Châu lục"
-                name="continence"
+                name="tourContinence"
                 {...config}
+                {...custLayout}
             >
-                <Select mode="single" placeholder="">
+                <Select mode="single" placeholder=""  {...custLayout}>
                     <Option value="asia">Chau A</Option>
                     <Option value="eu">Chau Au</Option>
                 </Select>
@@ -150,10 +123,11 @@ const CreateTourComponent = (props) => {
 
             <Form.Item
                 label="Quốc gia"
-                name="country"
+                name="tourCountry"
                 {...config}
+                {...custLayout}
             >
-                <Select mode="single" placeholder="">
+                <Select mode="single" placeholder=""  {...custLayout}>
                     <Option value="vietnam">Viet nam</Option>
                     <Option value="laos">Lao</Option>
                 </Select>
@@ -163,47 +137,63 @@ const CreateTourComponent = (props) => {
                 label="Tour Code"
                 name="tourCode"
                 {...config}
+                {...custLayout}
             >
-                <Input />
+                <Input  {...custLayout} />
             </Form.Item>
-            <Form.Item
-                label="Thời gian:"
-                name="tourDaySub1"
-                {...config}
-                style={{
-                    display: 'inline-block',
-                    // width: 'calc(50% - 30px)',
-                    width: "450px"
-                }}
-            >
-                <Input style={{ width: "200px" }} placeholder="Input birth year" />
-            </Form.Item>
-            <Form.Item
-                name="tourDaySub2"
-                {...config}
-                style={{
-                    display: 'inline-block',
-                    width: "200px",
-                    // margin: '0 8px',
-                }}
-            >
-                <Input placeholder="Input birth month" />
+            <Form.Item>
+                <Space
+                    style={{
+                        display: 'flex',
+                        marginBottom: 8,
+                        justifyItems: "center"
+                    }}
+                    align="baseline"
+                >
+                    <span style={{ display: "flex" }}>
+                        thoi gian:
+                    </span>
+                    <Form.Item
+                        name="tourDaySub1"
+                        {...config}
+                        style={{
+                            display: "flex",
+                            // width: 'calc(50% - 30px)',
+                        }}
+                    >
+                        <Input style={{ width: "80px" }} placeholder="Input" />
+                    </Form.Item>
+                    <span>
+                        Ngay
+                    </span>
+                    <Form.Item
+                        name="tourDaySub2"
+                        {...config}
+                        style={{
+                            display: "flex",
+                            // margin: '0 8px',
+                        }}
+                    >
+                        <Input style={{ width: "80px" }} placeholder="Input" />
+                    </Form.Item>
+                    <span>
+                        Dem
+                    </span>
+                </Space>
             </Form.Item>
 
+
             <Form.Item
-                name="tourTrasport"
+                name="tourTransport"
                 label="Phương tiện di chuyển"
-            // rules={[
-            //     {
-            //         required: true,
-            //         message: 'Please select   !',
-            //         type: 'array',
-            //     },
-            // ]}
+                {...rangeConfig}
+                {...custLayout}
             >
                 <Select
+                    mode='multiple'
                     showSearch
                     placeholder="Select a person"
+                    {...custLayout}
                     filterOption={(input, option) =>
                         (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
                     }
@@ -231,12 +221,11 @@ const CreateTourComponent = (props) => {
                 name="tourAccommodation"
                 label="Lưu trú"
                 {...rangeConfig} >
-                <Select mode="multiple" placeholder="Please select  ">
+                <Select       {...custLayout} mode="multiple" placeholder="Please select  ">
                     <Option value="resort">Resort</Option>
                     <Option value="hotel">Hotel</Option>
                 </Select>
             </Form.Item>
-
             <Form.Item
                 label="Khởi hành"
             >
@@ -250,9 +239,11 @@ const CreateTourComponent = (props) => {
             </Form.Item>
             <Form.Item
                 label="Choose dates"
+                {...custLayout}
                 name="tourScheduledChooseDate"
             >
-                <DatePicker disabled={!component1Disabled} style={{ width: "200px" }} />
+                <DatePicker disabled={!component1Disabled} {...custLayout} />
+
             </Form.Item>
 
             <Form.Item>
@@ -265,9 +256,11 @@ const CreateTourComponent = (props) => {
                 />
             </Form.Item>
             <Form.Item
+                label="Choose day"
+                {...custLayout}
                 name="tourScheduledSelectedDate"
             >
-                <Select mode="single" disabled={!component2Disabled} placeholder="Please select" style={{ width: "200px" }}>
+                <Select mode="single" disabled={!component2Disabled} placeholder="Please select"    {...custLayout}>
                     <Option value="monday">Thu 2</Option>
                     <Option value="Tuesday">Thu 3</Option>
                     <Option value="Wednesday">Thu 4</Option>
@@ -282,101 +275,120 @@ const CreateTourComponent = (props) => {
             <Form.Item
                 label="Khởi hành từ"
                 name="departFrom"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please choose!',
-                    },
-                ]}
+                {...config}
+                {...custLayout}
             >
-                <Select mode="single" placeholder="">
-                    <Option value="vietnam">hcm</Option>
-                    <Option value="laos">hn</Option>
+                <Select mode="single" placeholder=""  {...custLayout}>
+                    <Option value="hcm">hcm</Option>
+                    <Option value="hn">hn</Option>
                 </Select>
             </Form.Item>
 
             <Form.Item
                 label="Hình thức tour"
                 name="tourType"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please choose!',
-                    },
-                ]}
+                {...config}
+                {...custLayout}
             >
-                <Select mode="single" placeholder="">
-                    <Option value="personal">Ca nhan</Option>
-                    <Option value="team">Nhom</Option>
+                <Select mode="single" placeholder=""  {...custLayout}>
+                    <Option value="personal">Cá nhân</Option>
+                    <Option value="team">Nhóm</Option>
                 </Select>
             </Form.Item>
 
             <Form.Item
                 label="Ngôn ngữ hỗ trợ"
                 name="langSupport"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please choose!',
-                    },
-                ]}
+                {...config}
+                {...custLayout}
             >
-                <Select mode="single" placeholder="">
+                <Select mode="multiple" placeholder=""  {...custLayout}>
                     <Option value="EN">EN</Option>
                     <Option value="Vi">VI</Option>
                 </Select>
             </Form.Item>
 
+
+            {/* tourPrices */}
             <Form.Item
                 label=" Giá tour"
-                name="tourPrice"
-
+                name="tourPriceVND"
+                {...custLayout}
             >
 
                 <InputNumber
-                    addonAfter={selectAfter}
-                    defaultValue={100}
-                    // suffix="VND"
-                    disabled={disabled}
-                    value="price" />
-
-                <Button onClick={toggle} type="primary">
-                    Toggle disabled
-                </Button>
+                    {...custLayout}
+                    // addonAfter={selectAfter}
+                    // defaultValue={0}
+                    placeholder='Input price for vnd here:'
+                    suffix="VND"
+                    value="priceVI" />
             </Form.Item>
+            <Form.Item
+                label=" Giá tour USD"
+                name="tourPriceEN"
+                {...custLayout}
+            >
+                <InputNumber
+                    {...custLayout}
+                    // addonAfter={selectAfter}
+                    // defaultValue={0}
+                    placeholder='Input price for vnd here:'
+                    suffix="USD"
+                    value="priceEN" />
+            </Form.Item>
+            {/* tourPrices */}
 
-
+            {/* tourDescription */}
             <Form.Item
                 label="Tổng quan"
-                name="tourDescription"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input!',
-                    },
-                ]}
+                name="tourDescriptionVI"
+                {...config}
+                {...custLayout}
             >
-                <Input.TextArea />
+                <Input.TextArea style={{ width: "100%", maxWidth: "500px" }} rows={4} />
             </Form.Item>
+            <Form.Item
+                label="Tổng quan EN"
+                name="tourDescriptionEN"
+                placeholder="nhập nội dung tiếng anh"
+                {...config}
+                {...custLayout}
+            >
+                <Input.TextArea style={{ width: "100%", maxWidth: "500px" }} rows={4} />
+            </Form.Item>
+            {/* tourDescription */}
+
+            {/* tourHighlight */}
             <Form.Item
                 label="Điểm nổi bật"
-                name="tourHighlight"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input!',
-                    },
-                ]}
+                name="tourHighlightVI"
+                {...config}
+                {...custLayout}
             >
-                <Input.TextArea />
+                <Input.TextArea style={{ width: "100%", maxWidth: "500px" }} rows={4} />
             </Form.Item>
 
+            <Form.Item
+                label="Điểm nổi bật EN"
+                name="tourHighlightEN"
+                {...config}
+                {...custLayout}
+            >
+                <Input.TextArea style={{ width: "100%", maxWidth: "500px" }} rows={4} />
+            </Form.Item>
+            {/* tourHighlight */}
 
+
+            {/* tourDetail */}
             <Form.Item
                 label="Lịch trình chi tiết"
-                name="tourDetail"
+                {...custLayout}
             >
-                <Form.List name="users">
+                <Form.List
+                    name="tourDetailVI"
+                    {...custLayout}
+                >
                     {(fields, { add, remove }) => (
                         <>
                             {fields.map(({ key, name, ...restField }) => (
@@ -384,33 +396,24 @@ const CreateTourComponent = (props) => {
                                     key={key}
                                     style={{
                                         display: 'flex',
+                                        justifyItems: "center",
                                         marginBottom: 8,
                                     }}
                                     align="baseline"
                                 >
                                     <Form.Item
                                         {...restField}
-                                        name={[name, 'first']}
-                                        rules={[
-                                            {
-                                                required: true,
-                                                message: 'Missing first name',
-                                            },
-                                        ]}
+                                        name={[name, 'title']}
+                                        {...config}
                                     >
-                                        <Input placeholder="First Name" />
+                                        <Input placeholder="Title Description" />
                                     </Form.Item>
                                     <Form.Item
                                         {...restField}
-                                        name={[name, 'last']}
-                                        rules={[
-                                            {
-                                                required: true,
-                                                message: 'Missing last name',
-                                            },
-                                        ]}
+                                        name={[name, 'description']}
+                                        {...config}
                                     >
-                                        <Input placeholder="Last Name" />
+                                        <Input.TextArea style={{ width: "100%", maxWidth: "500px" }} rows={4} placeholder="Content Description" />
                                     </Form.Item>
                                     <MinusCircleOutlined onClick={() => remove(name)} />
                                 </Space>
@@ -424,6 +427,53 @@ const CreateTourComponent = (props) => {
                     )}
                 </Form.List>
             </Form.Item>
+            <Form.Item
+                label="Lịch trình chi tiết EN"
+                {...custLayout}
+            >
+                <Form.List
+                    name="tourDetailEN"
+                    {...custLayout}
+                >
+                    {(fields, { add, remove }) => (
+                        <>
+                            {fields.map(({ key, name, ...restField }) => (
+                                <Space
+                                    key={key}
+                                    style={{
+                                        display: 'flex',
+                                        justifyItems: "center",
+                                        marginBottom: 8,
+                                    }}
+                                    align="baseline"
+                                >
+                                    <Form.Item
+                                        {...restField}
+                                        name={[name, 'title']}
+                                        {...config}
+                                    >
+                                        <Input placeholder="Title Description" />
+                                    </Form.Item>
+                                    <Form.Item
+                                        {...restField}
+                                        name={[name, 'description']}
+                                        {...config}
+                                    >
+                                        <Input.TextArea style={{ width: "100%", maxWidth: "500px" }} rows={4} placeholder="Content Description" />
+                                    </Form.Item>
+                                    <MinusCircleOutlined onClick={() => remove(name)} />
+                                </Space>
+                            ))}
+                            <Form.Item>
+                                <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
+                                    Add field
+                                </Button>
+                            </Form.Item>
+                        </>
+                    )}
+                </Form.List>
+            </Form.Item>
+            {/* tourDetail */}
 
             <Form.Item>
                 <Space>

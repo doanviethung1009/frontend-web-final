@@ -1,0 +1,23 @@
+.createTour-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .createTour-title {
+        width: 100%;
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        display: inline-block;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .createTour-content {
+        display: flex;
+        justify-items: center;
+        justify-content: center;
+    }
+
+}

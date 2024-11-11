@@ -29,19 +29,29 @@ const TourAdmin = () => {
             <table>
                 <thead>
                     <tr>
-                        <th>Mã Tour</th>
-                        <th>Tour Name</th>
+                        <th>Category</th>
+                        <th>Tên tour</th>
+                        <th>Từ khoá SEO</th>
+                        <th>Châu lục</th>
+                        <th>Quốc gia</th>
+                        <th>Tour ID</th>
+                        <th>Thời gian(ngay)</th>
+                        <th>Thời gian(dem)</th>
                         <th>Phương tiện</th>
                         <th>Lưu trú</th>
-                        <th>Nơi khởi hành</th>
-                        <th>Nơi đến</th>
-                        <th>Thời gian</th>
-                        <th>Số ngày</th>
-                        <th>Loại tour</th>
-                        <th>Giá</th>
-                        <th>Tổng quan</th>
-                        <th>Điểm nổi bật</th>
-                        <th>Lịch trình chi tiết</th>
+                        <th>Khởi hành 1</th>
+                        <th>Khởi hành 2</th>
+                        <th>Khởi hành từ</th>
+                        <th>Hình thức tour</th>
+                        <th>Giá VND</th>
+                        <th>Giá USD</th>
+                        <th>Ngôn ngữ hỗ trợ</th>
+                        <th>Tổng quan VI</th>
+                        <th>Tổng quan EN</th>
+                        <th>Điểm nổi bật VI</th>
+                        <th>Điểm nổi bật EN</th>
+                        <th>Lịch trình chi tiết VI</th>
+                        <th>Lịch trình chi tiết EN</th>
                         <th>action</th>
                     </tr>
                 </thead>
@@ -49,22 +59,49 @@ const TourAdmin = () => {
                     {getListTour.map((tour) => {
                         return (
                             <tr key={tour._id}>
-                                <td >{tour.tourCode}</td>
+                                <td >{tour.tourCategory}</td>
                                 <td >{tour.tourName}</td>
-                                {/* <td >
-                                {tour.tourTransport.map((transport) => {
-                                    return <span key={transport._id}>{transport.vehicle} <br /></span>
-                                })}
-                            </td> */}
+                                <td >{tour.seoTag}</td>
+                                <td>{tour.tourContinence}</td>
+                                <td>{tour.tourCountry}</td>
+                                <td>{tour.tourCode} </td>
+                                <td> {tour.tourDaySub1}</td>
+                                <td>{tour.tourDaySub2}</td>
+                                <td>{tour.tourTransport}</td>
                                 <td>{tour.tourAccommodation}</td>
+                                <td>{tour.tourScheduledChooseDate}</td>
+                                <td>{tour.tourScheduledSelectedDate}</td>
                                 <td>{tour.departFrom}</td>
-                                <td>{tour.departTo}</td>
-                                <td>{tour.tourSchedule}</td>
-                                <td>{tour.tourDuration}</td>
-                                <td>{tour.departTo}</td>
-                                <td>{tour.tourAccommodation}</td>
-                                <td>{tour.departFrom}</td>
-                                <td>{tour.departTo}</td>
+                                <td>{tour.tourType}</td>
+                                <td>{tour.langSupport}</td>
+                                <td>{tour.tourPriceVND}</td>
+                                <td>{tour.tourPriceEN}</td>
+                                <td>{tour.tourDescriptionVI}</td>
+                                <td>{tour.tourDescriptionEN}</td>
+                                <td>{tour.tourHighlightVI}</td>
+                                <td>{tour.tourHighlightVI}</td>
+                                <td>{tour.tourDetailVI.map((item) => {
+
+                                    return (
+                                        <div key={item._id}>
+                                            <h3> {item.title}:</h3>
+                                            <p> {item.description}</p>
+                                        </div>
+
+                                    )
+
+                                })}</td>
+                                <td>{tour.tourDetailEN.map((item) => {
+
+                                    return (
+                                        <div key={item._id}>
+                                            <h3> {item.title}:</h3>
+                                            <p> {item.description}</p>
+                                        </div>
+
+                                    )
+
+                                })}</td>
                             </tr>
                         )
                     })}

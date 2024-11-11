@@ -23,5 +23,16 @@ const getTourAPI = async () => {
 
 }
 
+const createTourAPI = async (data) => {
+    try {
+        console.log("createTourAPI", data)
+        const response = await api.post('/v1/api/tour', data);
+        console.log("check createTourAPI", response)
+        return response;
+    } catch (e) {
+        throw e.response?.data || e.message
+    }
+}
 
-export { loginUser, getTourAPI }
+
+export { loginUser, getTourAPI, createTourAPI }
