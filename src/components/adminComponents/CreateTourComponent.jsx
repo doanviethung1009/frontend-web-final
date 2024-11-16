@@ -1,9 +1,10 @@
 import { useState } from 'react';
-import { Button, Form, Input, Space, Select, DatePicker, Mentions, InputNumber } from 'antd';
-import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
+import { Button, Form, Input, Space, Select, DatePicker, Mentions, InputNumber, Upload } from 'antd';
+import { MinusCircleOutlined, PlusOutlined, UploadOutlined } from '@ant-design/icons';
 import { createTourAPI } from '../../services/apiService';
+import { useNavigate } from 'react-router-dom';
 import Checkbox from 'antd/es/checkbox/Checkbox';
-
+import { toast } from 'react-toastify';
 
 
 const formItemLayout = {
@@ -58,16 +59,24 @@ const CreateTourComponent = (props) => {
     const { Option } = Select;
 
     const [form] = Form.useForm();
+    const navigate = useNavigate();
 
     const onFinish = async (values) => {
+
         console.log('Received values from form: ', values);
         // call api to create a new Tour
         let res = await createTourAPI(values)
-        console.log(res);
+
+        if (res.message && res.message.errCode === 0) {
+            console.log("check log", res.message.errMess);
+            toast.success('sucessfully created');
+            navigate('/tourAdmin');  // Use navigate to redirect to /tourAdmin
+        }
+        // return <Navigate to="/tourAdmin" replace />;
+
     };
     const [component1Disabled, setComponent1Disabled] = useState("false");
     const [component2Disabled, setComponent2Disabled] = useState("false");
-
 
     return (
         <Form
@@ -474,6 +483,8 @@ const CreateTourComponent = (props) => {
                 </Form.List>
             </Form.Item>
             {/* tourDetail */}
+
+
 
             <Form.Item>
                 <Space>

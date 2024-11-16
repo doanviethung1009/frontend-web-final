@@ -34,5 +34,22 @@ const createTourAPI = async (data) => {
     }
 }
 
+const uploadImageAPI = async (file, folder) => {
 
-export { loginUser, getTourAPI, createTourAPI }
+    console.log("check uploadImageAPI", file, folder)
+    const URL_BACKEND = '/v1/api/files';
+    let config = {
+        headers: {
+            "upload_type": folder,
+            "Content-Type": "multipart/form-data",
+        }
+    }
+    console.log("check ", config)
+    const bodyFormData = new FormData();
+    bodyFormData.append("image", file)
+    return await api.post(URL_BACKEND, bodyFormData, config)
+}
+
+
+
+export { loginUser, getTourAPI, createTourAPI, uploadImageAPI }

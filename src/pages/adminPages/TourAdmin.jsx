@@ -102,6 +102,15 @@ const TourAdmin = () => {
                                     )
 
                                 })}</td>
+                                <td>
+                                    <button onClick={() => {
+                                        console.log("delete tour")
+                                    }}>Delete</button>
+                                    <button onClick={() => {
+                                        console.log("edit tour")
+                                    }}>Edit</button>
+                                </td>
+
                             </tr>
                         )
                     })}

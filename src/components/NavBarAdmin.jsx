@@ -21,6 +21,16 @@ const NavBarAdmin = () => {
                             Tour Admin
                         </Link>
                     </Menu.Item>
+                    <Menu.Item key="test">
+                        <Link to={"/testApi"}>
+                            Test API
+                        </Link>
+                    </Menu.Item>
+                    <Menu.Item key="bar">
+                        <Link to={"/processBar"}>
+                            Test Process
+                        </Link>
+                    </Menu.Item>
 
                     <SubMenu key="more-settings" title="More Settings">
                         <Menu.Item key="privacy">Privacy</Menu.Item>
