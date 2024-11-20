@@ -5,12 +5,15 @@ import TestApi from '../../pages/adminPages/TestApi';
 import { useNavigate } from 'react-router-dom';
 import FileUploader from './FileUploader';
 import InboundPolicies from '../publicComponents/InboundPolicies';
+import PreviewCreateTourProcess from './PreviewCreateTourProcess';
 
 
 const ProcessBar = () => {
     const { token } = theme.useToken();
     const [current, setCurrent] = useState(0);
     const navigation = useNavigate()
+    const [listData, setListData] = useState("");
+
     const next = () => {
         setCurrent(current + 1);
     };
@@ -25,16 +28,26 @@ const ProcessBar = () => {
             // content: 'First-content',
             content: <CreateTourComponent
                 next={next}
+                listData={listData}
+                setListData={setListData}
+
             />,
         },
         {
             title: 'Second',
             // content: 'Second-content',
-            content: <FileUploader />,
+            content: <FileUploader
+                listData={listData}
+                setListData={setListData}
+                next={next}
+
+            />,
         },
         {
             title: 'Last',
-            content: <InboundPolicies />,
+            content: <PreviewCreateTourProcess
+                listData={listData}
+            />,
         },
     ];
 
@@ -42,7 +55,7 @@ const ProcessBar = () => {
 
     const contentStyle = {
         lineHeight: '260px',
-        textAlign: 'center',
+        // textAlign: 'center',
         color: token.colorTextTertiary,
         backgroundColor: token.colorFillAlter,
         borderRadius: token.borderRadiusLG,
@@ -50,6 +63,8 @@ const ProcessBar = () => {
         marginTop: 16,
         paddingLeft: 150,
     };
+
+    console.log(">>> check data", listData)
 
     return (
         <div>
