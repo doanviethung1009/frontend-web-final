@@ -3,7 +3,7 @@ import PublicLayout from "./layouts/PublicLayout";
 import Home from "./pages/Home";
 import CentralVietnam from "./pages/vietnamTravel/CentralVietnam";
 import Login from "./pages/Login";
-import NorthernVietnam from './pages/vietnamTravel/northernVietnam';
+import NorthernVietnam from './pages/vietnamTravel/NorthernVietnam';
 import ProtectedLayout from './layouts/ProtectedLayout';
 import Profile from './pages/Profile';
 import { ToastContainer } from 'react-toastify';
