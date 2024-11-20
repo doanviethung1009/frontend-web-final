@@ -48,7 +48,11 @@ const Home = (props) => {
                     </div>
                 </div>
             </div>
-            {/* <SearchBar /> */}
+
+            {/* SEARCH_BAR */}
+            <div>
+                <SearchBar />
+            </div>
         </div>
 
     );
