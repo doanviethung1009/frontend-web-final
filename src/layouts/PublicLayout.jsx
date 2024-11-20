@@ -5,7 +5,6 @@ const PublicLayout = (props) => {
     const { checkLang, setCheckLang } = props;
     return (
         <div>
-            {console.log("checklangguae:", checkLang)}
             <header>
                 <NavBarPublic
                     checkLang={checkLang}
@@ -18,7 +17,6 @@ const PublicLayout = (props) => {
                     setCheckLang={setCheckLang}
                 />
             </main>
-
         </div>
     );
 };
