@@ -17,9 +17,21 @@ Currently, two official plugins are available:
 
 - update github
 echo "# Frontend_travel_up" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin <https://github.com/doanviethung1009/Frontend_travel_up.git>
-git push -u origin main
+Install Required Dependencies: => npm install antd axios react-toastify react-router-dom i18next react-i18next
+npm install -D sass-embedded
+Fix warning Deprecation [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0. => css: {
+    preprocessorOptions: {
+      scss: {
+        api: 'modern',
+      },
+    },
+  }, 
+and update config run ipv4 and localhost for react vite.config.js
+server: {
+    host: '0.0.0.0',
+    port: 3050, // Specify the port, default is 5173 if you want to change it
+  }
+
+
+update lib for i18n:
+npm install i18next react-i18next i18next-browser-languagedetector

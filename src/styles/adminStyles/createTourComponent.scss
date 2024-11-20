@@ -1,0 +1,124 @@
+.vecotra-CreateTour-Container {
+    padding-left: 150px;
+}
+
+.vecotra-First {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 10px;
+    // background-color: black;
+}
+
+.vecotra-Second {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    padding-right: 10px;
+}
+
+.vecotra-Third {
+    display: flex;
+    flex-wrap: wrap;
+    padding-right: 10px;
+}
+
+.vecotra-Four {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    padding-right: 10px;
+}
+
+.vecotra-Four.Schedule {
+    width: 450px;
+}
+
+.vecotra-Four.durations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.vecotra-Five {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    padding-right: 10px;
+}
+
+.vecotra-Five.tourTransport {
+    width: auto;
+}
+
+.vecotra-Five.tourAccommodation {
+    width: auto;
+}
+
+.vecotra-Six {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    padding-right: 10px;
+}
+
+.vecotra-Seven {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    padding-right: 10px;
+}
+
+.vecotra-Eight {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    padding-right: 10px;
+}
+
+.vecotra-Night {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    padding-right: 10px;
+}
+
+.vecotra-Ten {
+    display: flex;
+    flex-wrap: wrap;
+    // justify-content: center;
+    padding-right: 10px;
+    width: 1200px;
+
+}
+
+.tourDetailVI {
+    width: 530px;
+}
+
+.tourDetailEN {
+    width: 530px;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .vecotra-CreateTour-Container {
+        padding-left: 350px;
+    }
+
+}
+
+@media only screen and (min-width: 1366px) {
+    .vecotra-CreateTour-Container {
+        padding-left: 50px;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) {
+    .vecotra-CreateTour-Container {
+        padding-left: 350px;
+    }
+
+}

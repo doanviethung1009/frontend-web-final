@@ -1,0 +1,232 @@
+.container {
+    display: flex;
+    width: 100%;
+    // border-bottom: 1px solid #333;
+    height: auto;
+    background: transparent !important;
+    // overflow: hidden;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+
+    // background-color: #333;/
+
+    .logo {
+        display: flex !important;
+
+        width: 10%;
+        height: 50px;
+        font-size: 30px;
+        // color: rgb(249, 164, 164);
+        color: transparent;
+        font-family: arial;
+        text-align: center;
+        font-weight: bold;
+        background-size: cover;
+        float: left;
+        background: linear-gradient(to right, #008000, #00FF00);
+        /* Initial gradient color */
+        background-size: 200% 200%;
+        /* To allow the gradient animation effect */
+        // -webkit-background-clip: text;
+        background-clip: text;
+        text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+        animation: effect 3s infinite alternate;
+        padding: 10px 20px;
+
+        :hover {
+            text-shadow: rgb(158, 177, 82) 0px 0px 10px;
+        }
+
+    }
+
+    @keyframes effect {
+        0% {
+            background-position: 0% 0%;
+        }
+
+        100% {
+            background-position: 100% 100%;
+            background: linear-gradient(#3CE7D7);
+            /* End gradient color */
+        }
+    }
+
+
+    .MenuAdmin {
+        display: flex !important;
+        justify-content: center !important;
+        /* Centers items horizontally */
+        align-items: center !important;
+        /* Centers items vertically if there’s a defined height */
+        width: 70%;
+        margin: 0 0;
+        background-color: transparent !important;
+
+        ul {
+            display: flex !important;
+            justify-content: center !important;
+            /* Centers items horizontally */
+            align-items: center !important;
+            width: 100%;
+            font-weight: 100;
+            background-color: transparent !important;
+
+
+            //edit css for menu
+            li {
+
+
+                :hover {
+                    color: #bbc657 !important;
+                    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+                    font-weight: 2000;
+                }
+
+                span {
+                    color: transparent !important;
+                    font-weight: 1000;
+                    font-size: 20px;
+                    background: linear-gradient(to right, #008000, #00FF00);
+                    /* Initial gradient color */
+                    background-size: 200% 200%;
+                    /* To allow the gradient animation effect */
+                    // -webkit-background-clip: text;
+                    background-clip: text;
+                    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+                    animation: effect 3s infinite alternate;
+                    padding: 10px 20px;
+
+
+
+
+                }
+            }
+        }
+
+    }
+
+    //css for item
+
+    svg {
+        font-size: 22px;
+        size: 55px;
+        color: #c3ddcf !important;
+        font-weight: 2500px !important;
+        // border: 1px solid #c3ddcf;
+        transition: fill 0.3s ease-in-out;
+
+        // background-image: url("../assets/images/handIcon.jpg");
+        :hover {
+            background-color: #008000;
+            border: 1px solid #c3ddcf;
+        }
+    }
+
+    .containerLang {
+        display: flex;
+        justify-content: flex-end;
+        // width: 100%;
+        margin: 0 0;
+        padding-top: 20px;
+
+        .btnLang {
+            color: white;
+            background-color: transparent !important;
+            border-radius: 10%;
+        }
+    }
+}
+
+//iphone 14promax
+@media only screen and (max-width: 450px) {
+    .container {
+        // align-items: center;
+        // justify-content: center;
+        width: 430px;
+        // border-bottom: 1px solid #333;
+        height: 50px;
+
+        // background-color: #333;/
+        .logo {
+            width: 110px;
+            height: 50px;
+            font-size: 30px;
+            border-radius: 50%;
+            margin-right: 20px;
+            // display: block;
+            float: left;
+
+        }
+
+        .MenuAdmin {
+            justify-items: normal;
+            display: flex;
+            justify-content: flex-end;
+            top: 2%;
+            width: 60px;
+            // float: right;
+            padding-right: 20px;
+            padding-left: 160px;
+        }
+
+        .containerLang {
+
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
+        }
+    }
+
+}
+
+//iphone 12pro
+@media only screen and (max-width: 390px) {
+    .container {
+        align-items: center;
+        justify-content: center;
+        width: 390px;
+        // border-bottom: 1px solid #333;
+        height: 50px;
+
+        // background-color: #333;/
+        .logo {
+            width: 150px;
+            height: 50px;
+            font-size: 30px;
+            border-radius: 50%;
+            margin-right: 20px;
+            // display: block;
+            float: left;
+
+        }
+
+        .MenuAdmin {
+            justify-items: normal;
+            display: flex;
+            justify-content: flex-end;
+            top: 2%;
+            width: 50px;
+            float: right;
+            // padding-right: 20px;
+            padding-left: 120px;
+
+        }
+
+        .containerLang {
+
+            visibility: hidden;
+            clear: both;
+            float: left;
+            margin: 10px auto 5px 20px;
+            width: 28%;
+            display: none;
+        }
+    }
+
+}
