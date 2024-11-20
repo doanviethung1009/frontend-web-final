@@ -8,12 +8,12 @@ const DataItemsPublic = [
         label: 'About us',
         key: 'about',
         labelKey: 'about',
-        icon: <MailOutlined />,
+        // icon: <MailOutlined />,
     },
     {
         label: 'Product',
         key: 'product',
-        icon: <SettingOutlined />,
+        // icon: <SettingOutlined />,
         children: [
             {
                 type: 'group',
@@ -74,7 +74,7 @@ const DataItemsPublic = [
     {
         label: 'Partner',
         key: 'partner',
-        icon: <AppstoreOutlined />,
+        // icon: <AppstoreOutlined />,
         children: [
             {
                 label: "Strategic Partnerships",
