@@ -3,23 +3,10 @@ import { Button, message, Steps, theme } from 'antd';
 import CreateTourComponent from './CreateTourComponent';
 import TestApi from '../../pages/adminPages/TestApi';
 import { useNavigate } from 'react-router-dom';
+import FileUploader from './FileUploader';
+import InboundPolicies from '../publicComponents/InboundPolicies';
 
-const steps = [
-    {
-        title: 'First',
-        // content: 'First-content',
-        content: <CreateTourComponent />,
-    },
-    {
-        title: 'Second',
-        // content: 'Second-content',
-        content: <TestApi />,
-    },
-    {
-        title: 'Last',
-        content: 'Last-content',
-    },
-];
+
 const ProcessBar = () => {
     const { token } = theme.useToken();
     const [current, setCurrent] = useState(0);
@@ -32,6 +19,25 @@ const ProcessBar = () => {
         setCurrent(current - 1);
     };
 
+    const steps = [
+        {
+            title: 'First',
+            // content: 'First-content',
+            content: <CreateTourComponent
+                next={next}
+            />,
+        },
+        {
+            title: 'Second',
+            // content: 'Second-content',
+            content: <FileUploader />,
+        },
+        {
+            title: 'Last',
+            content: <InboundPolicies />,
+        },
+    ];
+
     const items = steps.map((item) => ({ key: item.title, title: item.title }));
 
     const contentStyle = {
@@ -42,6 +48,7 @@ const ProcessBar = () => {
         borderRadius: token.borderRadiusLG,
         border: `1px dashed ${token.colorBorder}`,
         marginTop: 16,
+        paddingLeft: 150,
     };
 
     return (

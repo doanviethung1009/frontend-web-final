@@ -3,6 +3,7 @@ import { UploadOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import { uploadImageAPI } from '../../services/apiService';
 import { toast } from 'react-toastify';
+import InboundPolicies from '../../components/publicComponents/InboundPolicies';
 
 
 const TestApi = () => {
@@ -68,7 +69,7 @@ const TestApi = () => {
     return (
 
         < div >
-            {console.log(`Uploading`, saveFile)}
+            {/* {console.log(`Uploading`, saveFile)}
             <label htmlFor="btnUpload"
                 style={
                     {
@@ -93,8 +94,8 @@ const TestApi = () => {
             }
             <Button type='primary' onClick={() => handleUpdateData()}>
                 save
-            </Button>
-
+            </Button> */}
+            <InboundPolicies />
         </ div>
     );
 };
