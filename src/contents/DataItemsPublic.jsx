@@ -1,9 +1,14 @@
 
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+// import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 // import { Link } from 'react-router-dom';
 
 
 const DataItemsPublic = [
+    {
+        label: 'Home',
+        key: 'home',
+        labelKey: 'home',
+    },
     {
         label: 'About us',
         key: 'about',

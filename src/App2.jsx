@@ -33,6 +33,7 @@ const App2 = () => {
             children: [
                 {
                     index: true,
+                    path: '/',
                     element: <Home />
                 },
                 {
@@ -42,9 +43,6 @@ const App2 = () => {
                             path: '/about/story',
                             element: <Stories />
                         },
-                        {
-                            //...
-                        }
                     ]
                 },
                 {
@@ -63,9 +61,6 @@ const App2 = () => {
                                 }
                             ]
                         },
-                        {
-                            //...
-                        }
                     ]
                 },
                 {
@@ -75,9 +70,6 @@ const App2 = () => {
                             path: '/partner/strategic',
                             element: <Strategics />
                         },
-                        {
-                            // ...
-                        },
                     ]
                 },
                 {
@@ -86,9 +78,6 @@ const App2 = () => {
                         {
                             path: '/guide/vietnamDestinations',
                             element: <VietnamDestinations />
-                        },
-                        {
-                            // ...
                         },
                     ]
                 }
