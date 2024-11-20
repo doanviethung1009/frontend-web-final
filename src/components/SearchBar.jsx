@@ -3,7 +3,8 @@ import { useTranslation } from "react-i18next";
 import { Row, Col, Input, Flex, Tag, DatePicker, Button } from 'antd';
 import DataTags from "../contents/DataTags";
 import { EnvironmentOutlined, ProductOutlined } from '@ant-design/icons';
-import "./SearchBar.css";
+// import "./SearchBar.css"; // move style css to style folder --  20112024 edited by hungdv
+import "../styles/SearchBar.css";
 
 const onChange = (date, dateString) => {
     console.log(date, dateString);
@@ -27,22 +28,22 @@ const SearchBar = (props) => {
         // filter_continent
         {
             label: t("continent"),
-            input: <Input addonAfter={<EnvironmentOutlined />}/>
+            input: <Input addonAfter={<EnvironmentOutlined />} />
         },
         // filter_country
         {
             label: t("country"),
-            input: <Input addonAfter={<EnvironmentOutlined />}/>
+            input: <Input addonAfter={<EnvironmentOutlined />} />
         },
         // filter_location_from
         {
             label: t("from"),
-            input: <Input addonAfter={<EnvironmentOutlined />}/>
+            input: <Input addonAfter={<EnvironmentOutlined />} />
         },
         // filter_location_to
         {
             label: t("to"),
-            input: <Input addonAfter={<EnvironmentOutlined />}/>
+            input: <Input addonAfter={<EnvironmentOutlined />} />
         },
         // filter_depart
         {
@@ -83,7 +84,7 @@ const SearchBar = (props) => {
                         <div>
                             <p>{t("product")}</p>
                             <Flex gap={20}>
-                                <Input addonAfter={<ProductOutlined />}/>
+                                <Input addonAfter={<ProductOutlined />} />
                                 <Button type="primary">Search</Button>
                             </Flex>
                         </div>
@@ -97,7 +98,7 @@ const SearchBar = (props) => {
                             key={tag.key}
                             checked={selectedTags.includes(tag.key)}
                             onChange={(checked) => handleChange(tag.key, checked)}
-                        > 
+                        >
                             <span style={{ fontSize: '16px' }}>{t(tag.labelKey)}</span>
                         </Tag.CheckableTag>
                     ))}
