@@ -61,7 +61,7 @@ const ProcessBar = () => {
         borderRadius: token.borderRadiusLG,
         border: `1px dashed ${token.colorBorder}`,
         marginTop: 16,
-        paddingLeft: 150,
+        // paddingLeft: 150,
     };
 
     console.log(">>> check data", listData)

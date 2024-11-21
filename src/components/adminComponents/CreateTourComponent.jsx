@@ -9,28 +9,8 @@ import "../../styles/adminStyles/createTourComponent.scss"
 
 
 const formItemLayout = {
-    labelCol: {
-        lg: {
-            span: 120,
-        },
-        xs: {
-            span: 24,
-        },
-        sm: {
-            span: 24,
-        },
-    },
-    // wrapperCol: {
-    //     lg: {
-    //         span: 32,
-    //     },
-    //     xs: {
-    //         span: 24,
-    //     },
-    //     sm: {
-    //         span: 12,
-    //     },
-    // },
+    labelCol: { xs: { span: 24 }, sm: { span: 12 }, md: { span: 8 }, lg: { span: 24 } },
+    wrapperCol: { xs: { span: 24 }, sm: { span: 12 }, md: { span: 12 }, lg: { span: 24 } }
 };
 
 const custLayout = {
@@ -96,7 +76,6 @@ const CreateTourComponent = (props) => {
                 <div className="vecotra-First">
                     <div className="vecotra-First">
                         <Form.Item
-
                             label="Category"
                             name="tourCategory"
                             {...config}
@@ -113,6 +92,7 @@ const CreateTourComponent = (props) => {
                     <div className="vecotra-First">
                         {/* input tour name */}
                         <Form.Item
+                            {...formItemLayout}
                             label="Class"
                             name="tourClass"
                             {...config}
@@ -497,7 +477,7 @@ const CreateTourComponent = (props) => {
                             name="tourHighlightVI"
                             {...config}
                         >
-                            <Input.TextArea style={{ width: "530px" }} rows={4} />
+                            <Input.TextArea style={{}} rows={4} />
                         </Form.Item>
 
                     </div>
@@ -507,7 +487,7 @@ const CreateTourComponent = (props) => {
                             name="tourHighlightEN"
                             {...config}
                         >
-                            <Input.TextArea style={{ width: "530px" }} rows={4} />
+                            <Input.TextArea style={{}} rows={4} />
                         </Form.Item>
                         {/* tourHighlight */}
 
@@ -554,7 +534,7 @@ const CreateTourComponent = (props) => {
                                             </Space>
                                         ))}
                                         <Form.Item>
-                                            <Button type="dashed" style={{ width: "500px" }} onClick={() => add()} block icon={<PlusOutlined />}>
+                                            <Button type="dashed" style={{}} onClick={() => add()} block icon={<PlusOutlined />}>
                                                 Add field
                                             </Button>
                                         </Form.Item>
@@ -567,6 +547,7 @@ const CreateTourComponent = (props) => {
                         <Form.Item
                             label="Lịch trình chi tiết EN"
                             {...custLayout}
+                            {...formItemLayout}
                         >
                             <Form.List
                                 name="tourDetailEN"
@@ -602,7 +583,7 @@ const CreateTourComponent = (props) => {
                                             </Space>
                                         ))}
                                         <Form.Item>
-                                            <Button type="dashed" style={{ width: "500px" }} onClick={() => add()} block icon={<PlusOutlined />}>
+                                            <Button type="dashed" style={{}} onClick={() => add()} block icon={<PlusOutlined />}>
                                                 Add field
                                             </Button>
                                         </Form.Item>

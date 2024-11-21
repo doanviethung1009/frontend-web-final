@@ -1,5 +1,5 @@
 .vecotra-CreateTour-Container {
-    padding-left: 150px;
+    padding-left: 100px;
 }
 
 .vecotra-First {
@@ -89,7 +89,6 @@
     flex-wrap: wrap;
     // justify-content: center;
     padding-right: 10px;
-    width: 1200px;
 
 }
 
@@ -118,7 +117,21 @@
 
 @media only screen and (min-width: 1024px) {
     .vecotra-CreateTour-Container {
+        padding-left: 250px;
+    }
+
+}
+
+@media only screen and (min-width: 1700px) {
+    .vecotra-CreateTour-Container {
         padding-left: 350px;
+    }
+
+}
+
+@media only screen and (min-width: 1900px) {
+    .vecotra-CreateTour-Container {
+        padding-left: 500px;
     }
 
 }
