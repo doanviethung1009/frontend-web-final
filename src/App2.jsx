@@ -18,6 +18,7 @@ import VietnamDestinations from './pages/publicPages/guides/VietnamDestinations'
 import CreateTour from './pages/adminPages/CreateTour';
 import TestApi from './pages/adminPages/TestApi';
 import ProcessBar from './components/adminComponents/ProcessBar';
+import About from './pages/About';
 
 
 const App2 = () => {
@@ -38,12 +39,7 @@ const App2 = () => {
                 },
                 {
                     path: '/about',
-                    children: [
-                        {
-                            path: '/about/story',
-                            element: <Stories />
-                        },
-                    ]
+                    element: <About />
                 },
                 {
                     path: '/products',
