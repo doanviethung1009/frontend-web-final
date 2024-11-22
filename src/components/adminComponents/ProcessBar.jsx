@@ -62,6 +62,8 @@ const ProcessBar = () => {
         border: `1px dashed ${token.colorBorder}`,
         marginTop: 16,
         // paddingLeft: 150,
+        padding: "10px",
+        margin: "10px"
     };
 
     console.log(">>> check data", listData)

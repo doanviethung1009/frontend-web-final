@@ -43,21 +43,27 @@ const PreviewCreateTourProcess = (props) => {
                     {listData.filterTag}
                 </Card>
                 <Card title="Continent" size="small">
-
+                    {listData.tourContinent}
                 </Card>
                 <Card title="Country" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
+                    {listData.tourCountry}
                 </Card>
                 <Card title="Privacy" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
+                    {listData.tourPrivacy}
                 </Card>
                 <Card title="State/Province/City" size="small">
+                    <ul>
 
+                        {listData ? listData.tourState.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))
+                            :
+                            <p></p>
+                        }
+                    </ul>
                 </Card>
                 <Card title="Schedule" size="small">
-                    <p>Card content</p>
+                    {/* <p>{listData.tourScheduledChooseDate.$d}</p> */}
                     <p>Card content</p>
                 </Card>
                 <Card title="Duration" size="small">

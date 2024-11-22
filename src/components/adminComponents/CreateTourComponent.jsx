@@ -6,10 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import Checkbox from 'antd/es/checkbox/Checkbox';
 import { toast } from 'react-toastify';
 import "../../styles/adminStyles/createTourComponent.scss"
+import dayjs from 'dayjs';
+
+const dateTimestamp = dayjs('2024-01-01').valueOf();
 
 
 const formItemLayout = {
-    labelCol: { xs: { span: 24 }, sm: { span: 12 }, md: { span: 8 }, lg: { span: 24 } },
+    labelCol: { xs: { span: 24 }, sm: { span: 12 }, md: { span: 12 }, lg: { span: 24 } },
     wrapperCol: { xs: { span: 24 }, sm: { span: 12 }, md: { span: 12 }, lg: { span: 24 } }
 };
 
@@ -46,7 +49,16 @@ const CreateTourComponent = (props) => {
 
 
     const onFinish = async (values) => {
-        setListData(values);
+        // Extract filter tag and store it in an array
+        const splitFilterTag = values.filterTag.split(",");
+        // console.log(splitFilterTag);
+        // get data in array
+        // const extractedValues = splitFilterTag[splitFilterTag.length - 1]
+        // console.log(extractedValues);
+        setListData({
+            ...values,
+            splitFilterTag
+        });
         console.log('Received values from form: ', values);
         next();
         // call api to create a new Tour
@@ -126,15 +138,13 @@ const CreateTourComponent = (props) => {
                     <div className='vecotra-Second tourName' >
                         {/* input tour name */}
                         <Form.Item
-                            label="Tên tour"
+                            label="Tour Name"
                             name="tourName"
                             {...config}
+                            style={{ width: "500px" }}
 
                         >
-                            <Input
-                                style={{
-                                    width: "700px"
-                                }} />
+                            <Input />
                         </Form.Item>
                     </div>
                     <div className="vecotra-Second tourCode">
@@ -142,6 +152,7 @@ const CreateTourComponent = (props) => {
                             label="Tour Code"
                             name="tourCode"
                             {...config}
+
                         >
                             <Input style={{
                                 width: "360px"
@@ -154,9 +165,10 @@ const CreateTourComponent = (props) => {
                         <Form.Item
                             label="Filter tag"
                             name="filterTag"
+                            style={{ width: "600px" }}
                         >
                             <Mentions style={{
-                                width: "1070px"
+                                width: "100%"
                             }} />
                         </Form.Item>
 
@@ -229,6 +241,10 @@ const CreateTourComponent = (props) => {
                                     label="Choose dates"
                                     {...custLayout}
                                     name="tourScheduledChooseDate"
+                                    getValueProps={(value) => ({
+                                        value: value && dayjs(Number(value)),
+                                    })}
+                                    normalize={(value) => value && `${dayjs(value).valueOf()}`}
                                 >
                                     <DatePicker disabled={!component1Disabled} {...custLayout} />
                                 </Form.Item>
@@ -308,7 +324,7 @@ const CreateTourComponent = (props) => {
                     <div className="vecotra-Five tourTransport">
                         <Form.Item
                             name="tourTransport"
-                            label="Phương tiện di chuyển"
+                            label="Tour Transport"
                             {...rangeConfig}
                             {...custLayout}
                         >
@@ -358,7 +374,7 @@ const CreateTourComponent = (props) => {
                 <div className="vecotra-Seven">
                     <div className="vecotra-Seven">
                         <Form.Item
-                            label="Khởi hành từ"
+                            label="Depart from"
                             name="departFrom"
                             {...config}
                             {...custLayout}
@@ -371,7 +387,7 @@ const CreateTourComponent = (props) => {
                     </div>
                     <div className="vecotra-Seven">
                         <Form.Item
-                            label="Ngôn ngữ hỗ trợ"
+                            label="Languages"
                             name="langSupport"
                             {...config}
                             {...custLayout}
@@ -391,11 +407,12 @@ const CreateTourComponent = (props) => {
                             label="Description VI"
                             name="tourDescriptionVI"
                             {...config}
+                            style={{ width: "530px" }}
                         // style={{
                         //     width: "1000px"
                         // }}
                         >
-                            <Input.TextArea style={{ width: "530px" }} rows={5} />
+                            <Input.TextArea rows={5} />
                         </Form.Item>
                     </div>
                     <div className="vecotra-Six">
@@ -404,9 +421,10 @@ const CreateTourComponent = (props) => {
                             name="tourDescriptionEN"
                             placeholder="nhập nội dung tiếng anh"
                             {...config}
-                        // style={{ width: "800px" }}
+                            // style={{ width: "800px" }}
+                            style={{ width: "530px" }}
                         >
-                            <Input.TextArea style={{ width: "530px" }} rows={5} />
+                            <Input.TextArea rows={5} />
                         </Form.Item>
                         {/* tourDescription */}
                     </div>
@@ -473,9 +491,10 @@ const CreateTourComponent = (props) => {
                     <div className="vecotra-Night">
                         {/* tourHighlight */}
                         <Form.Item
-                            label="Điểm nổi bật"
+                            label="Highlights VI"
                             name="tourHighlightVI"
                             {...config}
+                            style={{ width: "530px" }}
                         >
                             <Input.TextArea style={{}} rows={4} />
                         </Form.Item>
@@ -483,9 +502,10 @@ const CreateTourComponent = (props) => {
                     </div>
                     <div className="vecotra-Night">
                         <Form.Item
-                            label="Điểm nổi bật EN"
+                            label="Highlights EN"
                             name="tourHighlightEN"
                             {...config}
+                            style={{ width: "530px" }}
                         >
                             <Input.TextArea style={{}} rows={4} />
                         </Form.Item>
@@ -497,7 +517,7 @@ const CreateTourComponent = (props) => {
                 <div className="vecotra-Ten">
                     <div className="vecotra-Ten tourDetailVI">
                         <Form.Item
-                            label="Lịch trình chi tiết"
+                            label="Tour Detail VI"
                             {...custLayout}
                         >
                             <Form.List
@@ -520,15 +540,17 @@ const CreateTourComponent = (props) => {
                                                     {...restField}
                                                     name={[name, 'title']}
                                                     {...config}
+                                                    style={{ width: "100px" }}
                                                 >
-                                                    <Input style={{ width: "100px", maxWidth: "500px" }} placeholder="Title Description" />
+                                                    <Input placeholder="Title Description" />
                                                 </Form.Item>
                                                 <Form.Item
                                                     {...restField}
                                                     name={[name, 'description']}
                                                     {...config}
+                                                    style={{ width: "430px" }}
                                                 >
-                                                    <Input.TextArea style={{ width: "405px", maxWidth: "500px" }} rows={4} placeholder="Content Description" />
+                                                    <Input.TextArea rows={4} placeholder="Content Description" />
                                                 </Form.Item>
                                                 <MinusCircleOutlined onClick={() => remove(name)} />
                                             </Space>
@@ -545,7 +567,7 @@ const CreateTourComponent = (props) => {
                     </div>
                     <div className="vecotra-Ten tourDetailEN">
                         <Form.Item
-                            label="Lịch trình chi tiết EN"
+                            label="Tour Detail EN"
                             {...custLayout}
                             {...formItemLayout}
                         >
@@ -569,15 +591,17 @@ const CreateTourComponent = (props) => {
                                                     {...restField}
                                                     name={[name, 'title']}
                                                     {...config}
+                                                    style={{ width: "100px", maxWidth: "500px" }}
                                                 >
-                                                    <Input style={{ width: "100px", maxWidth: "500px" }} placeholder="Title Description" />
+                                                    <Input placeholder="Title Description" />
                                                 </Form.Item>
                                                 <Form.Item
                                                     {...restField}
                                                     name={[name, 'description']}
                                                     {...config}
+                                                    style={{ width: "400px", maxWidth: "500px" }}
                                                 >
-                                                    <Input.TextArea style={{ width: "405px", maxWidth: "500px" }} rows={4} placeholder="Content Description" />
+                                                    <Input.TextArea rows={4} placeholder="Content Description" />
                                                 </Form.Item>
                                                 <MinusCircleOutlined onClick={() => remove(name)} />
                                             </Space>
@@ -596,7 +620,7 @@ const CreateTourComponent = (props) => {
                 <Form.Item>
                     <Space>
                         <Button type="primary" htmlType="submit">
-                            Submit
+                            Create
                         </Button>
                         {/* <SubmitButton form={form}>Submit</SubmitButton> */}
                         <Button htmlType="reset">Reset</Button>

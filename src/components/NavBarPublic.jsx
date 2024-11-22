@@ -27,7 +27,7 @@ const NavBarPublic = (props) => {
         function handleResize() {
             setWindowDimensions(getWindowDimensions());
         }
-    
+
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
@@ -91,13 +91,15 @@ const NavBarPublic = (props) => {
 
         return {
             key: item.key,
-            label: t(item.key),
+            // hungdv edited fix link for single navbar
+            // label: t(item.key),
+            label: item.children ? t(item.key) : <Link to={`${item.labelKey}`}> {t(item.key)}</Link>,
             icon: item.icon,
             children: item.children?.map((child) => {
                 // Check if the child's key is "en" or "vi" and set the label accordingly
                 let label = (child.key === "en" || child.key === "vi" || child.children)
                     ? t(child.key) // Use Link if key is "en" or "vi"
-                    : <Link to={`${child.label}`}>{t(child.key)}</Link>; // Otherwise, just use translated text
+                    : <Link to={`${child.labelKey}`}>{t(child.key)}</Link>; // Otherwise, just use translated text // change link from label to labelKey
                 // need to return to render the child
                 return {
                     key: child.key,
@@ -105,7 +107,7 @@ const NavBarPublic = (props) => {
                     icon: child.icon,
                     children: child.children?.map((grandchild) => ({
                         key: grandchild.key,
-                        label: <Link to={`${grandchild.label}`}>{t(grandchild.key)}</Link>,
+                        label: <Link to={`${grandchild.labelKey}`}>{t(grandchild.key)}</Link>, // change link from label to labelKey
                         icon: grandchild.icon,
                     })).filter((grandchild) => grandchild.key !== 'popupClassName'),
                 };

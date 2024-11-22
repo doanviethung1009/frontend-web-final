@@ -57,23 +57,27 @@ const FileUploader = (props) => {
 
 
     return (
-        <form method="post" id="#" onSubmit={onSubmit}>
-            <div className="form-group files">
+        <form
+            style={{ padding: "15px" }}
+            method="post" id="#" onSubmit={onSubmit}>
+            <div className="form-group file">
+                <label>Upload Your thumbnail File </label>
+                <input type="file" className="form-control" onChange={onInputFileChange} />
+            </div>
+            <div className="form-group files" >
                 <label>Upload Your Hero Files </label>
                 <input type="file"
                     className="form-control"
                     onChange={onInputChange}
                     multiple
                     ref={fileInputRef} // Attach the ref to the input element
-
                 />
             </div>
-            <div className="form-group file">
-                <label>Upload Your thumbnail File </label>
-                <input type="file" className="form-control" onChange={onInputFileChange} />
-            </div>
 
-            <button>Submit</button>
+
+            <button style={{
+
+            }} >Upload</button>
         </form>
     )
 };

@@ -1,5 +1,5 @@
 .vecotra-CreateTour-Container {
-    padding-left: 100px;
+    // padding-left: 100px;
 }
 
 .vecotra-First {
@@ -14,6 +14,10 @@
     flex-wrap: wrap;
     // justify-content: center;
     padding-right: 10px;
+
+    Mentions {
+        display: inline;
+    }
 }
 
 .vecotra-Third {

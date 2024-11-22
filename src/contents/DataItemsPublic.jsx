@@ -6,8 +6,8 @@
 const DataItemsPublic = [
     {
         label: 'Home',
-        key: 'home',
-        labelKey: 'home',
+        key: 'Home',
+        labelKey: '/',
     },
     {
         label: 'About us',
