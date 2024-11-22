@@ -1,0 +1,19 @@
+.slick-track {
+  padding-bottom: 20px !important;
+}
+
+.column {
+  height: 400px;
+}
+
+.img-background {
+  height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.img-avatar {
+  height: 200px;
+  border-radius: 10%;
+}
