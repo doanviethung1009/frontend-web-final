@@ -3,7 +3,10 @@ import axios from "axios";
 
 // Create an Axios instance with the base URL
 const api = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,  // Replace with your API URL
+    // baseURL: import.meta.env.VITE_API_URL,  
+    baseURL: import.meta.env.VITE_MODE === 'development'
+        ? import.meta.env.VITE_API_URL  // Development API URL // Replace with your API URL
+        : window.location.origin,       // Production uses current origin // Automatically uses the current origin (domain + protocol)
 });
 
 // Request interceptor to add token to headers if available

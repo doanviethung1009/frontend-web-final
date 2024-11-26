@@ -1,19 +1,24 @@
 
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+// import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 // import { Link } from 'react-router-dom';
 
 
 const DataItemsPublic = [
     {
+        label: 'Home',
+        key: 'home',
+        labelKey: '/',
+    },
+    {
         label: 'About us',
         key: 'about',
         labelKey: 'about',
-        icon: <MailOutlined />,
+        // icon: <MailOutlined />,
     },
     {
         label: 'Product',
         key: 'product',
-        icon: <SettingOutlined />,
+        // icon: <SettingOutlined />,
         children: [
             {
                 type: 'group',
@@ -23,13 +28,16 @@ const DataItemsPublic = [
                 children: [
                     {
                         label: "/products/travelVietnam/northernVietnam",
+                        labelKey: "/products/travelVietnam/northernVietnam",
                         key: 'northern',
                     },
                     {
+                        labelKey: "/products/travelVietnam/centralVietnam",
                         label: "/products/travelVietnam/centralVietnam",
                         key: 'central',
                     },
                     {
+                        labelKey: "/products/travelVietnam/southernVietnam",
                         label: 'Southern Vietnam',
                         key: 'southern',
                     },
@@ -43,8 +51,10 @@ const DataItemsPublic = [
                     {
                         label: 'Asia Destinations',
                         key: 'asia',
+                        labelKey: "/products/overseas/asia",
                     },
                     {
+                        labelKey: "/products/overseas/global",
                         label: 'Global Adventures',
                         key: 'global',
                     },
@@ -56,14 +66,17 @@ const DataItemsPublic = [
                 key: 'event',
                 children: [
                     {
+                        labelKey: "/products/event/corporate",
                         label: 'Corporate Retreats',
                         key: 'corporate',
                     },
                     {
+                        labelKey: "/products/event/private",
                         label: 'Private Events',
                         key: 'private',
                     },
                     {
+                        labelKey: "/products/event/community",
                         label: 'Community Events',
                         key: 'community',
                     },
@@ -74,7 +87,7 @@ const DataItemsPublic = [
     {
         label: 'Partner',
         key: 'partner',
-        icon: <AppstoreOutlined />,
+        // icon: <AppstoreOutlined />,
         children: [
             {
                 label: "Strategic Partnerships",
