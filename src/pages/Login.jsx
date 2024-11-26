@@ -2,9 +2,12 @@ import { Button, Checkbox, Form, Input } from 'antd';
 import { loginUser } from '../services/apiService';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../context/Auth.Context';
 
 
 const Login = () => {
+    const { setUser } = useContext(AuthContext)
     // const onFinish = (values) => {
     //     console.log('Success:', values);
     // };
@@ -26,6 +29,7 @@ const Login = () => {
             console.log('Message:', message);
             if (message && message.errCode === 0) {
                 // console.log('Success:', message.data)
+                setUser(message.data)
                 toast.success('Logged in successfully');
                 navigate("/tourAdmin");  // Redirect to home or protected page
             } else {

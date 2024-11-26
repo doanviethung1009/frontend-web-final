@@ -8,7 +8,7 @@ import ProtectedLayout from './layouts/ProtectedLayout';
 import Profile from './pages/Profile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Fragment, useState } from 'react';
+import { Fragment, useContext, useState } from 'react';
 import TourAdmin from './pages/adminPages/TourAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoute2 from './components/ProtectedRouteN';
@@ -19,10 +19,14 @@ import CreateTour from './pages/adminPages/CreateTour';
 import TestApi from './pages/adminPages/TestApi';
 import ProcessBar from './components/adminComponents/ProcessBar';
 import About from './pages/About';
+import { AuthContext, AutoWrapper } from './context/Auth.Context';
+import CreateTourComponent from './components/adminComponents/CreateTourComponent';
+import MarkdownComponent from './components/adminComponents/MarkdownComponent';
 
 
 const App2 = () => {
     const [checkLang, setCheckLang] = useState('en')
+    const { user } = useContext(AuthContext)
 
     const router = createBrowserRouter([
         {
@@ -82,10 +86,18 @@ const App2 = () => {
         },
         {
             path: '/',
-            element: <ProtectedLayout
-                checkLang={checkLang}
-                setCheckLang={setCheckLang}
-            />,
+            element: (
+                // <ProtectedLayout
+                //     checkLang={checkLang}
+                //     setCheckLang={setCheckLang}
+                // />
+                <AutoWrapper>
+                    <ProtectedLayout
+                        checkLang={checkLang}
+                        setCheckLang={setCheckLang}
+                    />
+                </AutoWrapper>
+            ),
             children: [
                 {
                     index: true,
@@ -115,14 +127,29 @@ const App2 = () => {
                     element:
                         (
                             // <CreateTour />
-                            <TestApi />
+                            <ProtectedRoute>
+                                <TestApi />
+                            </ProtectedRoute>
                         )
                 },
                 {
                     path: '/processBar',
                     element:
                         (
-                            <ProcessBar />
+                            <ProtectedRoute>
+                                <ProcessBar />
+                            </ProtectedRoute>
+
+                        )
+                },
+                {
+                    path: '/tourBlog',
+                    element:
+                        (
+                            <ProtectedRoute>
+                                <MarkdownComponent />
+                            </ProtectedRoute>
+
                         )
                 }
 

@@ -61,15 +61,13 @@ const ProcessBar = () => {
         borderRadius: token.borderRadiusLG,
         border: `1px dashed ${token.colorBorder}`,
         marginTop: 16,
-        // paddingLeft: 150,
-        padding: "10px",
-        margin: "10px"
+
     };
 
     console.log(">>> check data", listData)
 
     return (
-        <div>
+        <div className="processBar-container" style={{ justifyItems: "center", padding: "20px" }}>
             <Steps current={current} items={items} />
             <div style={contentStyle}>{steps[current].content}</div>
             <div style={{ marginTop: 24 }}>

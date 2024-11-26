@@ -7,6 +7,8 @@ import Checkbox from 'antd/es/checkbox/Checkbox';
 import { toast } from 'react-toastify';
 import "../../styles/adminStyles/createTourComponent.scss"
 import dayjs from 'dayjs';
+import { MDXEditor } from '@mdxeditor/editor';
+import MarkdownModal from './modals/MarkdownModal';
 
 const dateTimestamp = dayjs('2024-01-01').valueOf();
 
@@ -46,7 +48,19 @@ const CreateTourComponent = (props) => {
     const [form] = Form.useForm();
     const navigate = useNavigate();
     // const [listData, setListData] = useState()
+    const [markdown, setMarkdown] = useState("");
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [parentIndex, setParentIndex] = useState("");
+    const [editingIndex, setEditingIndex] = useState("");
 
+    const showModal = (parent_Index, child_index) => {
+        setParentIndex(parent_Index); // Store which object in the array is being edited
+        setEditingIndex(child_index); // Store which object in the array is being edited
+        // const currentData = form.getFieldValue(['tourDetailEN', index]) || {};
+        const currentData = form.getFieldValue([parentIndex, child_index]) || {};
+        setMarkdown(currentData.description || ''); // Load existing description or set empty
+        setIsModalOpen(true);
+    };
 
     const onFinish = async (values) => {
         // Extract filter tag and store it in an array
@@ -550,7 +564,20 @@ const CreateTourComponent = (props) => {
                                                     {...config}
                                                     style={{ width: "430px" }}
                                                 >
-                                                    <Input.TextArea rows={4} placeholder="Content Description" />
+                                                    {/* <Input.TextArea rows={4} placeholder="Content Description" /> */}
+                                                    <Button type="primary" onClick={() => showModal("tourDetailVI", name)}>
+                                                        Open Modal
+                                                    </Button>
+                                                    < MarkdownModal
+                                                        isModalOpen={isModalOpen}
+                                                        setIsModalOpen={setIsModalOpen}
+                                                        markdown={markdown}
+                                                        setMarkdown={setMarkdown}
+                                                        form={form}
+                                                        editingIndex={editingIndex}
+                                                        parentIndex={parentIndex}
+                                                    />
+
                                                 </Form.Item>
                                                 <MinusCircleOutlined onClick={() => remove(name)} />
                                             </Space>
@@ -598,10 +625,23 @@ const CreateTourComponent = (props) => {
                                                 <Form.Item
                                                     {...restField}
                                                     name={[name, 'description']}
-                                                    {...config}
+                                                    // {...config}
                                                     style={{ width: "400px", maxWidth: "500px" }}
                                                 >
-                                                    <Input.TextArea rows={4} placeholder="Content Description" />
+                                                    {/* <Input.TextArea rows={4} placeholder="Content Description" /> */}
+                                                    <Button type="primary" onClick={() => showModal("tourDetailEN", name)}>
+                                                        Open Modal
+                                                    </Button>
+                                                    < MarkdownModal
+                                                        isModalOpen={isModalOpen}
+                                                        setIsModalOpen={setIsModalOpen}
+                                                        markdown={markdown}
+                                                        setMarkdown={setMarkdown}
+                                                        form={form}
+                                                        editingIndex={editingIndex}
+                                                        parentIndex={parentIndex}
+                                                    />
+
                                                 </Form.Item>
                                                 <MinusCircleOutlined onClick={() => remove(name)} />
                                             </Space>

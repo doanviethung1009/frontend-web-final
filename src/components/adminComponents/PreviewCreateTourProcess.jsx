@@ -22,6 +22,7 @@ const PreviewCreateTourProcess = (props) => {
                 style={{
                     display: 'flex',
                     textAlign: 'center',
+                    minWidth: '500px',
                 }}
             >
                 <Card title="Category" size="small">
@@ -147,7 +148,7 @@ const PreviewCreateTourProcess = (props) => {
 
                 </Card>
 
-            </Space>
+            </Space >
             {/* <div>
                 <img src={`${import.meta.env.VITE_API_URL}images/thumbnail-123/thumbnail-123-imag.png`} alt="" />
             </div> */}

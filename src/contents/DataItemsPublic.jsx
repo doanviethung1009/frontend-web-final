@@ -6,7 +6,7 @@
 const DataItemsPublic = [
     {
         label: 'Home',
-        key: 'Home',
+        key: 'home',
         labelKey: '/',
     },
     {
@@ -28,9 +28,11 @@ const DataItemsPublic = [
                 children: [
                     {
                         label: "/products/travelVietnam/northernVietnam",
+                        labelKey: "/products/travelVietnam/northernVietnam",
                         key: 'northern',
                     },
                     {
+                        labelKey: "/products/travelVietnam/centralVietnam",
                         label: "/products/travelVietnam/centralVietnam",
                         key: 'central',
                     },
@@ -48,6 +50,7 @@ const DataItemsPublic = [
                     {
                         label: 'Asia Destinations',
                         key: 'asia',
+                        labelKey: "/products/travelVietnam/asia",
                     },
                     {
                         label: 'Global Adventures',

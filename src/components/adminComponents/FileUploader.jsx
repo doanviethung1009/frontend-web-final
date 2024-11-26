@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import { uploadImageAPI, uploadMultiImage } from '../../services/adminAPI/adminApiService';
+import { Flex } from 'antd';
 
 const FileUploader = (props) => {
     const [files, setFiles] = useState([]);
@@ -58,7 +59,10 @@ const FileUploader = (props) => {
 
     return (
         <form
-            style={{ padding: "15px" }}
+            style={{
+                padding: "15px", display: "inline-block",
+                justifyItems: "center"
+            }}
             method="post" id="#" onSubmit={onSubmit}>
             <div className="form-group file">
                 <label>Upload Your thumbnail File </label>

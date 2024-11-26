@@ -5,6 +5,9 @@ const loginUser = async (credentials) => {
     try {
         const response = await api.post('/v1/api/login', credentials);
         console.log("response", response)
+        localStorage.setItem("userName",
+            JSON.stringify(response.message.data),
+        );
         localStorage.setItem('token', response.message.token);
         return response.message;
     } catch (e) {

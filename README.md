@@ -17,21 +17,27 @@ Currently, two official plugins are available:
 
 - update github
 echo "# Frontend_travel_up" >> README.md
-Install Required Dependencies: => npm install antd axios react-toastify react-router-dom i18next react-i18next
-npm install -D sass-embedded
-Fix warning Deprecation [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0. => css: {
+
+- Install Required Dependencies:
+=> npm install antd axios react-toastify react-router-dom i18next react-i18next
+=> npm install -D sass-embedded
+Fix warning Deprecation [legacy-js-api]: The legacy JS API is deprecated and will be removed in Dart Sass 2.0.0. in vite.config.js
+=> css: {
     preprocessorOptions: {
       scss: {
         api: 'modern',
-      },
+      },ß
     },
-  }, 
-and update config run ipv4 and localhost for react vite.config.js
+  },
+
+- and update config run ipv4 and localhost for react vite.config.js
 server: {
     host: '0.0.0.0',
     port: 3050, // Specify the port, default is 5173 if you want to change it
   }
 
-
-update lib for i18n:
+- update lib for i18n:
 npm install i18next react-i18next i18next-browser-languagedetector
+
+- lib config markdown
+=> npm install marked @mdxeditor/editor react-markdown
