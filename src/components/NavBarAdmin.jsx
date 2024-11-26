@@ -81,12 +81,11 @@ const NavBarAdmin = () => {
                             <Menu.Item
                                 key="logout"
                             >
-                                <Link onClick={() => handleOnClickLogout()} style={{ width: "100%" }}>
+                                <span onClick={() => handleOnClickLogout()} style={{ width: "100%" }}>
                                     logout
-                                </Link>
+                                </span>
                             </Menu.Item>
                         </SubMenu>
-
                     ] :
                     [
 

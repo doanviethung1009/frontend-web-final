@@ -37,6 +37,7 @@ const DataItemsPublic = [
                         key: 'central',
                     },
                     {
+                        labelKey: "/products/travelVietnam/southernVietnam",
                         label: 'Southern Vietnam',
                         key: 'southern',
                     },
@@ -50,9 +51,10 @@ const DataItemsPublic = [
                     {
                         label: 'Asia Destinations',
                         key: 'asia',
-                        labelKey: "/products/travelVietnam/asia",
+                        labelKey: "/products/overseas/asia",
                     },
                     {
+                        labelKey: "/products/overseas/global",
                         label: 'Global Adventures',
                         key: 'global',
                     },
@@ -64,14 +66,17 @@ const DataItemsPublic = [
                 key: 'event',
                 children: [
                     {
+                        labelKey: "/products/event/corporate",
                         label: 'Corporate Retreats',
                         key: 'corporate',
                     },
                     {
+                        labelKey: "/products/event/private",
                         label: 'Private Events',
                         key: 'private',
                     },
                     {
+                        labelKey: "/products/event/community",
                         label: 'Community Events',
                         key: 'community',
                     },

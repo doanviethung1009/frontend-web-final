@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form, Input, Space, Select, DatePicker, Mentions, InputNumber } from 'antd';
+import { Button, Form, Input, Space, Select, DatePicker, Mentions, InputNumber, message } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import { createTourAPI } from '../../services/apiService';
 import { useNavigate } from 'react-router-dom';
@@ -58,8 +58,17 @@ const CreateTourComponent = (props) => {
         setEditingIndex(child_index); // Store which object in the array is being edited
         // const currentData = form.getFieldValue(['tourDetailEN', index]) || {};
         const currentData = form.getFieldValue([parentIndex, child_index]) || {};
-        setMarkdown(currentData.description || ''); // Load existing description or set empty
-        setIsModalOpen(true);
+        // console.log('currentData title', currentData.title);
+        //validate title
+        if (currentData.title) {
+            setMarkdown(currentData.description || ''); // Load existing description or set empty
+
+            // setMarkdown(''); // Load existing description or set empty
+            setIsModalOpen(true);
+        } else {
+            message.info("please input title before open modal")
+        }
+
     };
 
     const onFinish = async (values) => {
@@ -632,15 +641,7 @@ const CreateTourComponent = (props) => {
                                                     <Button type="primary" onClick={() => showModal("tourDetailEN", name)}>
                                                         Open Modal
                                                     </Button>
-                                                    < MarkdownModal
-                                                        isModalOpen={isModalOpen}
-                                                        setIsModalOpen={setIsModalOpen}
-                                                        markdown={markdown}
-                                                        setMarkdown={setMarkdown}
-                                                        form={form}
-                                                        editingIndex={editingIndex}
-                                                        parentIndex={parentIndex}
-                                                    />
+
 
                                                 </Form.Item>
                                                 <MinusCircleOutlined onClick={() => remove(name)} />
@@ -654,6 +655,15 @@ const CreateTourComponent = (props) => {
                                     </>
                                 )}
                             </Form.List>
+                            < MarkdownModal
+                                isModalOpen={isModalOpen}
+                                setIsModalOpen={setIsModalOpen}
+                                markdown={markdown}
+                                setMarkdown={setMarkdown}
+                                form={form}
+                                editingIndex={editingIndex}
+                                parentIndex={parentIndex}
+                            />
                         </Form.Item>
                     </div>
                 </div>

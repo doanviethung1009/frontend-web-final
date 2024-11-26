@@ -10,6 +10,10 @@ export const AuthContext = createContext({
     // id: "",
     // role: "",
     // phone: "",
+    user: null,
+    setUser: () => { },
+    isAppLoading: true,
+    handleOnClickLogout: () => { },
 });
 
 
@@ -34,27 +38,40 @@ export const AutoWrapper = ({ children }) => {
             role: "",
             phone: "",
         });
-        localStorage.removeItem('token');
         localStorage.removeItem('userName');
+        localStorage.removeItem('token');
         // localStorage.removeItem('tourId');
+        navigate("/login"); // Redirect to login page
         toast.success("user has been logged out")
+    }
+
+    const authCheckToken = () => {
+        localStorage.removeItem('userName');
         navigate("/login");  // Redirect to login page
     }
 
+
+
+
     useEffect(() => {
+        const token = window.localStorage.getItem("token")
         // Simulate fetching user data on mount
         const loadUser = async () => {
+            // Load user data if token exists
             try {
-                const storedUser = localStorage.getItem("userName");
-                if (storedUser) {
-                    setUser(JSON.parse(storedUser));
+                if (token) {
+                    const storedUser = localStorage.getItem("userName");
+                    if (storedUser) {
+                        setUser(JSON.parse(storedUser));
+                    }
+                }
+                else {
+                    authCheckToken();// Logout if no token
                 }
             } catch (error) {
                 console.error("Failed to load user data:", error);
-
-                // localStorage.removeItem("access_token");
             } finally {
-                setIsAppLoading(false);
+                setIsAppLoading(false);// Mark loading as complete
             }
         };
         loadUser();

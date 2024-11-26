@@ -24,6 +24,7 @@ const MarkdownModal = (props) => {
                     index === editingIndex ? updatedData : item
                 ),
             });
+
         }
         if (parentIndex === "tourDetailEN") {
             form.setFieldsValue({
@@ -33,18 +34,22 @@ const MarkdownModal = (props) => {
             });
         }
         console.log('Updated Form Data:', form.getFieldsValue());
+        setMarkdown(null);
         setIsModalOpen(false);
+    };
 
-    };
     const handleCancel = () => {
-        setIsModalOpen(false);
+        setMarkdown(null); // Clear the markdown content
+        setIsModalOpen(false); // Close the modal
     };
+
     return (
         <div>
             <Modal title="Markdown Editor"
                 open={isModalOpen}
                 onOk={handleOk}
                 onCancel={handleCancel}
+                destroyOnClose
                 width={800}>
                 <div style={{ border: "1px solid red" }}>
                     <MDXEditor
