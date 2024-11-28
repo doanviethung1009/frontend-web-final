@@ -87,5 +87,17 @@
     "festival_tours": "Festival Tours",
     "holiday": "Holiday",
     "seasonal_tours": "Seasonal Tours",
-    "event_based_tours": "Event-based Tours"
+    "event_based_tours": "Event-based Tours",
+    "explore": "Explore",
+    "company_information": "Company Information",
+    "company_name": "Company name",
+    "vietnamese_name": "Vietnamese name",
+    "international_name": "International name",
+    "date_of_establishment": "Date of Establishment",
+    "tax_code": "Tax code",
+    "business_license_no": "Business License no.",
+    "international_travel_license": "International Travel License",
+    "legal_representative": "Legal Representative",
+    "title": "Title",
+    "address": "Address"
 }

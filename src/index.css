@@ -2,3 +2,15 @@
     padding: 0;
     margin: 0;
 }
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-normal {
+    font-weight: normal;
+}
+
+.d-flex {
+    display: flex;
+}

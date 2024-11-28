@@ -87,5 +87,17 @@
     "festival_tours": "Festival Tours [vi]",
     "holiday": "Holiday [vi]",
     "seasonal_tours": "Seasonal Tours [vi]",
-    "event_based_tours": "Event-based Tours [vi]"
+    "event_based_tours": "Event-based Tours [vi]",
+    "explore": "Explore [vi]",
+    "company_information": "Company Information [vi]",
+    "company_name": "Company name [vi]",
+    "vietnamese_name": "Vietnamese name [vi]",
+    "international_name": "International name [vi]",
+    "date_of_establishment": "Date of Establishment [vi]",
+    "tax_code": "Tax code [vi]",
+    "business_license_no": "Business License no. [vi]",
+    "international_travel_license": "International Travel License [vi]",
+    "legal_representative": "Legal Representative [vi]",
+    "title": "Title [vi]",
+    "address": "Address [vi]"
 }
