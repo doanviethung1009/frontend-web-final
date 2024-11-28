@@ -17,3 +17,29 @@
   height: 200px;
   border-radius: 10%;
 }
+
+.container-block {
+  padding: 20px 0px;
+}
+
+.info-title {
+  color: #f7b835 !important;
+  text-transform: uppercase;
+}
+
+/* ------ container-company-information ------ */
+.container-company-info .column {
+  padding: 0px !important;
+}
+
+.container-company-info .img-avatar {
+  width: 350px;
+  height: 460px;
+  border-top-left-radius: 0%;
+  border-bottom-left-radius: 0%;
+}
+
+.container-company-info .block-info-right {
+  padding: 40px 0px;
+}
+/* ------ container-company-information ------ */
