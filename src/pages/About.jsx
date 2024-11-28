@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { Carousel, Flex, Typography, Button, Row, Col } from "antd";
 import "../styles/about.css";
 import { useTranslation } from "react-i18next";
@@ -24,15 +24,16 @@ const dataInfoLocate = [
     backgroundLocate:
       "https://images.pexels.com/photos/1619569/pexels-photo-1619569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     content: {
-      location: "Ho Chi Minh City, Vietnam",
-      title: "Nightview in Ho Chi Minh City",
+      location: "Ha Noi, Vietnam",
+      title: "Nightview in Ha Noi City",
       description:
-        "Witness the dynamic nightlife of HCM City, where the skyline meets the sparkling riverside, and the energy of the city never sleep",
+        "Witness the dynamic nightlife of HN City, where the skyline meets the sparkling riverside, and the energy of the city never sleep",
     },
   },
 ];
 
-const About = () => {
+const About = (props) => {
+  const { checkLang, setCheckLang } = props;
   const { t, i18n } = useTranslation();
 
   // Memoize handleOnChangeLanguage to ensure it doesn't change on each render
@@ -46,6 +47,10 @@ const About = () => {
     [i18n]
   );
 
+  useEffect(() => {
+    handleOnChangeLanguage(checkLang);
+  }, [checkLang, handleOnChangeLanguage]);
+
   const [changeInfoLocate, setChangeInfoLocate] = useState(dataInfoLocate[0]);
   const handleChange = (current) => {
     setChangeInfoLocate(dataInfoLocate[current]);
@@ -53,63 +58,78 @@ const About = () => {
 
   return (
     <>
-      <div
-        className="img-background"
-        style={{
-          backgroundImage: `url(${changeInfoLocate.backgroundLocate})`,
-        }}
-      >
-        <Row className="row">
-          <Col flex="1 0 50%" className="column">
-            <Flex
-              vertical
-              align="flex-end"
-              justify="space-between"
-              style={{ padding: 32 }}
-            >
-              <Title level={2} style={{ color: "white" }}>
-                {changeInfoLocate.content.location}
-              </Title>
-              <Title style={{ color: "white" }}>
-                {changeInfoLocate.content.title}
-              </Title>
-              <Title level={5} style={{ color: "white" }}>
-                {changeInfoLocate.content.description}
-              </Title>
-              <Button type="primary" href="https://ant.design" target="_blank">
-                {t("explore")}
-              </Button>
-            </Flex>
-          </Col>
-          <Col flex="1 0 50%" className="column">
-            <div
-              style={{
-                position: "absolute",
-                top: "120px",
-                right: "140px",
-                width: "30%",
-                height: "100px",
-                padding: "10px",
-              }}
-            >
-              <Carousel
-                autoplay
-                autoplaySpeed={3000}
-                afterChange={handleChange}
+      {/* Image slider */}
+      <div className="container-slider">
+        <div
+          className="img-background"
+          style={{
+            backgroundImage: `url(${changeInfoLocate.backgroundLocate})`,
+          }}
+        >
+          <Row className="row">
+            <Col flex="1 0 50%" className="column">
+              <Flex
+                vertical
+                align="flex-end"
+                justify="space-between"
+                
               >
-                {dataInfoLocate.map((item, index) => (
-                  <div key={index}>
-                    <img
-                      alt="avatar"
-                      src={item.avatarLocate}
-                      className="img-avatar"
-                    />
-                  </div>
-                ))}
-              </Carousel>
-            </div>
-          </Col>
-        </Row>
+                <div
+                  style={{
+                    padding: "80px 30px",
+                    position: "absolute",
+                    bottom: "10px"
+                  }}
+                >
+                  <Title level={2} style={{ color: "white" }}>
+                    {changeInfoLocate.content.location}
+                  </Title>
+                  <Title style={{ color: "white" }}>
+                    {changeInfoLocate.content.title}
+                  </Title>
+                  <Title level={5} style={{ color: "white" }}>
+                    {changeInfoLocate.content.description}
+                  </Title>
+                  <Button
+                    type="primary"
+                    href="https://ant.design"
+                    target="_blank"
+                  >
+                    {t("explore")}
+                  </Button>
+                </div>
+              </Flex>
+            </Col>
+            <Col flex="1 0 50%" className="column">
+              <div
+                style={{
+                  position: "absolute",
+                  top: "120px",
+                  right: "140px",
+                  width: "30%",
+                  height: "100px",
+                  padding: "10px",
+                }}
+              >
+                <Carousel
+                  autoplay
+                  autoplaySpeed={3000}
+                  afterChange={handleChange}
+                >
+                  {dataInfoLocate.map((item, index) => (
+                    <div key={index}>
+                      <img
+                        alt="avatar"
+                        src={item.avatarLocate}
+                        className="img-avatar"
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+              </div>
+            </Col>
+          </Row>
+        </div>
       </div>
 
       {/* Company information */}
@@ -199,6 +219,10 @@ const About = () => {
             </div>
           </Col>
         </Row>
+      </div>
+
+      {/* Our Story */}
+      <div className="container-block container-our-story">
       </div>
     </>
   );
