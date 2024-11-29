@@ -68,17 +68,12 @@ const About = (props) => {
         >
           <Row className="row">
             <Col flex="1 0 50%" className="column">
-              <Flex
-                vertical
-                align="flex-end"
-                justify="space-between"
-                
-              >
+              <Flex vertical align="flex-end" justify="space-between">
                 <div
                   style={{
                     padding: "80px 30px",
                     position: "absolute",
-                    bottom: "10px"
+                    top: "10px",
                   }}
                 >
                   <Title level={2} style={{ color: "white" }}>
@@ -223,6 +218,157 @@ const About = (props) => {
 
       {/* Our Story */}
       <div className="container-block container-our-story">
+        {/* first block */}
+        <div className="first-block">
+          <div className="sub-block">
+            <div
+              style={{
+                marginBottom: "20px",
+                paddingRight: "15px",
+                borderRight: "5px solid white",
+                width: "fit-content",
+                height: "40px",
+              }}
+            >
+              <Title
+                className="uppercase"
+                style={{ marginBottom: "0px", color: "white" }}
+              >
+                {t("our_story")}
+              </Title>
+            </div>
+            <div>
+              <Row className="row">
+                <Col flex="1 0 65%" className="column">
+                  <div className="block-info-left">
+                    <p>
+                      <span className="font-italic">VEcoTra </span>
+                      <span
+                        className="font-normal"
+                        style={{ color: "#bff0c7" }}
+                      >
+                        Travel Service Trading Company Limited (Vietnam Eco
+                        Travel) is one of the leading companies in green and
+                        sustainable tourism in Vietnam. Guided by s strategy to
+                        create eco-friendly journeys and foster lasting
+                        connections,
+                      </span>
+                      <span className="font-italic">VEcoTra </span>
+                      <span
+                        className="font-normal"
+                        style={{ color: "#bff0c7" }}
+                      >
+                        is dedicated to offering environmentally friendly travel
+                        experiences while contributing to nature conservation
+                        and preservation.
+                      </span>
+                    </p>
+                  </div>
+                </Col>
+                <Col flex="1 0 35%" className="column">
+                  <div className="block-info-right">
+                    <div>
+                      <div
+                        style={{
+                          border: "4px solid white",
+                          width: "20%",
+                          position: "absolute",
+                          right: "20px",
+                        }}
+                      ></div>
+                      <img
+                        alt="avatar"
+                        src="https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        className="img-avatar"
+                      />
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </div>
+          </div>
+        </div>
+        {/* second block */}
+        <div>
+          <div className="second-block">
+            <div>
+              <Row className="row">
+                <Col flex="1 0 65%" className="column">
+                  <div className="block-info-left">
+                    <div
+                      style={{
+                        border: "4px solid #3ab54a",
+                        width: "10%",
+                        position: "absolute",
+                        top: "20px",
+                      }}
+                    ></div>
+                    <div style={{ marginTop: "50px" }}>
+                      <p>
+                        <span
+                          className="font-normal font-italic"
+                          style={{ color: "#565656" }}
+                        >
+                          From the beginning, we have taken pride in pioneering
+                          green tourism solutions that minimize environmental
+                          impact and honor local cultures. With a team of
+                          passionate and professional staff,
+                        </span>
+                        <span className="font-italic">VEcoTra </span>
+                        <span
+                          className="font-normal font-italic"
+                          style={{ color: "#565656" }}
+                        >
+                          is committed to providing you with memorable and
+                          meaningful travel experiences.
+                        </span>
+                      </p>
+                      <p>
+                        <span
+                          className="font-normal"
+                          style={{ color: "#565656" }}
+                        >
+                          At{" "}
+                        </span>
+                        <span className="font-italic">VEcoTra, </span>
+                        <span
+                          className="font-normal"
+                          style={{ color: "#565656" }}
+                        >
+                          we believe that travel is not only about exploring new
+                          destinations but also about protecting and valuing
+                          natural and cultural treasures. Embracing our motto,
+                          &quot;Green Journeys - Sustainable Connections,&quot; we
+                          aim to build a sustainable and environmentally friendly
+                          tourism future.
+                        </span>
+                      </p>
+                      <p>
+                        <span
+                          className="font-normal"
+                          style={{ color: "#565656" }}
+                        >
+                          Join{" "}
+                        </span>
+                        <span className="font-italic">VEcoTra </span>
+                        <span
+                          className="font-normal"
+                          style={{ color: "#565656" }}
+                        >
+                          to explore and experience the wonders of Vietnam&apos;s
+                          nature in a completely new and sustainable way.
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </Col>
+                <Col flex="1 0 35%" className="column">
+                  <div className="block-info-right"></div>
+                </Col>
+              </Row>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
