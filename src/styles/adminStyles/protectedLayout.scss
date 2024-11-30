@@ -1,0 +1,19 @@
+.container-protectedLayout {
+    display: block;
+    position: relative;
+    // flex-direction: column;
+    width: 100%;
+    height: 100vh;
+
+    .navBar-header {
+        display: inline;
+        width: 100%;
+        height: auto; // Define a fixed height or dynamic value
+        z-index: 10000;
+    }
+
+    .outLet-container {
+        // width: 80%;
+    }
+
+}

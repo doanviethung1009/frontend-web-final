@@ -41,21 +41,21 @@ const PreviewCreateTourProcess = (props) => {
                     {listData.tourCode}
                 </Card>
                 <Card title="Filter tag" size="small">
-                    {listData.filterTag}
+                    {/* {listData.filterTag} */}
                 </Card>
                 <Card title="Continent" size="small">
-                    {listData.tourContinent}
+                    {/* {listData.tourContinent} */}
                 </Card>
                 <Card title="Country" size="small">
-                    {listData.tourCountry}
+                    {/* {listData.tourCountry} */}
                 </Card>
                 <Card title="Privacy" size="small">
-                    {listData.tourPrivacy}
+                    {/* {listData.tourPrivacy} */}
                 </Card>
                 <Card title="State/Province/City" size="small">
                     <ul>
 
-                        {listData ? listData.tourState.map((item, index) => (
+                        {listData.tourState ? listData.tourState.map((item, index) => (
                             <li key={index}>{item}</li>
                         ))
                             :
@@ -68,55 +68,139 @@ const PreviewCreateTourProcess = (props) => {
                     <p>Card content</p>
                 </Card>
                 <Card title="Duration" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
-                </Card>
-                <Card title="Transport" size="small">
+                    <p>{listData.tourDurationDay} days {listData.tourDurationNight}  </ p >
 
                 </Card>
+                <Card title="Transport" size="small">
+                    <ul>
+
+                        {listData.tourTransport ? listData.tourTransport.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))
+                            :
+                            <p></p>
+                        }
+                    </ul>
+                </Card>
                 <Card title="Accommodation" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
+                    <ul>
+
+                        {listData.tourAccommodation ? listData.tourAccommodation.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))
+                            :
+                            <p></p>
+                        }
+                    </ul>
                 </Card>
                 <Card title="Depart from" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
+                    {listData.departFrom ? listData.departFrom : null}
+
                 </Card>
                 <Card title="Language support" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
+
+                    <ul>
+
+                        {listData.langSupport ? listData.langSupport.map((item, index) => (
+                            <li key={index}>{item}</li>
+                        ))
+                            :
+                            <p></p>
+                        }
+                    </ul>
                 </Card>
                 <Card title="Description VI" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
+                    {listData ? listData.tourDescriptionVI : null}
+
                 </Card>
                 <Card title="Description EN" size="small">
+                    {listData ? listData.tourDescriptionEN : null}
 
                 </Card>
                 <Card title="Giá tour" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
-                </Card>
-                <Card title="Giá tour USD" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
-                </Card>
-                <Card title="Rating" size="small">
+                    {listData ? listData.tourPriceVND : null}
 
                 </Card>
+                <Card title="Giá tour USD" size="small">
+                    {listData ? listData.tourPriceEN : null}
+                </Card>
+                <Card title="Rating" size="small">
+                    {listData ? listData.tourStar : null}
+                </Card>
                 <Card title="Điểm nổi bật" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
+                    {listData ? listData.tourHighlightVI : null}
                 </Card>
                 <Card title="Điểm nổi bật EN" size="small">
-                    <p>Card content</p>
-                    <p>Card content</p>
+                    {listData ? listData.tourHighlightEN : null}
                 </Card>
-                <Card title="Lịch trình chi tiết" size="small">
-                    <p>{listData.tourDetailVI}</p>
-                </Card>
-                <Card title="Lịch trình chi tiết EN" size="small">
-                    <p>{listData.tourDetailEN}</p>
+                <Card title="Lịch trình chi tiết" size="small" style={{ padding: "10px", textAlign: "left" }} >
+                    {
+                        listData.tourDetailVI ? listData.tourDetailVI.map((item, index) => {
+                            return (
+                                <>
+                                    <ul>
+                                        <h3>
+                                            {item.title}
+                                        </h3>
+                                    </ul>
+                                    <ul >
+                                        {/* {item.description} */}
+                                        <li dangerouslySetInnerHTML={{ __html: item.description }}>
+                                        </li>
+                                    </ul>
+
+
+                                </>
+                            )
+                        }
+
+                        )
+                            :
+                            <p></p>
+                    }
+
+                </Card >
+                <Card title="Lịch trình chi tiết EN" size="small" style={{ padding: "10px", textAlign: "left" }}>
+                    {/* {listData ? listData.tourDetailEN.map((item, index) => {
+                        return (
+                            <>
+                                <h3>
+                                    {item.title}
+                                </h3>
+                                <ul key={index}>
+                                    <li> {item.description}</li>
+                                </ul>
+                            </>
+                        )
+                    }
+                    )
+                        :
+                        <p></p>
+                    } */}
+                    {listData.tourDetailEN ? listData.tourDetailEN.map((item, index) => {
+                        return (
+                            <>
+                                <ul>
+                                    <h3>
+                                        {item.title}
+                                    </h3>
+                                </ul>
+                                <ul >
+                                    {/* {item.description} */}
+                                    <li dangerouslySetInnerHTML={{ __html: item.description }}>
+                                    </li>
+                                </ul>
+
+
+                            </>
+                        )
+                    }
+
+                    )
+                        :
+                        <p></p>
+                    }
+
                 </Card>
                 <Card title="Thumbnail Image" size="small">
                     <Button type="primary" onClick={showModal}>
