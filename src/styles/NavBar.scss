@@ -1,15 +1,24 @@
-.container {
+.transparent {
+    background: transparent !important;
+}
+
+.solid {
+    background: rgba(255, 255, 255, 1) !important; /* Màu sắc bạn muốn */
+}
+
+.container-navbar {
     display: flex;
     width: 100%;
     // border-bottom: 1px solid #333;
     height: auto;
-    background: transparent !important;
+    background: transparent;
     // overflow: hidden;
 
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 10000;
+    transition: background-color 0.3s;
 
     // background-color: #333;/
 
