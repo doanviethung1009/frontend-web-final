@@ -100,5 +100,15 @@
     "legal_representative": "Legal Representative",
     "title": "Title",
     "address": "Address",
-    "our_story": "Our Story"
+    "our_story": "Our Story",
+    "business_sectors": "Business Sectors",
+    "main_business_sector": "Main Business Sector",
+    "tour_operation": "Tour operation",
+    "issued_by_the_vietnam_national_administration_of_tourism": "issued by the Vietnam National Administration of Tourism",
+    "other_business_sectors_include": "Other Business Sectors Include",
+    "title_data_other_business_sectors_1": "Advertising, market research, and event organization",
+    "title_data_other_business_sectors_2": "Road passenger transport and transport support",
+    "title_data_other_business_sectors_3": "Accommodation and restaurant services",
+    "title_data_other_business_sectors_4": "Agency, brokerage for goods, cosmetics, food and beverages",
+    "title_data_other_business_sectors_5": "Education, training and artistic activities"
 }

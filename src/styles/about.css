@@ -124,3 +124,29 @@
   }
 }
 /* ------ container-our-story ------ */
+
+/* ------ container-business-sectors ------ */
+.container-business-sectors {
+  padding: 20px;
+}
+.other-business-block {
+  background-color: #3ab54a;
+  color: white !important;
+  width: 240px;
+  transition: transform 0.3s;
+  border-radius: 10px;
+  height: 250px;
+}
+
+.other-business-block .img-avatar {
+  padding: 40px;
+  display: flex;
+  margin: auto;
+}
+
+.other-business-block:hover {
+  background-color: #e9b853 !important;
+  color: white !important;
+  transform: scale(1.1);
+}
+/* ------ container-business-sectors ------ */
