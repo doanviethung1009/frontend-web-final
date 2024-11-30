@@ -21,7 +21,7 @@ const OpenImageModal = (props) => {
     return (
         <div style={{ display: "block" }}>
             <Modal title="Basic Modal" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                <img style={{ display: "block", width: "100%" }} src={`${import.meta.env.VITE_API_URL}images/thumbnail-${listData.tourCode}/${listData.tourImageThumbnail}`} alt="" />
+                <img style={{ display: "block", width: "100%" }} src={`${import.meta.env.VITE_API_URL}/images/thumbnail-${listData.tourCode}/${listData.tourImageThumbnail}`} alt="" />
             </Modal>
         </div>
     );

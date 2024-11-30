@@ -3,27 +3,15 @@ import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/Auth.Context';
 import { toast } from 'react-toastify';
+import { LangContext } from '../context/Lang.Context';
 
 const NavBarAdmin = () => {
     const { user, handleOnClickLogout } = useContext(AuthContext)
     // const storedUser = localStorage.getItem("userName");
+    const { checkLang, setCheckLang } = useContext(LangContext)
+    // console.log("checkLang: " + checkLang)
+    // console.log("user", user)
 
-    console.log("user", user)
-    // const handleOnClickLogout = () => {
-    //     setUser({
-    //         avatar: "",
-    //         email: "",
-    //         fullName: "",
-    //         id: "",
-    //         role: "",
-    //         phone: "",
-    //     });
-    //     localStorage.removeItem('token');
-    //     localStorage.removeItem('userName');
-    //     // localStorage.removeItem('tourId');
-    //     toast.success("user has been logged out")
-    //     navigate("/login");  // Redirect to login page
-    // }
 
     const { SubMenu } = Menu
     return (
@@ -33,7 +21,7 @@ const NavBarAdmin = () => {
                     <Link to={"/"}>Home</Link>
                 </Menu.Item>
 
-                <SubMenu key="submenu" title="Settings">
+                <SubMenu key="submenu" title="Tour Admin">
                     <Menu.Item key="profile">
                         <Link to={"/createTour"}>
                             Create Tour
@@ -41,12 +29,7 @@ const NavBarAdmin = () => {
                     </Menu.Item>
                     <Menu.Item key="preferences">
                         <Link to={"/tourAdmin"}>
-                            Tour Admin
-                        </Link>
-                    </Menu.Item>
-                    <Menu.Item key="test">
-                        <Link to={"/testApi"}>
-                            Test API
+                            List Tour
                         </Link>
                     </Menu.Item>
                     <Menu.Item key="bar">
@@ -91,6 +74,13 @@ const NavBarAdmin = () => {
 
                     ]
                 }
+                {/* {
+                    <Menu.Item key="language">
+                        <span onClick={() => setCheckLang(checkLang === 'en' ? 'vi' : 'en')}>
+                            {checkLang === 'en' ? 'vi' : 'en'}
+                        </span>
+                    </Menu.Item>
+                } */}
                 {/* `welecome to ${user.name}`
 
                    

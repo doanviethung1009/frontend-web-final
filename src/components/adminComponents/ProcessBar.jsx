@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import FileUploader from './FileUploader';
 import InboundPolicies from '../publicComponents/InboundPolicies';
 import PreviewCreateTourProcess from './PreviewCreateTourProcess';
+import { createTourAPI, getTourAPI } from '../../services/apiService';
 
 
 const ProcessBar = () => {
@@ -64,33 +65,47 @@ const ProcessBar = () => {
 
     };
 
+    const handleOnClick = async () => {
+        let res = await createTourAPI(listData)
+        console.log("check createTourAPI", res)
+        if (res.message && res.message.errCode === 0) {
+            message.success('Tour created successfully');
+            navigation(`/tourAdmin`)
+        } else (
+            message.error(`Error: ${res.message}`)
+        )
+    }
+
     console.log(">>> check data", listData)
 
     return (
-        <div className="processBar-container" style={{ justifyItems: "center", padding: "20px" }}>
-            <Steps current={current} items={items} />
-            <div style={contentStyle}>{steps[current].content}</div>
-            <div style={{ marginTop: 24 }}>
-                {current < steps.length - 1 && (
-                    <Button type="primary" onClick={() => next()}>
-                        Next
-                    </Button>
-                )}
-                {current === steps.length - 1 && (
-                    <Button type="primary" onClick={() => {
-                        message.success('Processing complete!')
-                        navigation('/tourAdmin')
-                    }}>
-                        Done
-                    </Button>
-                )}
-                {current > 0 && (
-                    <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-                        Previous
-                    </Button>
-                )}
-            </div>
+        <div>
+            <h3 style={{ textAlign: "center" }}>Create Tour Progress</h3>
+            <div className="processBar-container" style={{
+                justifyItems: "center", padding: "20px", overflowY: "auto"
+            }}>
+                <Steps current={current} items={items} />
+                <div style={contentStyle}>{steps[current].content}</div>
+                <div style={{ marginTop: 24 }}>
+                    {current < steps.length - 1 && (
+                        <Button type="primary" onClick={() => next()}>
+                            Next
+                        </Button>
+                    )}
+                    {current === steps.length - 1 && (
+                        <Button type="primary" onClick={() => handleOnClick()}>
+                            Done
+                        </Button>
+                    )}
+                    {current > 0 && (
+                        <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+                            Previous
+                        </Button>
+                    )}
+                </div>
+            </div >
         </div>
+
     );
 };
 

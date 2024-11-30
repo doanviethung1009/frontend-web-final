@@ -2,20 +2,19 @@ import { Outlet } from "react-router-dom";
 import NavBarAdmin from "../components/NavBarAdmin";
 import { useContext } from "react";
 import { AuthContext } from "../context/Auth.Context";
-import { LangContext, LangProvider } from "../context/Lang.Context";
-import '../styles/adminStyles/protectedLayout.scss'
 import NavBarAdmin2 from "../components/NavBarAdmin2";
+import '../styles/adminStyles/protectedLayout.scss'
 
-const ProtectedLayout = () => {
-    // const { checkLang, setCheckLang } = useContext(LangContext)
-    // const { checkLang, setCheckLang } = props;
+const ProtectedLayout = (props) => {
 
+    const { checkLang, setCheckLang } = props;
     return (
-        <div className="container-protectedLayout">
+        <div className="container">
             <div className="navBar-header">
                 <header>
-                    <NavBarAdmin
-
+                    <NavBarAdmin2
+                        checkLang={checkLang}
+                        setCheckLang={setCheckLang}
                     />
                 </header>
 
@@ -23,7 +22,8 @@ const ProtectedLayout = () => {
             <div className="outLet-container" >
                 <main>
                     <Outlet
-
+                        checkLang={checkLang}
+                        setCheckLang={setCheckLang}
                     />
                 </main>
             </div>

@@ -1,5 +1,17 @@
-table,
-th,
-td {
+table {
     border: 1px solid black;
+}
+
+.container-tourAdmin {
+    // display: inline-block;
+    position: relative;
+    // width: 1000px;
+    width: 100%;
+    z-index: 100;
+
+    h1 {
+        font-size: 40px;
+        color: #333;
+        text-align: center;
+    }
 }
