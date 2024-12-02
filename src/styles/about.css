@@ -148,5 +148,61 @@
   background-color: #e9b853 !important;
   color: white !important;
   transform: scale(1.1);
+  cursor: pointer;
 }
 /* ------ container-business-sectors ------ */
+
+/* ------ container-core-values ------ */
+.container-core-values {
+  padding: 20px;
+  background-color: #3ab54a;
+  color: white !important;
+  transition: transform 0.3s;
+}
+
+.core-values-main-block {
+  color: white !important;
+  transition: transform 0.3s;
+  border-radius: 10px;
+}
+
+.core-values-main-block .img-avatar {
+  padding: 40px;
+  display: flex;
+  margin: auto;
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.core-values-block {
+  color: white !important;
+  width: 280px;
+  transition: transform 0.3s;
+  border-radius: 10px;
+  height: 250px;
+}
+
+.core-values-block .img-avatar {
+  padding: 40px;
+  display: flex;
+  margin: auto;
+}
+
+@media screen and (max-width: 2560px) {
+  .container-core-values .core-values-list {
+    padding: 0px 190px !important;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .container-core-values .core-values-list {
+    padding: 0px 45px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container-core-values .core-values-list {
+    padding: unset !important;
+  }
+}
+/* ------ container-core-values ------ */
