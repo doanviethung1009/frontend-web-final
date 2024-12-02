@@ -1,34 +1,34 @@
-import { useState, useCallback, useEffect } from 'react';
-import { Carousel, Flex, Typography, Button, Row, Col } from 'antd';
-import '../styles/about.css';
-import { useTranslation } from 'react-i18next';
-import { NotificationOutlined, CarOutlined } from '@ant-design/icons';
+import { useState, useCallback, useEffect } from "react";
+import { Carousel, Flex, Typography, Button, Row, Col } from "antd";
+import "../styles/about.css";
+import { useTranslation } from "react-i18next";
+import { NotificationOutlined, CarOutlined } from "@ant-design/icons";
 
 const { Title, Text } = Typography;
 
 const dataInfoLocate = [
   {
     avatarLocate:
-      'https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      "https://images.pexels.com/photos/169647/pexels-photo-169647.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     backgroundLocate:
-      'https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg',
+      "https://images.pexels.com/photos/290595/pexels-photo-290595.jpeg",
     content: {
-      location: 'Ho Chi Minh City, Vietnam',
-      title: 'Nightview in Ho Chi Minh City',
+      location: "Ho Chi Minh City, Vietnam",
+      title: "Nightview in Ho Chi Minh City",
       description:
-        'Witness the dynamic nightlife of HCM City, where the skyline meets the sparkling riverside, and the energy of the city never sleep',
+        "Witness the dynamic nightlife of HCM City, where the skyline meets the sparkling riverside, and the energy of the city never sleep",
     },
   },
   {
     avatarLocate:
-      'https://images.pexels.com/photos/169677/pexels-photo-169677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      "https://images.pexels.com/photos/169677/pexels-photo-169677.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     backgroundLocate:
-      'https://images.pexels.com/photos/1619569/pexels-photo-1619569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      "https://images.pexels.com/photos/1619569/pexels-photo-1619569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     content: {
-      location: 'Ha Noi, Vietnam',
-      title: 'Nightview in Ha Noi City',
+      location: "Ha Noi, Vietnam",
+      title: "Nightview in Ha Noi City",
       description:
-        'Witness the dynamic nightlife of HN City, where the skyline meets the sparkling riverside, and the energy of the city never sleep',
+        "Witness the dynamic nightlife of HN City, where the skyline meets the sparkling riverside, and the energy of the city never sleep",
     },
   },
 ];
@@ -36,24 +36,60 @@ const dataInfoLocate = [
 // data-other-business-sectors
 const dataOtherBusinessSectors = [
   {
-    icon: 'https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    title: 'title_data_other_business_sectors_1',
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "title_data_other_business_sectors_1",
   },
   {
-    icon: 'https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    title: 'title_data_other_business_sectors_2',
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "title_data_other_business_sectors_2",
   },
   {
-    icon: 'https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    title: 'title_data_other_business_sectors_3',
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "title_data_other_business_sectors_3",
   },
   {
-    icon: 'https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    title: 'title_data_other_business_sectors_4',
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "title_data_other_business_sectors_4",
   },
   {
-    icon: 'https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-    title: 'title_data_other_business_sectors_5',
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "title_data_other_business_sectors_5",
+  },
+];
+
+// data-core-values
+const dataCoreValues = [
+  {
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "environmental_stewardship",
+  },
+  {
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "authentic_experiences",
+  },
+  {
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "continuous_innovation",
+  },
+  {
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "community_engagement",
+  },
+  {
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "cultural_respect",
+  },
+  {
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "customer_centric_service",
+  },
+  {
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "integrity_and_transparency",
+  },
+  {
+    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    title: "safety_and_wellbeing",
   },
 ];
 
@@ -96,18 +132,18 @@ const About = (props) => {
               <Flex vertical align="flex-end" justify="space-between">
                 <div
                   style={{
-                    padding: '80px 30px',
-                    position: 'absolute',
-                    top: '10px',
+                    padding: "80px 30px",
+                    position: "absolute",
+                    top: "10px",
                   }}
                 >
-                  <Title level={2} style={{ color: 'white' }}>
+                  <Title level={2} style={{ color: "white" }}>
                     {changeInfoLocate.content.location}
                   </Title>
-                  <Title style={{ color: 'white' }}>
+                  <Title style={{ color: "white" }}>
                     {changeInfoLocate.content.title}
                   </Title>
-                  <Title level={5} style={{ color: 'white' }}>
+                  <Title level={5} style={{ color: "white" }}>
                     {changeInfoLocate.content.description}
                   </Title>
                   <Button
@@ -115,7 +151,7 @@ const About = (props) => {
                     href="https://ant.design"
                     target="_blank"
                   >
-                    {t('explore')}
+                    {t("explore")}
                   </Button>
                 </div>
               </Flex>
@@ -123,12 +159,12 @@ const About = (props) => {
             <Col flex="1 0 50%" className="column">
               <div
                 style={{
-                  position: 'absolute',
-                  top: '120px',
-                  right: '140px',
-                  width: '30%',
-                  height: '100px',
-                  padding: '10px',
+                  position: "absolute",
+                  top: "120px",
+                  right: "140px",
+                  width: "30%",
+                  height: "100px",
+                  padding: "10px",
                 }}
               >
                 <Carousel
@@ -166,30 +202,30 @@ const About = (props) => {
           </Col>
           <Col flex="1 0 70%" className="column">
             <div className="block-info-right">
-              <Title className="info-title">{t('company_information')}</Title>
+              <Title className="info-title">{t("company_information")}</Title>
               <div
                 style={{
-                  backgroundColor: '#fbfbfb',
-                  borderRadius: '10px',
-                  padding: '20px 35px',
-                  border: '1px solid #fbfbfb',
+                  backgroundColor: "#fbfbfb",
+                  borderRadius: "10px",
+                  padding: "20px 35px",
+                  border: "1px solid #fbfbfb",
                   boxShadow:
-                    'rgb(0 0 0 / 10%) 25px 35px 24px -11px, rgb(0 0 0 / 10%) 20px 25px 20px -10px',
-                  margin: '20px 0px',
-                  width: 'fit-content',
+                    "rgb(0 0 0 / 10%) 25px 35px 24px -11px, rgb(0 0 0 / 10%) 20px 25px 20px -10px",
+                  margin: "20px 0px",
+                  width: "fit-content",
                 }}
               >
                 <ol>
                   <li>
-                    <Title level={5}>{t('company_name')}:</Title>
+                    <Title level={5}>{t("company_name")}:</Title>
                     <p>
-                      <span>- {t('vietnamese_name')}: </span>
+                      <span>- {t("vietnamese_name")}: </span>
                       <span className="font-normal">
                         CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ DU LỊCH VECOTRA
                       </span>
                     </p>
                     <p>
-                      <span>- {t('international_name')}: </span>
+                      <span>- {t("international_name")}: </span>
                       <span className="font-normal">
                         VECOTRA TRAVEL SERVICE TRADING COMPANY LIMITED
                       </span>
@@ -197,21 +233,21 @@ const About = (props) => {
                   </li>
                   <li>
                     <Title level={5}>
-                      <span>{t('date_of_establishment')}: </span>
+                      <span>{t("date_of_establishment")}: </span>
                       <span className="font-normal">July 12, 2024</span>
                     </Title>
                   </li>
                   <li>
                     <Title level={5}>
                       <span>
-                        {t('tax_code')}/ {t('business_license_no')}:{' '}
+                        {t("tax_code")}/ {t("business_license_no")}:{" "}
                       </span>
                       <span className="font-normal">0318565202</span>
                     </Title>
                   </li>
                   <li>
                     <Title level={5}>
-                      <span>{t('international_travel_license')}: </span>
+                      <span>{t("international_travel_license")}: </span>
                       <span className="font-normal">
                         79-1967/2024/CDLQGVN-GP LHQT
                       </span>
@@ -219,15 +255,15 @@ const About = (props) => {
                   </li>
                   <li>
                     <Title level={5}>
-                      <span>{t('legal_representative')}: </span>
+                      <span>{t("legal_representative")}: </span>
                       <span>(Mrs.) Dang Le Hao</span>
-                      <span> - {t('title')}: </span>
+                      <span> - {t("title")}: </span>
                       <span className="font-normal">General Director</span>
                     </Title>
                   </li>
                   <li>
                     <Title level={5}>
-                      <span>{t('address')}: </span>
+                      <span>{t("address")}: </span>
                       <span className="font-normal">
                         159/22F Dao Duy Anh Street, Ward 09, Phu Nhuan District,
                         HCMC, Vietnam
@@ -248,18 +284,18 @@ const About = (props) => {
           <div className="sub-block">
             <div
               style={{
-                marginBottom: '20px',
-                paddingRight: '15px',
-                borderRight: '5px solid white',
-                width: 'fit-content',
-                height: '40px',
+                marginBottom: "20px",
+                paddingRight: "15px",
+                borderRight: "5px solid white",
+                width: "fit-content",
+                height: "40px",
               }}
             >
               <Title
                 className="uppercase"
-                style={{ marginBottom: '0px', color: 'white' }}
+                style={{ marginBottom: "0px", color: "white" }}
               >
-                {t('our_story')}
+                {t("our_story")}
               </Title>
             </div>
             <div>
@@ -270,7 +306,7 @@ const About = (props) => {
                       <span className="font-italic">VEcoTra </span>
                       <span
                         className="font-normal"
-                        style={{ color: '#bff0c7' }}
+                        style={{ color: "#bff0c7" }}
                       >
                         Travel Service Trading Company Limited (Vietnam Eco
                         Travel) is one of the leading companies in green and
@@ -281,7 +317,7 @@ const About = (props) => {
                       <span className="font-italic">VEcoTra </span>
                       <span
                         className="font-normal"
-                        style={{ color: '#bff0c7' }}
+                        style={{ color: "#bff0c7" }}
                       >
                         is dedicated to offering environmentally friendly travel
                         experiences while contributing to nature conservation
@@ -295,10 +331,10 @@ const About = (props) => {
                     <div>
                       <div
                         style={{
-                          border: '4px solid white',
-                          width: '20%',
-                          position: 'absolute',
-                          right: '20px',
+                          border: "4px solid white",
+                          width: "20%",
+                          position: "absolute",
+                          right: "20px",
                         }}
                       ></div>
                       <img
@@ -322,17 +358,17 @@ const About = (props) => {
                   <div className="block-info-left">
                     <div
                       style={{
-                        border: '4px solid #3ab54a',
-                        width: '10%',
-                        position: 'absolute',
-                        top: '20px',
+                        border: "4px solid #3ab54a",
+                        width: "10%",
+                        position: "absolute",
+                        top: "20px",
                       }}
                     ></div>
-                    <div style={{ marginTop: '50px' }}>
+                    <div style={{ marginTop: "50px" }}>
                       <p>
                         <span
                           className="font-normal font-italic"
-                          style={{ color: '#565656' }}
+                          style={{ color: "#565656" }}
                         >
                           From the beginning, we have taken pride in pioneering
                           green tourism solutions that minimize environmental
@@ -342,7 +378,7 @@ const About = (props) => {
                         <span className="font-italic">VEcoTra </span>
                         <span
                           className="font-normal font-italic"
-                          style={{ color: '#565656' }}
+                          style={{ color: "#565656" }}
                         >
                           is committed to providing you with memorable and
                           meaningful travel experiences.
@@ -351,14 +387,14 @@ const About = (props) => {
                       <p>
                         <span
                           className="font-normal"
-                          style={{ color: '#565656' }}
+                          style={{ color: "#565656" }}
                         >
-                          At{' '}
+                          At{" "}
                         </span>
                         <span className="font-italic">VEcoTra, </span>
                         <span
                           className="font-normal"
-                          style={{ color: '#565656' }}
+                          style={{ color: "#565656" }}
                         >
                           we believe that travel is not only about exploring new
                           destinations but also about protecting and valuing
@@ -371,14 +407,14 @@ const About = (props) => {
                       <p>
                         <span
                           className="font-normal"
-                          style={{ color: '#565656' }}
+                          style={{ color: "#565656" }}
                         >
-                          Join{' '}
+                          Join{" "}
                         </span>
                         <span className="font-italic">VEcoTra </span>
                         <span
                           className="font-normal"
-                          style={{ color: '#565656' }}
+                          style={{ color: "#565656" }}
                         >
                           to explore and experience the wonders of
                           Vietnam&apos;s nature in a completely new and
@@ -399,28 +435,41 @@ const About = (props) => {
 
       {/* Business Sectors */}
       <div className="container-block container-business-sectors">
-        <Title className="uppercase" style={{ paddingRight: '20px', borderRight: '5px solid #e9b853', width: 'fit-content' }}>{t('business_sectors')}</Title>
-        <div className="text-center" style={{ marginBottom: '20px' }}>
+        <Title
+          className="uppercase"
+          style={{
+            paddingRight: "20px",
+            borderRight: "5px solid #e9b853",
+            width: "fit-content",
+          }}
+        >
+          {t("business_sectors")}
+        </Title>
+        <div className="text-center" style={{ marginBottom: "20px" }}>
           <Title level={4} className="text-green">
-            {t('main_business_sector')}
+            {t("main_business_sector")}
           </Title>
           <Text>
-            {t('tour_operation')},{' '}
-            {t('international_travel_license').toLowerCase()}
-          </Text>{' '}
+            {t("tour_operation")},{" "}
+            {t("international_travel_license").toLowerCase()}
+          </Text>{" "}
           <br />
           <Text>No.79-1967/2024/CDLQGVN-GPLHQT</Text> <br />
           <Text>
-            {t('issued_by_the_vietnam_national_administration_of_tourism')}
+            {t("issued_by_the_vietnam_national_administration_of_tourism")}
           </Text>
         </div>
         <div className="text-center">
-          <Title level={4} className="text-green" style={{ marginBottom: '20px' }}>
-            {t('other_business_sectors_include')}
+          <Title
+            level={4}
+            className="text-green"
+            style={{ marginBottom: "20px" }}
+          >
+            {t("other_business_sectors_include")}
           </Title>
           <div
             className="d-flex"
-            style={{ justifyContent: 'center', gap: '30px', flexWrap: 'wrap' }}
+            style={{ justifyContent: "center", gap: "30px", flexWrap: "wrap" }}
           >
             {dataOtherBusinessSectors.map((item, index) => (
               <div key={index} className="other-business-block">
@@ -429,13 +478,58 @@ const About = (props) => {
                     alt="avatar"
                     src={item.icon}
                     className="img-avatar"
-                    style={{ width: '100px', height: '100px' }}
+                    style={{ width: "100px", height: "100px" }}
                   />
                 </div>
-                <Text style={{ color: 'white' }}>{t(item.title)}</Text>
+                <Text style={{ color: "white" }}>{t(item.title)}</Text>
               </div>
             ))}
           </div>
+        </div>
+      </div>
+
+      {/* Core Values */}
+      <div className="container-block container-core-values">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+        >
+          <div className="core-values-main-block">
+            <div className="image-icon">
+              <img
+                alt="avatar"
+                src="https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                className="img-avatar"
+              />
+            </div>
+            <Title className="uppercase" style={{ color: "white", fontSize: "60px" }}>{t("core_values")}</Title>
+          </div>
+        </div>
+        <div
+          className="d-flex justify-center core-values-list"
+          style={{
+            gap: "30px",
+            flexWrap: "wrap",
+            textAlign: "center",
+            
+          }}
+        >
+          {dataCoreValues.map((item, index) => (
+            <div key={index} className="core-values-block">
+              <div className="image-icon">
+                <img
+                  alt="avatar"
+                  src={item.icon}
+                  className="img-avatar"
+                  style={{ width: "100px", height: "100px" }}
+                />
+              </div>
+              <Title level={4} style={{ color: "white" }}>{t(item.title)}</Title>
+            </div>
+          ))}
         </div>
       </div>
     </>
