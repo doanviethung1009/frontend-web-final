@@ -36,23 +36,23 @@ const dataInfoLocate = [
 // data-other-business-sectors
 const dataOtherBusinessSectors = [
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "title_data_other_business_sectors_1",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "title_data_other_business_sectors_2",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "title_data_other_business_sectors_3",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "title_data_other_business_sectors_4",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "title_data_other_business_sectors_5",
   },
 ];
@@ -60,35 +60,35 @@ const dataOtherBusinessSectors = [
 // data-core-values
 const dataCoreValues = [
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "environmental_stewardship",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "authentic_experiences",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "continuous_innovation",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "community_engagement",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "cultural_respect",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "customer_centric_service",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "integrity_and_transparency",
   },
   {
-    icon: "https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
     title: "safety_and_wellbeing",
   },
 ];
@@ -195,7 +195,7 @@ const About = (props) => {
             <div className="block-info-left">
               <img
                 alt="avatar"
-                src="https://images.pexels.com/photos/4203842/pexels-photo-4203842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/1563256/pexels-photo-1563256.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                 className="img-avatar"
               />
             </div>
@@ -339,7 +339,7 @@ const About = (props) => {
                       ></div>
                       <img
                         alt="avatar"
-                        src="https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                        src="https://images.pexels.com/photos/1707820/pexels-photo-1707820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                         className="img-avatar"
                       />
                     </div>
@@ -501,7 +501,7 @@ const About = (props) => {
             <div className="image-icon">
               <img
                 alt="avatar"
-                src="https://images.pexels.com/photos/3124332/pexels-photo-3124332.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600"
                 className="img-avatar"
               />
             </div>
