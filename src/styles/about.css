@@ -33,10 +33,12 @@
   .container-slider .img-avatar {
     display: none !important;
   }
+
   .container-slider .slick-dots {
     display: none !important;
   }
 }
+
 /* ------ container-slider ------ */
 
 /* ------ container-company-information ------ */
@@ -54,6 +56,7 @@
 .container-company-info .block-info-right {
   padding: 40px 0px;
 }
+
 /* ------ container-company-information ------ */
 
 /* ------ container-our-story ------ */
@@ -62,24 +65,13 @@
   background-color: #3ab54a;
 }
 
-.first-block .sub-block .img-avatar {
-  position: absolute;
-  width: 90%;
-  right: 20px;
-  /* border: 5px solid red; */
-  padding-top: 50px;
-}
-
 .first-block .sub-block .block-info-left {
   color: white;
 }
 
-.first-block .sub-block .block-info-left, .first-block .sub-block .block-info-right {
+.first-block .sub-block .block-info-left,
+.first-block .sub-block .block-info-right {
   padding: 0px 20px;
-}
-
-.container-our-story .first-block {
-  height: 435px;
 }
 
 .second-block {
@@ -88,17 +80,17 @@
 
 .second-block .img-avatar {
   position: absolute;
-  width: 90%;
+  max-width: 50%;
   right: 20px;
-  /* border: 5px solid red; */
-  padding-top: 50px;
+  padding-top: 10px;
+  top: -60px;
 }
 
 .second-block .block-info-left {
   color: #e9b853;
 }
 
-.second-block .block-info-left, .second-block .block-info-right {
+.second-block .block-info-right {
   padding: 0px 20px;
 }
 
@@ -112,15 +104,9 @@
   }
 }
 
-@media screen and (max-width: 425px) {
-  .container-our-story .first-block {
-    height: 550px !important;
-  }
-}
-
-@media screen and (max-width: 320px) {
-  .container-our-story .first-block {
-    height: 600px !important;
+@media screen and (max-width: 768px) {
+  .second-block .block-info-right .img-avatar {
+    display: none !important;
   }
 }
 /* ------ container-our-story ------ */
@@ -129,6 +115,7 @@
 .container-business-sectors {
   padding: 20px;
 }
+
 .other-business-block {
   background-color: #3ab54a;
   color: white !important;
@@ -150,6 +137,7 @@
   transform: scale(1.1);
   cursor: pointer;
 }
+
 /* ------ container-business-sectors ------ */
 
 /* ------ container-core-values ------ */
@@ -205,4 +193,41 @@
     padding: unset !important;
   }
 }
+
 /* ------ container-core-values ------ */
+
+/* ------ container-vison ------ */
+.container-vision {
+  padding: 20px;
+}
+
+.container-vision .block-vision {
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  padding: 20px 35px;
+  border: 1px solid #fbfbfb;
+  box-shadow: rgb(0 0 0 / 10%) 25px 35px 24px -11px, rgb(0 0 0 / 10%) 20px 25px 20px -10px;
+  margin: 20px 0px;
+  min-height: 240px;
+}
+
+@media screen and (max-width: 1440px) {
+  .container-vision .block-vision {
+    min-height: 260px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container-vision .block-vision {
+    min-height: 305px !important;
+  }
+}
+
+/* ------ container-vison ------ */
+
+/* ------ container-our-network ------ */
+.container-our-network {
+  padding: 20px;
+}
+
+/* ------ container-our-network ------ */
