@@ -1,4 +1,4 @@
-import CreateTourComponent from '../../components/adminComponents/CreateTourComponent';
+import CreateTourComponentSingle from '../../components/adminComponents/CreateTourComponentSingle';
 import "../../styles/adminStyles/createTour.scss"
 
 const CreateTour = () => {
@@ -14,7 +14,7 @@ const CreateTour = () => {
                     Form create tour
                 </legend>
                 <div className='createTour-content'>
-                    <CreateTourComponent />
+                    <CreateTourComponentSingle />
                 </div>
 
             </fieldset>

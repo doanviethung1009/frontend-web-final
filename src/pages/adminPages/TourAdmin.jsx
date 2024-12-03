@@ -5,6 +5,7 @@ import '../../styles/adminStyles/tourAdmin.scss'
 import { message, Space, Table, Tag } from 'antd';
 import { deleteSoftTourAPI, deleteTourAPI, fetchListTourDeletedAPI } from '../../services/adminAPI/adminApiService';
 import OpenDetailTour from '../../components/adminComponents/modals/OpenDetailTour';
+import EditTourModal from '../../components/adminComponents/modals/EditTourModal';
 
 
 const TourAdmin = () => {
@@ -16,7 +17,9 @@ const TourAdmin = () => {
     const [loading, setLoading] = useState({ active: true, trash: true });
     // const [isLoading, setIsLoading] = useState(true)
     const [isOpenModal, setIsOpenModal] = useState(false)
-
+    const [edit, setEdit] = useState(false)
+    const [dataTour, setDataTour] = useState([]);
+    const [editDataTour, setEditDataTour] = useState([]);
     const fetchTours = async () => {
         try {
             setLoading({ active: true, trash: true });
@@ -32,30 +35,30 @@ const TourAdmin = () => {
     };
 
     // Fetch active tours
-    const fetchListTour = async () => {
-        try {
-            const response = await getTourAPI();
-            if (response?.message?.data) {
-                setGetListTour(response.message.data);
-            }
-        } catch (error) {
-            message.error('Failed to fetch active tours.');
-            console.error(error);
-        }
-    };
+    // const fetchListTour = async () => {
+    //     try {
+    //         const response = await getTourAPI();
+    //         if (response?.message?.data) {
+    //             setGetListTour(response.message.data);
+    //         }
+    //     } catch (error) {
+    //         message.error('Failed to fetch active tours.');
+    //         console.error(error);
+    //     }
+    // };
 
-    // Fetch deleted tours
-    const fetchListTempTour = async () => {
-        try {
-            const response = await fetchListTourDeletedAPI();
-            if (response?.message?.data) {
-                setGetListTempTour(response.message.data);
-            }
-        } catch (error) {
-            message.error('Failed to fetch deleted tours.');
-            console.error(error);
-        }
-    };
+    // // Fetch deleted tours
+    // const fetchListTempTour = async () => {
+    //     try {
+    //         const response = await fetchListTourDeletedAPI();
+    //         if (response?.message?.data) {
+    //             setGetListTempTour(response.message.data);
+    //         }
+    //     } catch (error) {
+    //         message.error('Failed to fetch deleted tours.');
+    //         console.error(error);
+    //     }
+    // };
 
     // Fetch all data 
     // const fetchData = async () => {
@@ -72,7 +75,7 @@ const TourAdmin = () => {
             title: 'Tour Code',
             dataIndex: `tourCode`,
             key: `tourCode`,
-            render: (_, record) => <a onClick={() => handleOnclickViewDetail(record._id)}>{record.tourCode}</a>,
+            render: (_, record) => <a onClick={() => handleOnclickViewDetail(record._id, record)}>{record.tourCode}</a>,
         },
         {
             title: 'Tour Name',
@@ -105,7 +108,7 @@ const TourAdmin = () => {
                         !record.deleted ?
                             <>
                                 <a onClick={() => handleOnclickViewDetail(record._id, record)}>View</a>
-                                <a>Edit</a>
+                                <a onClick={() => handleOnclickEditModal(record._id, record)}>Edit</a>
                                 <a onClick={() => handleDelete(record._id, true)}>Soft Delete</a>
                             </>
                             :
@@ -159,11 +162,19 @@ const TourAdmin = () => {
     const handleOnclickViewDetail = (tourCode, record) => {
         console.log("view detail", tourCode)
         console.log("check record", record)
-        // setIsOpenModal(true);
-        console.log("check is open ", activeTours[0])
+        // setDataTour({
+        //     ...dataTour,
+        //     record
+        // })
+        setDataTour(record)
+        setIsOpenModal(true);
 
     }
 
+    const handleOnclickEditModal = (tourCode, record) => {
+        setEditDataTour(record)
+        setEdit(true);
+    }
     // const handleOnClickDeteleByID = async (id) => {
     //     console.log("delete", id)
     //     let res = await deleteSoftTourAPI(id)
@@ -261,6 +272,13 @@ const TourAdmin = () => {
             <OpenDetailTour
                 open={isOpenModal}
                 setOpen={setIsOpenModal}
+                dataTour={dataTour}
+            />
+            <EditTourModal
+                edit={edit}
+                setEdit={setEdit}
+                dataTour={editDataTour}
+                setDataTour={setEditDataTour}
             />
         </>
     );
