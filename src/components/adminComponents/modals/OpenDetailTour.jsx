@@ -1,17 +1,20 @@
 import React from 'react';
 import { Button, Modal } from 'antd';
-const OpenDetailTour = () => {
-    const [open, setOpen] = React.useState(false);
+const OpenDetailTour = (props) => {
+    // const [open, setOpen] = React.useState(false);
+    const { open, setOpen } = props
+
     const [loading, setLoading] = React.useState(true);
     const showLoading = () => {
         setOpen(true);
-        setLoading(true);
+        // setLoading(false);
 
         // Simple loading mock. You should add cleanup logic in real world.
-        setTimeout(() => {
-            setLoading(false);
-        }, 2000);
+        // setTimeout(() => {
+        //     setLoading(false);
+        // }, 20);
     };
+    console.log(">>> check log", open)
     return (
         <>
             <Button type="primary" onClick={showLoading}>
@@ -24,7 +27,7 @@ const OpenDetailTour = () => {
                         Reload
                     </Button>
                 }
-                loading={loading}
+                // loading={loading}
                 open={open}
                 onCancel={() => setOpen(false)}
             >

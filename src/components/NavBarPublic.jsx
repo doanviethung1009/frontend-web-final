@@ -143,13 +143,13 @@ const NavBarPublic = (props) => {
     // ))
 
     // handle scroll set background navbar
-    window.onscroll = function() {
+    window.onscroll = function () {
         var navbar = document.getElementById("navbar");
         // check if page is scrolled more than 50 px from the top
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {  
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
             navbar.classList.remove("transparent");
             navbar.classList.add("solid");
-        } else {  
+        } else {
             navbar.classList.remove("solid");
             navbar.classList.add("transparent");
         }
