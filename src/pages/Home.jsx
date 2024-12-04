@@ -28,7 +28,7 @@ const Home = (props) => {
         <div className="homeContainer">
             <div className="homeHeaderContainer">
                 <div className="videoContent">
-                    <video src={`${import.meta.env.VITE_API_URL}videos/homeHeaderVideo.mp4`} autoPlay playsInline muted loop >
+                    <video src={`${import.meta.env.VITE_API_URL}/videos/homeHeaderVideo.mp4`} autoPlay playsInline muted loop >
                     </video>
                     {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/anZfnEQFnJM?si=p0M3PMp2eEROBVnV?autoplay=1&mute=0?controls=0" allow="autoplay; controls" ></iframe> */}
                 </div>

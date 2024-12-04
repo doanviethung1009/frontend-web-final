@@ -147,22 +147,22 @@ const OpenDetailTour = (props) => {
         }
         , {
             key: "19",
-            label: 'Tour Highlight VI',
+            label: 'Tour image thumbnail',
             children: (
                 <div>
-                    <img style={{ width: "300px" }} src={`${import.meta.env.VITE_API_URL}images/thumbnail-${dataTour.tourCode}/${dataTour.tourImageThumbnail}`} alt="" />
+                    <img style={{ width: "300px" }} src={`${import.meta.env.VITE_API_URL}/images/thumbnail-${dataTour.tourCode}/${dataTour.tourImageThumbnail}`} alt="" />
                 </div>
             ),
             span: 4,
         }
         , {
             key: "19",
-            label: 'Tour Highlight VI',
+            label: 'Tour images Hero',
             children: (dataTour?.tourImageHero ? (
                 dataTour.tourImageHero.map((item, index) => {
                     return (
                         <div key={index}>
-                            <img style={{ width: "300px" }} src={`${import.meta.env.VITE_API_URL}images/hero-${dataTour.tourCode}/${item}`} alt="" />
+                            <img style={{ width: "300px" }} src={`${import.meta.env.VITE_API_URL}/images/hero-${dataTour.tourCode}/${item}`} alt="" />
                         </div>
                     )
                 })
