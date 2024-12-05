@@ -8,6 +8,7 @@ import {
   Col,
   ConfigProvider,
 } from "antd";
+import "./Partner.css";
 
 const Partner = () => {
   const dataPartner = {
@@ -116,77 +117,102 @@ const Partner = () => {
           title: "partner8",
           src: "https://printgo.vn/uploads/media/796109/logo-thuong-hieu-thoi-trang-01_1631781893.jpg",
         },
+        {
+          title: "partner8",
+          src: "https://printgo.vn/uploads/media/796109/logo-thuong-hieu-thoi-trang-01_1631781893.jpg",
+        },
+        {
+          title: "partner8",
+          src: "https://printgo.vn/uploads/media/796109/logo-thuong-hieu-thoi-trang-01_1631781893.jpg",
+        },
+        {
+          title: "partner8",
+          src: "https://printgo.vn/uploads/media/796109/logo-thuong-hieu-thoi-trang-01_1631781893.jpg",
+        },
       ],
     },
   };
+  const { Paragraph, Text, Link, Title } = Typography;
 
   return (
-    <div
-      className="partner-container"
-      style={{
-        padding: "400px 0",
-      }}
-    >
+    <div className="partner-container container">
       {/*session Join */}
 
       <div className="partner-session session1">
-        <Row>
-          <Col flex="1 0 40%" justify="center" align="middel">
-            <h1>{dataPartner.session1.title.text1}</h1>
-            <h1>{dataPartner.session1.title.text2}</h1>
-            <h1>{dataPartner.session1.title.text3}</h1>
+        <Row gutter={[50, 25]}>
+          <Col
+            flex="1 0 40%"
+            justify="center"
+            align="middel"
+            className="session1-col1 col-ant"
+          >
+            <Flex vertical align="flex-start" justify="center">
+              <Title className="session-title">
+                <span>{dataPartner.session1.title.text1}</span> <br />
+                <span style={{ opacity: "0.5" }}>
+                  {dataPartner.session1.title.text2}{" "}
+                </span>
+                <span style={{ color: "#E9B853" }}>
+                  {dataPartner.session1.title.text3}
+                </span>
+                <div style={{ display: "inline-block ", paddingLeft: "10px" }}>
+                  <div
+                    style={{ width: "45px", borderBottom: "5px solid #E9B853" }}
+                  ></div>
+                </div>
+              </Title>
+              <p>{dataPartner.session1.content}</p>
 
-            <p>{dataPartner.session1.content}</p>
-
-            <ConfigProvider
-              theme={{
-                token: {
-                  colorPrimary: "#3AB54A",
-                  borderRadius: 14,
-                },
-              }}
-            >
-              <Button type="primary">
-                <h2>{dataPartner.session1.button}</h2>
-              </Button>
-            </ConfigProvider>
+              <div style={{ marginTop: "15px" }}>
+                {" "}
+                <ConfigProvider
+                  theme={{
+                    token: {
+                      colorPrimary: "#3AB54A",
+                      borderRadius: 14,
+                    },
+                  }}
+                >
+                  <Button type="primary" className="button button-ready">
+                    <h2>{dataPartner.session1.button}</h2>
+                  </Button>
+                </ConfigProvider>
+              </div>
+            </Flex>
           </Col>
-          <Col flex="1 0 60%">
-            <div>
+          <Col flex="1 0 60%" className="session1-col2 col-ant">
+            <Flex align="center" justify="center">
               <img
                 src={dataPartner.session1.img}
                 alt="image"
-                style={{ width: "100%", position: "relative" }}
+                style={{ position: "relative" }}
               />
-              <i
-                style={{
-                  position: "absolute",
-                  bottom: "20%",
-                  right: "50px",
-                  left: "50px",
-                  color: "white",
-                  textAlign: "center",
-                }}
-              >
-                {dataPartner.session1.text1} <br />
-                {dataPartner.session1.text2}{" "}
-              </i>
-            </div>
+              {/* <div className="shadown"></div> */}
+              <strong>
+                {" "}
+                <i>
+                  {dataPartner.session1.text1} <br />
+                  {dataPartner.session1.text2}{" "}
+                </i>
+              </strong>
+            </Flex>
           </Col>
         </Row>
       </div>
 
       {/*session Content */}
       <div className="partner-session session2">
-        <h1>{dataPartner.session2.title}</h1>
-
+        <Row>
+          {" "}
+          <Title className="session-title">{dataPartner.session2.title}</Title>
+        </Row>
         {/* Content 1 : Introduce*/}
         <div className="partner-session2-introduce">
-          <h3>{dataPartner.session2.content.introduce.title}</h3>
+          <h4>{dataPartner.session2.content.introduce.title}</h4>
           <p>{dataPartner.session2.content.introduce.description}</p>
         </div>
         <div className="partner-session2-reason">
-          <h2>{dataPartner.session2.content.reason.title}</h2>
+          <h3>{dataPartner.session2.content.reason.title}</h3>
           <ol>
             {dataPartner.session2.content.reason.content.map((item, index) => (
               <li key={index}>
@@ -199,47 +225,46 @@ const Partner = () => {
         </div>
         {/* Content 2 : Ideal Partner*/}
         <div className="partner-session2-idealpartner">
-          <h2>{dataPartner.session2.content.idealPartner.title}</h2>
+          <h3>{dataPartner.session2.content.idealPartner.title}</h3>
           <ul>
             {dataPartner.session2.content.idealPartner.content.map((item) => (
               <li key={item.title}>{item}</li>
-            ))}{" "}
+            ))}
           </ul>
         </div>
         {/* Content 3 : Future*/}
 
         <div className="partner-session2-future">
-          <h2>{dataPartner.session2.content.future.title}</h2>
+          <h3>{dataPartner.session2.content.future.title}</h3>
           <p>{dataPartner.session2.content.future.description}</p>
         </div>
       </div>
       {/*session Carousel */}
-      <div
-        className="partner-session  session3"
-        style={{
-          padding: "10px 0",
-          margin: "0 15px ",
-          height: "auto",
-          width: "auto",
-        }}
-      >
-        <h3
+      <div className="partner-session  session3">
+        <Title
+          className="session-title"
           style={{
             display: "inline-block",
             borderRight: "3px solid #F7B835",
             paddingRight: "10px",
-            marginBottom: "15px",
-            color: "green",
           }}
         >
           OUR PARTNERS
-        </h3>
-        <div
+        </Title>
+        {/* <div
           style={{
             borderImage: "linear-gradient(to bottom, #E9B853, green) 1",
             borderWidth: "4px",
             borderStyle: "solid",
-            padding: "0 10px",
+          }}
+        > */}
+        <ConfigProvider
+          theme={{
+            components: {
+              Carousel: {
+                arrowSize: 24,
+              },
+            },
           }}
         >
           <Carousel
@@ -248,31 +273,53 @@ const Partner = () => {
             slidesToShow={5}
             infinite={true}
             draggable={true}
+            arrowSize={32}
             style={{ backgroundColor: "#f5f5f5" }}
+            responsive={[
+              {
+                breakpoint: 468,
+                settings: {
+                  slidesToShow: 2,
+                  rows: 3,
+                  infinite: false,
+                  arrowSize: 16,
+                },
+              },
+              {
+                breakpoint: 768,
+                settings: {
+                  slidesToShow: 3,
+                  rows: 2,
+                  arrowSize: 16,
+                },
+              },
+              {
+                breakpoint: 1024,
+                settings: {
+                  slidesToShow: 4,
+                  rows: 2,
+                  arrowSize: 24,
+                },
+              },
+            ]}
           >
-            {dataPartner.session3.iconPartner.map((item) => (
+            {dataPartner.session3.iconPartner.map((item, index) => (
               <Row
                 justify="center"
                 align="middle"
                 className="img-container"
                 key={item.title}
-                style={{
-                  backgroundColor: "white",
-                }}
               >
                 <img
                   src={item.src}
-                  alt="Slide 1"
-                  style={{
-                    width: "100%",
-                    border: "1px solid black",
-                    borderRadius: "10px",
-                  }}
+                  alt={`Slide ${index}`}
+                  style={{ width: "80%" }}
                 />
               </Row>
             ))}
           </Carousel>
-        </div>
+        </ConfigProvider>
+        {/* </div> */}
       </div>
     </div>
   );
