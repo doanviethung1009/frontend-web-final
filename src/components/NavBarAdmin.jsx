@@ -20,18 +20,22 @@ const NavBarAdmin = () => {
                 <Menu.Item key="home">
                     <Link to={"/"}>Home</Link>
                 </Menu.Item>
-
+                <Menu.Item key="preferences">
+                    <Link to={"/tourAdmin"}>
+                        DashBoard
+                    </Link>
+                </Menu.Item>
                 <SubMenu key="submenu" title="Tour Admin">
-                    <Menu.Item key="profile">
-                        <Link to={"/createTour"}>
-                            Create Tour
-                        </Link>
-                    </Menu.Item>
                     <Menu.Item key="preferences">
                         <Link to={"/tourAdmin"}>
                             List Tour
                         </Link>
                     </Menu.Item>
+                    {/* <Menu.Item key="profile">
+                        <Link to={"/createTour"}>
+                            Create Tour
+                        </Link>
+                    </Menu.Item> */}
                     <Menu.Item key="bar">
                         <Link to={"/processBar"}>
                             Create Tour Process

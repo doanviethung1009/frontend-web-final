@@ -12,7 +12,6 @@ import { Fragment, useContext, useState } from 'react';
 import TourAdmin from './pages/adminPages/TourAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoute2 from './components/ProtectedRouteN';
-import Strategics from './pages/publicPages/partners/Strategics';
 import Stories from './pages/publicPages/abouts/Stories';
 import VietnamDestinations from './pages/publicPages/guides/VietnamDestinations';
 import CreateTour from './pages/adminPages/CreateTour';
@@ -22,6 +21,8 @@ import About from './pages/About';
 import { AuthContext, AutoWrapper } from './context/Auth.Context';
 import CreateTourComponent from './components/adminComponents/CreateTourComponent';
 import MarkdownComponent from './components/adminComponents/MarkdownComponent';
+import Partner from './pages/publicPages/partner';
+import ErrorPage from './pages/Error';
 
 
 const App2 = () => {
@@ -31,6 +32,7 @@ const App2 = () => {
     const router = createBrowserRouter([
         {
             path: '/',
+            errorElement: <ErrorPage />, // validate the error element for routes 
             element: <PublicLayout
                 checkLang={checkLang}
                 setCheckLang={setCheckLang}
@@ -65,12 +67,13 @@ const App2 = () => {
                 },
                 {
                     path: '/partner',
-                    children: [
-                        {
-                            path: '/partner/strategic',
-                            element: <Strategics />
-                        },
-                    ]
+                    element: <Partner />
+                    // children: [
+                    //     {
+                    //         path: '/partner/strategic',
+                    //         element: <Strategics />
+                    //     },
+                    // ]
                 },
                 {
                     path: '/guide',

@@ -83,6 +83,14 @@
                 margin-left: 50vw;
                 transform: translate(-50%);
             }
+
+            iframe {
+                display: block;
+                width: 100%;
+                border: none;
+                overflow-y: auto;
+                overflow-x: hidden;
+            }
         }
 
 

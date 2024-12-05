@@ -4,7 +4,6 @@ import { Button } from 'antd';
 import { uploadImageAPI } from '../../services/apiService';
 import { toast } from 'react-toastify';
 import InboundPolicies from '../../components/publicComponents/InboundPolicies';
-import img from './thumbnail-123-imag.png'
 
 const TestApi = () => {
 
@@ -98,7 +97,7 @@ const TestApi = () => {
             </Button> */}
             <InboundPolicies />
             <div>
-                <img src={`${import.meta.env.VITE_API_URL}images/thumbnail-123/thumbnail-123-imag.png`} alt="" />
+                {/* <img src={`${import.meta.env.VITE_API_URL}images/thumbnail-123/thumbnail-123-imag.png`} alt="" /> */}
                 test
             </div>
         </ div>
