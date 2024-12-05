@@ -6,6 +6,7 @@ const EditTourModal = (props) => {
     const { edit, setEdit, dataTour, setDataTour } = props;
     // const [newDataTour, setNewDataTour] = useState([])
     console.log(">> Edit", dataTour)
+    //get action inputs
     const handleOnChange = (key, value) => {
         console.log(value);
         setDataTour((prevData) =>
@@ -15,6 +16,7 @@ const EditTourModal = (props) => {
         }));
     }
 
+    //get action select 
     const handleSelectOnChangeClass = (value) => {
         setDataTour((prevData) =>
         ({
@@ -23,6 +25,15 @@ const EditTourModal = (props) => {
         }));
 
     };
+
+    const handleSelectOnChangeContinent = (value) => {
+        setDataTour((prevData) =>
+        ({
+            ...prevData,
+            tourContinent: value
+        }));
+    }
+
     const data = [
         {
             key: '1',
@@ -39,7 +50,7 @@ const EditTourModal = (props) => {
             label: 'Tour Code',
             children: (
                 <>
-                    <Input defaultValue={dataTour.tourCode} onChange={(event) => handleOnChange("tourCode", event.target.value)}></Input>
+                    <Input defaultValue={dataTour.tourCode} onChange={(event) => handleOnChange("tourCode", event.target.value)} disabled></Input>
                 </>
             ),
             span: 2,
@@ -77,7 +88,51 @@ const EditTourModal = (props) => {
         , {
             key: "4",
             label: 'Tour Continent',
-            children: dataTour.tourContinent,
+            children: (
+                <>
+                    <Select
+                        defaultValue={dataTour.tourContinent}
+                        style={{
+                            width: 120,
+                        }}
+                        onChange={handleSelectOnChangeClass}
+                        options={[
+                            {
+                                value: 'asia',
+                                label: 'Asia',
+                            },
+                            {
+                                value: 'africa',
+                                label: 'Africa',
+                            },
+                            {
+                                value: 'northAmerica',
+                                label: 'North America',
+                            },
+                            {
+                                value: 'southAmerica',
+                                label: 'South America',
+                            },
+                            {
+                                value: 'antarctica',
+                                label: 'Antarctica',
+                            },
+                            {
+                                value: 'northAmerica',
+                                label: 'North America',
+                            },
+                            {
+                                value: 'eu',
+                                label: 'Europe',
+                            },
+                            {
+                                value: 'australia',
+                                label: 'Australia',
+                            },
+                        ]}
+                    />
+                </>
+            ),
             span: 2,
         }
         , {
