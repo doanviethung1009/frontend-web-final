@@ -231,3 +231,94 @@
 }
 
 /* ------ container-our-network ------ */
+
+/*----------------------------------------*/
+
+.carousel-slide {
+  font-size: 40px;
+  display: flex !important;
+  justify-content: center;
+  border-radius: 5px;
+  margin: 0px auto;
+  font-family: sans-serif;
+  position: relative;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.carousel-image {
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  margin: auto;
+}
+
+.slick-center .carousel-image {
+  width: 530px;
+  height: 300px;
+  filter: none;
+  opacity: 1;
+  z-index: 2;
+}
+
+.slick-slide:not(.slick-center) .carousel-image {
+  transform: scale(0.9);
+  filter: blur(5px);
+  opacity: 0.6;
+  z-index: 1;
+  width: 500px;
+  height: 300px;
+}
+
+/* Positioning the container to relative for proper button placement */
+.carousel-container {
+  max-width: 800px; /* Adjust width as needed */
+  margin: 0 auto;
+  position: relative;
+  padding: 20px 0;
+}
+
+/* Default styles for Slick arrows */
+/* .slick-prev::before,
+.slick-next::before {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 20px;
+  transition: background-color 0.3s ease;
+} */
+
+/* .slick-prev::before:hover,
+.slick-next::before:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+} */
+
+/* Position the left arrow (prev) */
+/* .slick-prev::before {
+  right: calc(screen - 1000px);
+} */
+
+/* Position the right arrow (next) */
+/* .slick-next::before {
+  left: calc(screen - 1000px);
+} */
+
+/* Adjust arrow positions for smaller screens */
+/* @media screen and (max-width: 768px) {
+  .slick-prev::before {
+    display: none !important;
+  }
+
+  .slick-next::before {
+    display: none !important;
+  }
+} */
