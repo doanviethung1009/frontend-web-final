@@ -410,33 +410,33 @@ const About = (props) => {
             </div>
             <div>
               <Row className="row">
-<<<<<<< HEAD
-  <div className="column">
-    <div
-      style={{
-        border: "4px solid white",
-        width: "7%",
-        position: "absolute",
-        right: "45px",
-      }}
-    ></div>
-    <p style={{ paddingTop: "25px" }}>
-      <span className="font-italic text-white">VEcoTra </span>
-      <span className="font-normal" style={{ color: "#bff0c7" }}>
-        Travel Service Trading Company Limited (Vietnam Eco
-        Travel) is one of the leading companies in green and
-        sustainable tourism in Vietnam. Guided by s strategy to
-        create eco-friendly journeys and foster lasting
-        connections,
-      </span>
-      <span className="font-italic text-white">VEcoTra </span>
-      <span className="font-normal" style={{ color: "#bff0c7" }}>
-        is dedicated to offering environmentally friendly travel
-        experiences while contributing to nature conservation and
-        preservation.
-      </span>
-    </p>
-  </div>
+
+                <div className="column">
+                  <div
+                    style={{
+                      border: "4px solid white",
+                      width: "7%",
+                      position: "absolute",
+                      right: "45px",
+                    }}
+                  ></div>
+                  <p style={{ paddingTop: "25px" }}>
+                    <span className="font-italic text-white">VEcoTra </span>
+                    <span className="font-normal" style={{ color: "#bff0c7" }}>
+                      Travel Service Trading Company Limited (Vietnam Eco
+                      Travel) is one of the leading companies in green and
+                      sustainable tourism in Vietnam. Guided by s strategy to
+                      create eco-friendly journeys and foster lasting
+                      connections,
+                    </span>
+                    <span className="font-italic text-white">VEcoTra </span>
+                    <span className="font-normal" style={{ color: "#bff0c7" }}>
+                      is dedicated to offering environmentally friendly travel
+                      experiences while contributing to nature conservation and
+                      preservation.
+                    </span>
+                  </p>
+                </div>
 =======
                 <Col flex="1 0 65%" className="column">
                   <div className="block-info-left">
@@ -483,111 +483,111 @@ const About = (props) => {
                     </div>
                   </div>
                 </Col>
->>>>>>> abc2c9e (update about image)
+
               </Row >
             </div >
           </div >
         </div >
-  {/* second block */ }
-  < div >
-  <div className="second-block">
-    <div>
-      <Row className="row">
-        <Col flex="1 0 65%" className="column">
-          <div className="block-info-left">
-            <div
-              style={{
-                border: "4px solid #3ab54a",
-                width: "10%",
-                position: "absolute",
-                bottom: "-15px",
-              }}
-            ></div>
+        {/* second block */}
+        <div div >
+          <div className="second-block">
             <div>
-              <p>
-                <span
-                  className="font-normal font-italic"
-                  style={{ color: "#565656" }}
-                >
-                  From the beginning, we have taken pride in pioneering
-                  green tourism solutions that minimize environmental
-                  impact and honor local cultures. With a team of
-                  passionate and professional staff,
-                </span>
-                <span className="font-italic">VEcoTra </span>
-                <span
-                  className="font-normal font-italic"
-                  style={{ color: "#565656" }}
-                >
-                  is committed to providing you with memorable and
-                  meaningful travel experiences.
-                </span>
-              </p>
-              <p>
-                <span
-                  className="font-normal"
-                  style={{ color: "#565656" }}
-                >
-                  At{" "}
-                </span>
-                <span className="font-italic">VEcoTra, </span>
-                <span
-                  className="font-normal"
-                  style={{ color: "#565656" }}
-                >
-                  we believe that travel is not only about exploring new
-                  destinations but also about protecting and valuing
-                  natural and cultural treasures. Embracing our motto,
-                  &quot;Green Journeys - Sustainable Connections,&quot;
-                  we aim to build a sustainable and environmentally
-                  friendly tourism future.
-                </span>
-              </p>
-              <p>
-                <span
-                  className="font-normal"
-                  style={{ color: "#565656" }}
-                >
-                  Join{" "}
-                </span>
-                <span className="font-italic">VEcoTra </span>
-                <span
-                  className="font-normal"
-                  style={{ color: "#565656" }}
-                >
-                  to explore and experience the wonders of
-                  Vietnam&apos;s nature in a completely new and
-                  sustainable way.
-                </span>
-              </p>
+              <Row className="row">
+                <Col flex="1 0 65%" className="column">
+                  <div className="block-info-left">
+                    <div
+                      style={{
+                        border: "4px solid #3ab54a",
+                        width: "10%",
+                        position: "absolute",
+                        bottom: "-15px",
+                      }}
+                    ></div>
+                    <div>
+                      <p>
+                        <span
+                          className="font-normal font-italic"
+                          style={{ color: "#565656" }}
+                        >
+                          From the beginning, we have taken pride in pioneering
+                          green tourism solutions that minimize environmental
+                          impact and honor local cultures. With a team of
+                          passionate and professional staff,
+                        </span>
+                        <span className="font-italic">VEcoTra </span>
+                        <span
+                          className="font-normal font-italic"
+                          style={{ color: "#565656" }}
+                        >
+                          is committed to providing you with memorable and
+                          meaningful travel experiences.
+                        </span>
+                      </p>
+                      <p>
+                        <span
+                          className="font-normal"
+                          style={{ color: "#565656" }}
+                        >
+                          At{" "}
+                        </span>
+                        <span className="font-italic">VEcoTra, </span>
+                        <span
+                          className="font-normal"
+                          style={{ color: "#565656" }}
+                        >
+                          we believe that travel is not only about exploring new
+                          destinations but also about protecting and valuing
+                          natural and cultural treasures. Embracing our motto,
+                          &quot;Green Journeys - Sustainable Connections,&quot;
+                          we aim to build a sustainable and environmentally
+                          friendly tourism future.
+                        </span>
+                      </p>
+                      <p>
+                        <span
+                          className="font-normal"
+                          style={{ color: "#565656" }}
+                        >
+                          Join{" "}
+                        </span>
+                        <span className="font-italic">VEcoTra </span>
+                        <span
+                          className="font-normal"
+                          style={{ color: "#565656" }}
+                        >
+                          to explore and experience the wonders of
+                          Vietnam&apos;s nature in a completely new and
+                          sustainable way.
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </Col>
+                <Col flex="1 0 35%" className="column">
+                  <div className="block-info-right">
+                    <div
+                      style={{
+                        border: "4px solid white",
+                        width: "20%",
+                        position: "absolute",
+                        right: "20px",
+                      }}
+                    ></div>
+                    <img
+                      alt="avatar"
+                      src="https://images.pexels.com/photos/1707820/pexels-photo-1707820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                      className="img-avatar"
+                    />
+                  </div>
+                </Col>
+              </Row>
             </div>
           </div>
-        </Col>
-        <Col flex="1 0 35%" className="column">
-          <div className="block-info-right">
-            <div
-              style={{
-                border: "4px solid white",
-                width: "20%",
-                position: "absolute",
-                right: "20px",
-              }}
-            ></div>
-            <img
-              alt="avatar"
-              src="https://images.pexels.com/photos/1707820/pexels-photo-1707820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-              className="img-avatar"
-            />
-          </div>
-        </Col>
-      </Row>
-    </div>
-  </div>
         </div >
       </div >
 
-  {/* Business Sectors */ }
-  < div className = "container-block container-business-sectors" >
+      {/* Business Sectors */}
+      <div div className="container-block container-business-sectors" >
         <Title
           className="uppercase"
           style={{
@@ -641,8 +641,8 @@ const About = (props) => {
         </div>
       </div >
 
-  {/* Core Values */ }
-  < div className = "container-block container-core-values" >
+      {/* Core Values */}
+      <div div className="container-block container-core-values" >
         <div
           style={{
             display: "flex",
@@ -672,10 +672,7 @@ const About = (props) => {
             gap: "30px",
             flexWrap: "wrap",
             textAlign: "center",
-<<<<<<< HEAD
-=======
 
->>>>>>> abc2c9e (update about image)
           }}
         >
           {dataCoreValues.map((item, index) => (
@@ -696,78 +693,78 @@ const About = (props) => {
         </div>
       </div >
 
-  {/* Vision */ }
-  < div className = "container-block container-vision" >
-    <Row className="row">
-      {dataVision.map((item, index) => (
-        <Col key={index} flex={item.flex_css} className="column">
-          <div className="block-vision">
-            {/* image */}
-            <img
-              alt="avatar"
-              src={item.icon}
-              style={{
-                width: "70px",
-                height: "70px",
-                borderRadius: "10%",
-              }}
-            />
+      {/* Vision */}
+      <div  className="container-block container-vision" >
+        <Row className="row">
+          {dataVision.map((item, index) => (
+            <Col key={index} flex={item.flex_css} className="column">
+              <div className="block-vision">
+                {/* image */}
+                <img
+                  alt="avatar"
+                  src={item.icon}
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                    borderRadius: "10%",
+                  }}
+                />
 
-            {/* title */}
-            <Title
-              level={3}
-              className="uppercase"
-              style={{ color: "#575757", marginBottom: "0px" }}
-            >
-              {t(item.title)}
-            </Title>
+                {/* title */}
+                <Title
+                  level={3}
+                  className="uppercase"
+                  style={{ color: "#575757", marginBottom: "0px" }}
+                >
+                  {t(item.title)}
+                </Title>
 
-            {/* content */}
-            <div style={{ padding: "0px 30px" }}>
-              <ul>
-                {item.contents.map((content, index_content) => (
-                  <li key={index_content}>
-                    <p>{t(content)}</p>
-                  </li>
-                ))}
-              </ul>
+                {/* content */}
+                <div style={{ padding: "0px 30px" }}>
+                  <ul>
+                    {item.contents.map((content, index_content) => (
+                      <li key={index_content}>
+                        <p>{t(content)}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </div >
+
+      {/* Our Network */}
+      <div  className="container-block container-our-network" >
+        <Title
+          className="uppercase"
+          style={{
+            paddingRight: "20px",
+            borderRight: "5px solid #e9b853",
+            width: "fit-content",
+          }}
+        >
+          {t("our_network")}
+        </Title>
+
+        {/* image */}
+        <img
+          alt="avatar"
+          src="https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"
+          style={{ width: "100%" }}
+        />
+      </div >
+
+      {/*  */}
+      <div  className="container-block" >
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div key={index} className="carousel-slide">
+              <img alt="avatar" src={image.src} className="carousel-image" />
             </div>
-          </div>
-        </Col>
-      ))}
-    </Row>
-      </div >
-
-  {/* Our Network */ }
-  < div className = "container-block container-our-network" >
-    <Title
-      className="uppercase"
-      style={{
-        paddingRight: "20px",
-        borderRight: "5px solid #e9b853",
-        width: "fit-content",
-      }}
-    >
-      {t("our_network")}
-    </Title>
-
-{/* image */ }
-<img
-  alt="avatar"
-  src="https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"
-  style={{ width: "100%" }}
-/>
-      </div >
-
-  {/*  */ }
-  < div className = "container-block" >
-    <Slider {...settings}>
-      {images.map((image, index) => (
-        <div key={index} className="carousel-slide">
-          <img alt="avatar" src={image.src} className="carousel-image" />
-        </div>
-      ))}
-    </Slider>
+          ))}
+        </Slider>
       </div >
     </>
   );

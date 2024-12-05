@@ -95,10 +95,6 @@
   color: #e9b853;
 }
 
-<<<<<<< HEAD
-=======
-.second-block .block-info-left,
->>>>>>> abc2c9e (update about image)
 .second-block .block-info-right {
   padding: 0px 20px;
 }
@@ -204,7 +200,7 @@
   }
 }
 
-<<<<<<< HEAD
+
 /* ------ container-core-values ------ */
 
 /* ------ container-vison ------ */
@@ -281,7 +277,8 @@
 
 /* Positioning the container to relative for proper button placement */
 .carousel-container {
-  max-width: 800px; /* Adjust width as needed */
+  max-width: 800px;
+  /* Adjust width as needed */
   margin: 0 auto;
   position: relative;
   padding: 20px 0;
@@ -333,6 +330,5 @@
     display: none !important;
   }
 } */
-=======
+
 /* ------ container-core-values ------ */
->>>>>>> abc2c9e (update about image)
