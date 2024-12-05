@@ -3,6 +3,9 @@ import { Carousel, Flex, Typography, Button, Row, Col } from "antd";
 import "../styles/about.css";
 import { useTranslation } from "react-i18next";
 import { NotificationOutlined, CarOutlined } from "@ant-design/icons";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const { Title, Text } = Typography;
 
@@ -93,6 +96,67 @@ const dataCoreValues = [
   },
 ];
 
+// data-vision
+const dataVision = [
+  {
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
+    flex_css: "1 0 40%",
+    title: "vision",
+    contents: ["content_vision_1", "content_vision_2"],
+  },
+  {
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
+    flex_css: "1 0 60%",
+    title: "mission",
+    contents: ["content_mission_1", "content_mission_2", "content_mission_3"],
+  },
+  {
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
+    flex_css: "1 0 60%",
+    title: "short_term_goals",
+    contents: [
+      "content_short_term_goals_1",
+      "content_short_term_goals_2",
+      "content_short_term_goals_3",
+      "content_short_term_goals_4",
+      "content_short_term_goals_5",
+    ],
+  },
+  {
+    icon: "https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600",
+    flex_css: "1 0 40%",
+    title: "long_term_goals",
+    contents: [
+      "content_long_term_goals_1",
+      "content_long_term_goals_2",
+      "content_long_term_goals_3",
+      "content_long_term_goals_4",
+    ],
+  },
+];
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "red", zIndex: 100 }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={className}
+      style={{ ...style, display: "block", background: "green", zIndex: 100 }}
+      onClick={onClick}
+    />
+  );
+}
+
 const About = (props) => {
   const { checkLang, setCheckLang } = props;
   const { t, i18n } = useTranslation();
@@ -116,6 +180,52 @@ const About = (props) => {
   const handleChange = (current) => {
     setChangeInfoLocate(dataInfoLocate[current]);
   };
+
+  const settings = {
+    className: "center",
+    centerMode: true, // Center the main image
+    centerPadding: "50px", // No padding between images
+    slidesToShow: 3, // Show 3 slides (1 main + 2 blurred sub-images)
+    infinite: true, // Loop through images infinitely
+    speed: 500, // Animation speed
+    focusOnSelect: true, // Clicking selects the slide
+    arrows: true, // Hide navigation arrows
+    nextArrow: <SampleNextArrow style={{ zIndex: 100 }} />,
+    prevArrow: <SamplePrevArrow style={{ zIndex: 100 }} />
+  };
+
+  const images = [
+    {
+      id: 1,
+      src: "https://images.pexels.com/photos/18876270/pexels-photo-18876270/free-photo-of-red-cabin-on-a-cliff.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      title: "Eco-tourism in Vietnam",
+    },
+    {
+      id: 2,
+      src: "https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      title: "Vietnamese Cuisine",
+    },
+    {
+      id: 3,
+      src: "https://images.pexels.com/photos/15985570/pexels-photo-15985570/free-photo-of-view-of-trees-and-snowcapped-mountains-from-a-road.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      title: "Luxury Stay",
+    },
+    {
+      id: 4,
+      src: "https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      title: "Vietnamese Cuisine",
+    },
+    {
+      id: 5,
+      src: "https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      title: "Vietnamese Cuisine",
+    },
+    {
+      id: 6,
+      src: "https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load",
+      title: "Vietnamese Cuisine",
+    },
+  ];
 
   return (
     <>
@@ -300,51 +410,32 @@ const About = (props) => {
             </div>
             <div>
               <Row className="row">
-                <Col flex="1 0 65%" className="column">
-                  <div className="block-info-left">
-                    <p>
-                      <span className="font-italic">VEcoTra </span>
-                      <span
-                        className="font-normal"
-                        style={{ color: "#bff0c7" }}
-                      >
-                        Travel Service Trading Company Limited (Vietnam Eco
-                        Travel) is one of the leading companies in green and
-                        sustainable tourism in Vietnam. Guided by s strategy to
-                        create eco-friendly journeys and foster lasting
-                        connections,
-                      </span>
-                      <span className="font-italic">VEcoTra </span>
-                      <span
-                        className="font-normal"
-                        style={{ color: "#bff0c7" }}
-                      >
-                        is dedicated to offering environmentally friendly travel
-                        experiences while contributing to nature conservation
-                        and preservation.
-                      </span>
-                    </p>
-                  </div>
-                </Col>
-                <Col flex="1 0 35%" className="column">
-                  <div className="block-info-right">
-                    <div>
-                      <div
-                        style={{
-                          border: "4px solid white",
-                          width: "20%",
-                          position: "absolute",
-                          right: "20px",
-                        }}
-                      ></div>
-                      <img
-                        alt="avatar"
-                        src="https://images.pexels.com/photos/1707820/pexels-photo-1707820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                        className="img-avatar"
-                      />
-                    </div>
-                  </div>
-                </Col>
+                <div className="column">
+                  <div
+                    style={{
+                      border: "4px solid white",
+                      width: "7%",
+                      position: "absolute",
+                      right: "45px",
+                    }}
+                  ></div>
+                  <p style={{ paddingTop: "25px" }}>
+                    <span className="font-italic text-white">VEcoTra </span>
+                    <span className="font-normal" style={{ color: "#bff0c7" }}>
+                      Travel Service Trading Company Limited (Vietnam Eco
+                      Travel) is one of the leading companies in green and
+                      sustainable tourism in Vietnam. Guided by s strategy to
+                      create eco-friendly journeys and foster lasting
+                      connections,
+                    </span>
+                    <span className="font-italic text-white">VEcoTra </span>
+                    <span className="font-normal" style={{ color: "#bff0c7" }}>
+                      is dedicated to offering environmentally friendly travel
+                      experiences while contributing to nature conservation and
+                      preservation.
+                    </span>
+                  </p>
+                </div>
               </Row>
             </div>
           </div>
@@ -361,10 +452,10 @@ const About = (props) => {
                         border: "4px solid #3ab54a",
                         width: "10%",
                         position: "absolute",
-                        top: "20px",
+                        bottom: "-15px",
                       }}
                     ></div>
-                    <div style={{ marginTop: "50px" }}>
+                    <div>
                       <p>
                         <span
                           className="font-normal font-italic"
@@ -425,7 +516,21 @@ const About = (props) => {
                   </div>
                 </Col>
                 <Col flex="1 0 35%" className="column">
-                  <div className="block-info-right"></div>
+                  <div className="block-info-right">
+                    <div
+                      style={{
+                        border: "4px solid white",
+                        width: "20%",
+                        position: "absolute",
+                        right: "20px",
+                      }}
+                    ></div>
+                    <img
+                      alt="avatar"
+                      src="https://images.pexels.com/photos/1707820/pexels-photo-1707820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                      className="img-avatar"
+                    />
+                  </div>
                 </Col>
               </Row>
             </div>
@@ -505,7 +610,12 @@ const About = (props) => {
                 className="img-avatar"
               />
             </div>
-            <Title className="uppercase" style={{ color: "white", fontSize: "60px" }}>{t("core_values")}</Title>
+            <Title
+              className="uppercase"
+              style={{ color: "white", fontSize: "60px" }}
+            >
+              {t("core_values")}
+            </Title>
           </div>
         </div>
         <div
@@ -514,7 +624,6 @@ const About = (props) => {
             gap: "30px",
             flexWrap: "wrap",
             textAlign: "center",
-            
           }}
         >
           {dataCoreValues.map((item, index) => (
@@ -527,10 +636,86 @@ const About = (props) => {
                   style={{ width: "100px", height: "100px" }}
                 />
               </div>
-              <Title level={4} style={{ color: "white" }}>{t(item.title)}</Title>
+              <Title level={4} style={{ color: "white" }}>
+                {t(item.title)}
+              </Title>
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Vision */}
+      <div className="container-block container-vision">
+        <Row className="row">
+          {dataVision.map((item, index) => (
+            <Col key={index} flex={item.flex_css} className="column">
+              <div className="block-vision">
+                {/* image */}
+                <img
+                  alt="avatar"
+                  src={item.icon}
+                  style={{
+                    width: "70px",
+                    height: "70px",
+                    borderRadius: "10%",
+                  }}
+                />
+
+                {/* title */}
+                <Title
+                  level={3}
+                  className="uppercase"
+                  style={{ color: "#575757", marginBottom: "0px" }}
+                >
+                  {t(item.title)}
+                </Title>
+
+                {/* content */}
+                <div style={{ padding: "0px 30px" }}>
+                  <ul>
+                    {item.contents.map((content, index_content) => (
+                      <li key={index_content}>
+                        <p>{t(content)}</p>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </Col>
+          ))}
+        </Row>
+      </div>
+
+      {/* Our Network */}
+      <div className="container-block container-our-network">
+        <Title
+          className="uppercase"
+          style={{
+            paddingRight: "20px",
+            borderRight: "5px solid #e9b853",
+            width: "fit-content",
+          }}
+        >
+          {t("our_network")}
+        </Title>
+
+        {/* image */}
+        <img
+          alt="avatar"
+          src="https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"
+          style={{ width: "100%" }}
+        />
+      </div>
+
+      {/*  */}
+      <div className="container-block">
+        <Slider {...settings}>
+          {images.map((image, index) => (
+            <div key={index} className="carousel-slide">
+              <img alt="avatar" src={image.src} className="carousel-image" />
+            </div>
+          ))}
+        </Slider>
       </div>
     </>
   );
