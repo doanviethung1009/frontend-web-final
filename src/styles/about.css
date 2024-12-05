@@ -18,6 +18,11 @@
   height: 300px;
 }
 
+.img-logo {
+  height: auto;
+  /* border-radius: 50%; */
+}
+
 .container-block {
   margin-top: 20px;
 }
@@ -90,6 +95,10 @@
   color: #e9b853;
 }
 
+<<<<<<< HEAD
+=======
+.second-block .block-info-left,
+>>>>>>> abc2c9e (update about image)
 .second-block .block-info-right {
   padding: 0px 20px;
 }
@@ -109,6 +118,7 @@
     display: none !important;
   }
 }
+
 /* ------ container-our-story ------ */
 
 /* ------ container-business-sectors ------ */
@@ -194,6 +204,7 @@
   }
 }
 
+<<<<<<< HEAD
 /* ------ container-core-values ------ */
 
 /* ------ container-vison ------ */
@@ -322,3 +333,6 @@
     display: none !important;
   }
 } */
+=======
+/* ------ container-core-values ------ */
+>>>>>>> abc2c9e (update about image)
