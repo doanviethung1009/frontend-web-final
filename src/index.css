@@ -42,3 +42,7 @@
 .text-white {
     color: white !important;
 }
+
+.text-slogan {
+    font-family: "Lato" !important;
+}

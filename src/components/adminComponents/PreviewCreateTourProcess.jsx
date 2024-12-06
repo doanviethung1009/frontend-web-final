@@ -98,8 +98,8 @@ const PreviewCreateTourProcess = (props) => {
 
                 </Card>
                 <Card title="Language support" size="small">
-
-                    <ul>
+                        
+                    {/* <ul>
 
                         {listData.langSupport ? listData.langSupport.map((item, index) => (
                             <li key={index}>{item}</li>
@@ -107,7 +107,7 @@ const PreviewCreateTourProcess = (props) => {
                             :
                             <p></p>
                         }
-                    </ul>
+                    </ul> */}
                 </Card>
                 <Card title="Description VI" size="small">
                     {listData ? listData.tourDescriptionVI : null}

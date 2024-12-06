@@ -33,7 +33,7 @@ const Home = (props) => {
                     {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/anZfnEQFnJM?si=p0M3PMp2eEROBVnV?autoplay=1&mute=0?controls=0" allow="autoplay; controls" ></iframe> */}
                 </div>
 
-                <div className="contentSlogan ">
+                <div className="contentSlogan text-slogan ">
                     <div className="sloganLevel1" >
                         <span>{t("sloganLevel1")}</span>
                     </div>
