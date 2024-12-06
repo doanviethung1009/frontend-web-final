@@ -18,11 +18,6 @@
   height: 300px;
 }
 
-.img-logo {
-  height: auto;
-  /* border-radius: 50%; */
-}
-
 .container-block {
   margin-top: 20px;
 }
@@ -200,7 +195,6 @@
   }
 }
 
-
 /* ------ container-core-values ------ */
 
 /* ------ container-vison ------ */
@@ -330,5 +324,3 @@
     display: none !important;
   }
 } */
-
-/* ------ container-core-values ------ */
