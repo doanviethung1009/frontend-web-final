@@ -1,9 +1,34 @@
+:root {
+    --PrimaryColor: hsl(199, 100%, 33%);
+    --SecondaryColor: hsl(187, 85%, 43%);
+    --gradientColor-logo: linear-gradient(to right, #008000, #00FF00);
+    --gradientColor-menu: linear-gradient(to right, #008000, #00FF00);
+    --whiteColor: hsl(0, 0%, 100%);
+    --blackColor: hsl(0, 0%, 0%);
+    --textColor: hsl(240, 4%, 36%);
+    --whiteColorDream: hsl(0, 0%, 93%);
+    --greyText: rgb(190, 190, 190);
+    --inputColor: rgb(239, 239, 239);
+    --bodyColor: rgb(240, 240, 246);
+    --cardBG: rgb(225, 225, 235);
+    --blue: #2a7ae4;
+    --red: #e84855;
+    --orange: #f28d35;
+    --black: #1d1d1d;
+    --light-color: #666;
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --border: .2rem solid rgba(0, 0, 0, .1);
+    --outline: .1rem solid rgba(0, 0, 0, .1);
+    --outline-hover: .2rem solid var(--black);
+}
+
 .transparent {
     background: transparent !important;
 }
 
 .solid {
-    background: rgba(255, 255, 255, 1) !important; /* Màu sắc bạn muốn */
+    background: rgba(255, 255, 255, 1) !important;
+    /* Màu sắc bạn muốn */
 }
 
 .container-navbar {
@@ -35,7 +60,8 @@
         font-weight: bold;
         background-size: cover;
         float: left;
-        background: linear-gradient(to right, #008000, #00FF00);
+        // background: linear-gradient(to right, #008000, #00FF00);
+        background: var(--gradientColor-logo);
         /* Initial gradient color */
         background-size: 200% 200%;
         /* To allow the gradient animation effect */
@@ -98,7 +124,8 @@
                     color: transparent !important;
                     font-weight: 1000;
                     font-size: 20px;
-                    background: linear-gradient(to right, #008000, #00FF00);
+                    // background: linear-gradient(to right, #008000, #00FF00);
+                    background: var(--gradientColor-menu);
                     /* Initial gradient color */
                     background-size: 200% 200%;
                     /* To allow the gradient animation effect */
@@ -151,7 +178,7 @@
 
 //iphone 14promax
 @media only screen and (max-width: 450px) {
-    .container {
+    .container-navbar {
         // align-items: center;
         // justify-content: center;
         width: 430px;
@@ -196,7 +223,7 @@
 
 //iphone 12pro
 @media only screen and (max-width: 390px) {
-    .container {
+    .container-navbar {
         align-items: center;
         justify-content: center;
         width: 390px;
