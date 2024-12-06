@@ -437,7 +437,7 @@ const About = (props) => {
                     </span>
                   </p>
                 </div>
-=======
+
                 <Col flex="1 0 65%" className="column">
                   <div className="block-info-left">
                     <p>
@@ -475,11 +475,11 @@ const About = (props) => {
                           right: "20px",
                         }}
                       ></div>
-                      <img
+                      {/* <img
                         alt="avatar"
                         src={`${import.meta.env.VITE_API_URL}/images/logoVecotra/mainLogoVecotra.png`}
                         className="img-avatar img-logo"
-                      />
+                      /> */}
                     </div>
                   </div>
                 </Col>
@@ -489,7 +489,7 @@ const About = (props) => {
           </div >
         </div >
         {/* second block */}
-        <div div >
+        <div  >
           <div className="second-block">
             <div>
               <Row className="row">
@@ -575,7 +575,7 @@ const About = (props) => {
                     ></div>
                     <img
                       alt="avatar"
-                      src="https://images.pexels.com/photos/1707820/pexels-photo-1707820.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                      src={`${import.meta.env.VITE_API_URL}/images/logoVecotra/mainLogoVecotra.png`}
                       className="img-avatar"
                     />
                   </div>
@@ -587,7 +587,7 @@ const About = (props) => {
       </div >
 
       {/* Business Sectors */}
-      <div div className="container-block container-business-sectors" >
+      <div className="container-block container-business-sectors" >
         <Title
           className="uppercase"
           style={{
@@ -642,7 +642,7 @@ const About = (props) => {
       </div >
 
       {/* Core Values */}
-      <div div className="container-block container-core-values" >
+      <div className="container-block container-core-values" >
         <div
           style={{
             display: "flex",
@@ -694,7 +694,7 @@ const About = (props) => {
       </div >
 
       {/* Vision */}
-      <div  className="container-block container-vision" >
+      <div className="container-block container-vision" >
         <Row className="row">
           {dataVision.map((item, index) => (
             <Col key={index} flex={item.flex_css} className="column">
@@ -736,7 +736,7 @@ const About = (props) => {
       </div >
 
       {/* Our Network */}
-      <div  className="container-block container-our-network" >
+      <div className="container-block container-our-network" >
         <Title
           className="uppercase"
           style={{
@@ -757,7 +757,7 @@ const About = (props) => {
       </div >
 
       {/*  */}
-      <div  className="container-block" >
+      <div className="container-block" >
         <Slider {...settings}>
           {images.map((image, index) => (
             <div key={index} className="carousel-slide">

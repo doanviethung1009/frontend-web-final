@@ -87,7 +87,7 @@ const NavBarPublic = (props) => {
     // Create menu items based on DataItemsPublic
     const menuItems = DataItemsPublic.map((item) => {
         // CHECK_IF_WIDTH_IS_OVER_450PX_WILL_NOT_SHOW_LANGUAGE
-        if (isWidthOver450px && item.key === 'language') return;
+        if (isWidthOver450px && item.key === 'language' || item.key === 'home') return;
 
         return {
             key: item.key,

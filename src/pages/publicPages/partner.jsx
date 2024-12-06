@@ -8,7 +8,7 @@ import {
   Col,
   ConfigProvider,
 } from "antd";
-import "./Partner.css";
+// import "./Partner.css";
 
 const Partner = () => {
   const dataPartner = {
