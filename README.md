@@ -41,3 +41,16 @@ npm install i18next react-i18next i18next-browser-languagedetector
 
 - lib config markdown
 => npm install marked @mdxeditor/editor react-markdown
+
+- long bổ sung >>  here
+
+- chiến bổ sung here >>
+
+- description web url when send and share link in app
+-> config in main.html
+     <!-- call image to paste link -->
+  - <meta property="og:URL" content="/logo-vecotra.png" />
+  - <meta property="og:type" content="article" />
+  - <meta property="og:title" content="VEcoTra" />
+  - <meta property="og:description" content="Hành trình xanh - Kết nối bền vững" />
+  - <meta property="og:image" content="/logo-vecotra.png" />
