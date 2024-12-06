@@ -2,3 +2,43 @@
     padding: 0;
     margin: 0;
 }
+
+.font-bold {
+    font-weight: bold;
+}
+
+.font-normal {
+    font-weight: normal;
+}
+
+.font-italic {
+    font-style: italic;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-green {
+    color: #3ab54a !important;
+}
+
+.text-yellow {
+    color: #e9b853 !important;
+}
+
+.text-white {
+    color: white !important;
+}

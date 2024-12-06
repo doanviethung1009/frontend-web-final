@@ -2,6 +2,8 @@
 // import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 // import { Link } from 'react-router-dom';
 
+import { Link } from "react-router-dom";
+
 
 const DataItemsPublic = [
     {
@@ -87,38 +89,41 @@ const DataItemsPublic = [
     {
         label: 'Partner',
         key: 'partner',
+        labelKey: 'partner'
         // icon: <AppstoreOutlined />,
-        children: [
-            {
-                label: "Strategic Partnerships",
-                key: 'strategicPartnerships',
-            },
-            {
-                label: "Local Collaborators",
-                key: 'localCollaborators',
-            },
-            {
-                label: "Eco - Accommodations",
-                key: 'ecoAccommodations',
-            },
-            {
-                label: "Conservation Organizations",
-                key: 'conservationOrganizations',
-            },
-            {
-                label: "Join as a Partner",
-                key: 'joinPartnerships',
-            }
-        ]
+        // children: [
+        //     {
+        //         label: "Strategic Partnerships",
+        //         key: 'strategicPartnerships',
+        //     },
+        //     {
+        //         label: "Local Collaborators",
+        //         key: 'localCollaborators',
+        //     },
+        //     {
+        //         label: "Eco - Accommodations",
+        //         key: 'ecoAccommodations',
+        //     },
+        //     {
+        //         label: "Conservation Organizations",
+        //         key: 'conservationOrganizations',
+        //     },
+        //     {
+        //         label: "Join as a Partner",
+        //         key: 'joinPartnerships',
+        //     }
+        // ]
         // disabled: true,zs
     },
 
     {
         key: 'guide',
         label: "Travel Guide",
+        labelKey: "guide",
         children: [
             {
                 label: "Vietnam Destinations",
+                labelKey:'vietnamDestinations',
                 key: 'travelGuide1',
             },
             {

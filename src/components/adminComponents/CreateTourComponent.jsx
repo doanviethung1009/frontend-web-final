@@ -73,7 +73,7 @@ const CreateTourComponent = (props) => {
 
     const onFinish = async (values) => {
         // Extract filter tag and store it in an array
-        const splitFilterTag = values.filterTag.split(",");
+        const splitFilterTag = values.filterTag.split("#");
         // console.log(splitFilterTag);
         // get data in array
         // const extractedValues = splitFilterTag[splitFilterTag.length - 1]
@@ -226,8 +226,8 @@ const CreateTourComponent = (props) => {
                             {...custLayout}
                         >
                             <Select mode="single" placeholder=""  {...custLayout}>
-                                <Option value="vietnam">Viet nam</Option>
-                                <Option value="laos">Lao</Option>
+                                <Option value="vietnam">Vietnam</Option>
+                                {/* <Option value="laos">Laos</Option> */}
                             </Select>
                         </Form.Item>
 
@@ -241,8 +241,17 @@ const CreateTourComponent = (props) => {
                             {...custLayout}
                         >
                             <Select mode="multiple" placeholder=""  {...custLayout}>
-                                <Option value="vietnam">Ho Chi Minh</Option>
-                                <Option value="laos">Da Nag</Option>
+                                <Option value="HoChiMinh">Ho Chi Minh</Option>
+                                <Option value="DaNang">Da Nang</Option>
+                                <Option value="QuangNam">Quang Nam</Option>
+                                <Option value="QuangNgai">Quang Ngai</Option>
+                                <Option value="Hue">Hue</Option>
+                                <Option value="HaNoi">Ha Noi</Option>
+                                <Option value="HaiPhong">Hai Phong</Option>
+                                <Option value="QuangNinh">Quang Ninh</Option>
+                                <Option value="HaGiang">Ha Giang</Option>
+                                <Option value="ThaiNguyen">ThaiNguyen</Option>
+
                             </Select>
                         </Form.Item>
                     </div>
@@ -286,13 +295,14 @@ const CreateTourComponent = (props) => {
                                     name="tourScheduledSelectedDate"
                                 >
                                     <Select mode="single" disabled={!component2Disabled} placeholder="Please select"    {...custLayout}>
-                                        <Option value="monday">Thu 2</Option>
-                                        <Option value="Tuesday">Thu 3</Option>
-                                        <Option value="Wednesday">Thu 4</Option>
-                                        <Option value="Thursday">Thu 5</Option>
-                                        <Option value="Friday">Thu 6</Option>
-                                        <Option value="Saturday">Thu 7</Option>
-                                        <Option value="Sunday">Chu nhat</Option>
+                                        <Option value="Monday">Monday</Option>
+                                        <Option value="Tuesday">Tuesday</Option>
+                                        <Option value="Wednesday">Wednesday</Option>
+                                        <Option value="Thursday">Thursday</Option>
+                                        <Option value="Friday">Friday</Option>
+                                        <Option value="Saturday">Saturday</Option>
+                                        <Option value="Sunday">Sunday</Option>
+                                        <Option value="Sunday">To be updated</Option>
                                     </Select>
                                 </Form.Item>
                             </Space>
@@ -347,36 +357,30 @@ const CreateTourComponent = (props) => {
                     <div className="vecotra-Five tourTransport">
                         <Form.Item
                             name="tourTransport"
-                            label="Tour Transport"
-                            {...rangeConfig}
+                            label="Tour Transportation"
+                            {...config}
                             {...custLayout}
                         >
-                            <Select
-                                mode='multiple'
-                                showSearch
-                                placeholder="Select a person"
-                                {...custLayout}
-                                filterOption={(input, option) =>
-                                    (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
-                                }
-                                options={[
-                                    {
-                                        label: "oto",
-                                        value: "oto"
-                                    },
-                                    {
-                                        label: "xe may",
-                                        value: "xemay"
-                                    },
-                                    {
-                                        label: "may bay",
-                                        value: "maybay"
-                                    }
-
-                                ]}
-                            />
-
-
+                            <Select mode="multiple" placeholder=""  {...custLayout}>
+                                <Option value="Airplane">Airplane</Option>
+                                <Option value="Car">Car</Option>
+                                <Option value="Coach/Bus">Coach/Bus</Option>
+                                <Option value="Train">Train</Option>
+                                <Option value="Ferry/Boat">Ferry/Boat</Option>
+                                <Option value="CruiseShip">Cruise Ship</Option>
+                                <Option value="SmallBoat">Small Boat</Option>
+                                <Option value="Bicycle">Bicycle</Option>
+                                <Option value="Motorbike">Motorbike</Option>
+                                <Option value="Train">Train</Option>
+                                {/* <Option value="All-TerrainVehicle">All-Terrain Vehicle</Option>
+                                <Option value="CruiseShip">Cruise Ship</Option>
+                                <Option value="Helicopter">Helicopter</Option>
+                                <Option value="HotAirBalloon">Hot Air Balloon</Option>
+                                <Option value="CableCar">Cable Car</Option>
+                                <Option value="Rickshaw">Rickshaw</Option>
+                                <Option value="Walking">Walking</Option>
+                                <Option value="Others">Others</Option> */}
+                            </Select>
                         </Form.Item>
                     </div>
                     <div className="vecotra-Five tourAccommodation">
@@ -402,10 +406,10 @@ const CreateTourComponent = (props) => {
                             {...config}
                             {...custLayout}
                         >
-                            <Select mode="single" placeholder=""  {...custLayout}>
-                                <Option value="hcm">hcm</Option>
-                                <Option value="hn">hn</Option>
-                            </Select>
+                            {/* <Select mode="single" placeholder=""  {...custLayout}>
+                                <Option value="indian">Ấn độ</Option>
+                            </Select> */}
+                            <Input />
                         </Form.Item>
                     </div>
                     <div className="vecotra-Seven">
@@ -415,10 +419,11 @@ const CreateTourComponent = (props) => {
                             {...config}
                             {...custLayout}
                         >
-                            <Select mode="multiple" placeholder=""  {...custLayout}>
-                                <Option value="EN">EN</Option>
-                                <Option value="Vi">VI</Option>
-                            </Select>
+                            <Input />
+                            {/* <Select mode="multiple" placeholder=""  {...custLayout}>
+                                <Option value="English">English</Option>
+                                <Option value="Vietnamese">Vietnamese</Option>
+                            </Select> */}
                         </Form.Item>
                     </div>
                 </div>
@@ -465,6 +470,7 @@ const CreateTourComponent = (props) => {
                                 {...custLayout}
                                 // addonAfter={selectAfter}
                                 // defaultValue={0}
+                                min={0}
                                 placeholder='Input price for vnd here:'
                                 suffix="VND"
                                 value="priceVI" />
@@ -480,7 +486,7 @@ const CreateTourComponent = (props) => {
                                 // addonAfter={selectAfter}
                                 // defaultValue={0}
                                 {...custLayout}
-
+                                min={0}
                                 placeholder='Input price for vnd here:'
                                 suffix="USD"
                                 value="priceEN" />
@@ -677,7 +683,7 @@ const CreateTourComponent = (props) => {
                     </Space>
                 </Form.Item>
             </Form >
-        </div>
+        </div >
     );
 };
 export default CreateTourComponent;

@@ -37,4 +37,35 @@ const uploadMultiImage = async (files, folder) => {
 
 }
 
-export { uploadMultiImage, uploadImageAPI }
+
+// function soft delete tour with _id
+const deleteSoftTourAPI = async (_id) => {
+    console.log("soft delete", _id)
+    let message = await api.delete(`${URL_BACKEND}/tourByID/?_id=${_id}`)
+    console.log("check log", message)
+    return message
+}
+
+// function soft delete tour with _id
+const deleteTourAPI = async (_id) => {
+    console.log("soft delete", _id)
+    let message = await api.delete(`${URL_BACKEND}/tour/?_id=${_id}`)
+    console.log("check log", message)
+    return message
+}
+
+//fetch list tour deleted from backend
+const fetchListTourDeletedAPI = async () => {
+    console.log("fetchListTourDeletedAPI")
+    let message = await api.get(`${URL_BACKEND}/tourTrash`)
+    console.log("check log", message)
+    return message
+}
+
+export {
+    uploadMultiImage,
+    uploadImageAPI,
+    deleteSoftTourAPI,
+    fetchListTourDeletedAPI,
+    deleteTourAPI
+}

@@ -2,124 +2,287 @@
 import { useEffect, useState } from 'react';
 import { getTourAPI } from '../../services/apiService';
 import '../../styles/adminStyles/tourAdmin.scss'
+import { message, Space, Table, Tag } from 'antd';
+import { deleteSoftTourAPI, deleteTourAPI, fetchListTourDeletedAPI } from '../../services/adminAPI/adminApiService';
+import OpenDetailTour from '../../components/adminComponents/modals/OpenDetailTour';
+import EditTourModal from '../../components/adminComponents/modals/EditTourModal';
+
+
 const TourAdmin = () => {
-    const [getListTour, setGetListTour] = useState([])
+    // const [getListTour, setGetListTour] = useState([])
+    // // const { checkLang, setCheckLang } = useContext(LangContext)
+    // const [getListTempTour, setGetListTempTour] = useState([])
+    const [activeTours, setActiveTours] = useState([]);
+    const [trashTours, setTrashTours] = useState([]);
+    const [loading, setLoading] = useState({ active: true, trash: true });
+    // const [isLoading, setIsLoading] = useState(true)
+    const [isOpenModal, setIsOpenModal] = useState(false)
+    const [edit, setEdit] = useState(false)
+    const [dataTour, setDataTour] = useState([]);
+    const [editDataTour, setEditDataTour] = useState([]);
+    const fetchTours = async () => {
+        try {
+            setLoading({ active: true, trash: true });
+            const [activeResponse, trashResponse] = await Promise.all([getTourAPI(), fetchListTourDeletedAPI()]);
 
-
-
-    const fetchListTour = async () => {
-        let response = await getTourAPI();
-        console.log(response.message.data);
-        if (response.message.data) {
-            console.log(response.message.data);
-            setGetListTour(response.message.data);
+            setActiveTours(activeResponse?.message?.data || []);
+            setTrashTours(trashResponse?.message?.data || []);
+            setLoading({ active: false, trash: false });
+        } catch (error) {
+            message.error('Failed to fetch tours.');
+            console.error(error);
         }
+    };
+
+    // Fetch active tours
+    // const fetchListTour = async () => {
+    //     try {
+    //         const response = await getTourAPI();
+    //         if (response?.message?.data) {
+    //             setGetListTour(response.message.data);
+    //         }
+    //     } catch (error) {
+    //         message.error('Failed to fetch active tours.');
+    //         console.error(error);
+    //     }
+    // };
+
+    // // Fetch deleted tours
+    // const fetchListTempTour = async () => {
+    //     try {
+    //         const response = await fetchListTourDeletedAPI();
+    //         if (response?.message?.data) {
+    //             setGetListTempTour(response.message.data);
+    //         }
+    //     } catch (error) {
+    //         message.error('Failed to fetch deleted tours.');
+    //         console.error(error);
+    //     }
+    // };
+
+    // Fetch all data 
+    // const fetchData = async () => {
+    //     //wait for loading
+    //     setIsLoading(true)
+    //     //fetch all data
+    //     await Promise.all([fetchListTour(), fetchListTempTour()])
+    //     setIsLoading(false)
+
+    // }
+
+    const columns = [
+        {
+            title: 'Tour Code',
+            dataIndex: `tourCode`,
+            key: `tourCode`,
+            render: (_, record) => <a onClick={() => handleOnclickViewDetail(record._id, record)}>{record.tourCode}</a>,
+        },
+        {
+            title: 'Tour Name',
+            dataIndex: 'tourName',
+            key: 'tourName',
+        },
+        {
+            title: 'Address',
+            dataIndex: 'tourContinent',
+            key: 'tourContinent',
+        },
+        {
+            title: 'Address',
+            dataIndex: 'tourCountry',
+            key: 'tourCountry',
+        },
+        {
+            title: 'Address',
+            dataIndex: 'tourPrivacy',
+            key: 'tourPrivacy',
+        },
+
+        {
+            title: 'Action',
+            key: 'action',
+            render: (_, record) => (
+                <Space size="middle">
+                    {/* <a>Invite {record.name}</a> */}
+                    {
+                        !record.deleted ?
+                            <>
+                                <a onClick={() => handleOnclickViewDetail(record._id, record)}>View</a>
+                                <a onClick={() => handleOnclickEditModal(record._id, record)}>Edit</a>
+                                <a onClick={() => handleDelete(record._id, true)}>Soft Delete</a>
+                            </>
+                            :
+                            <>
+                                <a onClick={() => handleOnclickViewDetail(record._id)}>View</a>
+                                <a > Revert</a>
+                                <a onClick={() => handleDelete(record._id, false)}> Delete</a>
+                            </>
+
+
+                    }
+
+                </Space>
+            ),
+        },
+    ];
+
+    // const data = []
+    // const handleFetchData = () => {
+    //     for (let i = 0; i < getListTour.length; i++) {
+    //         data.push({
+    //             _id: getListTour[i]._id,
+    //             tourCode: getListTour[i].tourCode,
+    //             tourName: getListTour[i].tourName,
+    //             tourContinent: getListTour[i].tourContinent,
+    //             tourCountry: getListTour[i].tourCountry,
+    //             tourPrivacy: getListTour[i].tourPrivacy,
+    //             departFrom: getListTour[i].departFrom,
+    //         })
+    //     }
+    // }
+
+    // Fetch all data on mount
+    useEffect(() => {
+        // fetchListTour();
+        // fetchListTempTour();
+        // const fetchData = async () => {
+        //     //wait for loading
+        //     setIsLoading(true)
+        //     //fetch all data
+        //     await Promise.all([fetchListTour(), fetchListTempTour()])
+        //     setIsLoading(false)
+        // }
+        // fetchData();
+        fetchTours()
+    }, [])
+
+    // handleFetchData()
+    // console.log("handleFetchData", data);
+
+    const handleOnclickViewDetail = (tourCode, record) => {
+        console.log("view detail", tourCode)
+        console.log("check record", record)
+        // setDataTour({
+        //     ...dataTour,
+        //     record
+        // })
+        setDataTour(record)
+        setIsOpenModal(true);
 
     }
 
-    useEffect(() => {
-        fetchListTour();
-    }, [])
+    const handleOnclickEditModal = (tourCode, record) => {
+        setEditDataTour(record)
+        setEdit(true);
+    }
+    // const handleOnClickDeteleByID = async (id) => {
+    //     console.log("delete", id)
+    //     let res = await deleteSoftTourAPI(id)
+    //     console.log("check deleteSoftTourAPI", res)
+    //     if (res.message && res.message.errCode === 0) {
+    //         message.success('Tour deleted successfully');
+    //         fetchListTour();
+    //     }
+
+    // }
+
+    // Handle delete action
+    // const handleOnClickSoftDeteleByID = async (id) => {
+    //     try {
+    //         const response = await deleteSoftTourAPI(id);
+    //         if (response?.message?.errCode === 0) {
+    //             message.success('Tour deleted successfully');
+    //             fetchListTour(); // Refresh active tours
+    //             fetchListTempTour(); // Refresh trash tours
+    //             // fetchData(); // Refresh both active and trash tours
+    //         } else {
+    //             message.error('Failed to delete tour.');
+    //         }
+    //     } catch (error) {
+    //         message.error('An error occurred while deleting the tour.');
+    //         console.error(error);
+    //     }
+    // };
+
+    // Handle delete action
+    // const handleOnClickDeteleByID = async (id) => {
+    //     try {
+    //         const response = await deleteTourAPI(id);
+    //         if (response?.message?.errCode === 0) {
+    //             message.success('Tour deleted successfully');
+    //             fetchListTour(); // Refresh active tours
+    //             fetchListTempTour(); // Refresh trash tours
+    //             // fetchData(); // Refresh both active and trash tours
+    //         } else {
+    //             message.error('Failed to delete tour.');
+    //         }
+    //     } catch (error) {
+    //         message.error('An error occurred while deleting the tour.');
+    //         console.error(error);
+    //     }
+    // };
+
+
+    //handle delete tour
+    const handleDelete = async (id, isSoftDelete) => {
+        try {
+            const response = isSoftDelete ? await deleteSoftTourAPI(id) : await deleteTourAPI(id);
+            if (response?.message?.errCode === 0) {
+                message.success('Tour updated successfully');
+                fetchTours(); // Refresh tours
+            } else {
+                message.error('Failed to update tour.');
+            }
+        } catch (error) {
+            message.error('An error occurred while updating the tour.');
+            console.error(error);
+        }
+    };
 
 
     return (
-
-        <div  >
-
-            <table>
-                <thead>
-                    <tr>
-                        <th>Category</th>
-                        <th>Tên tour</th>
-                        <th>Từ khoá SEO</th>
-                        <th>Châu lục</th>
-                        <th>Quốc gia</th>
-                        <th>Tour ID</th>
-                        <th>Thời gian(ngay)</th>
-                        <th>Thời gian(dem)</th>
-                        <th>Phương tiện</th>
-                        <th>Lưu trú</th>
-                        <th>Khởi hành 1</th>
-                        <th>Khởi hành 2</th>
-                        <th>Khởi hành từ</th>
-                        <th>Hình thức tour</th>
-                        <th>Giá VND</th>
-                        <th>Giá USD</th>
-                        <th>Ngôn ngữ hỗ trợ</th>
-                        <th>Tổng quan VI</th>
-                        <th>Tổng quan EN</th>
-                        <th>Điểm nổi bật VI</th>
-                        <th>Điểm nổi bật EN</th>
-                        <th>Lịch trình chi tiết VI</th>
-                        <th>Lịch trình chi tiết EN</th>
-                        <th>action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {getListTour.map((tour) => {
-                        return (
-                            <tr key={tour._id}>
-                                <td >{tour.tourCategory}</td>
-                                <td >{tour.tourName}</td>
-                                <td >{tour.seoTag}</td>
-                                <td>{tour.tourContinence}</td>
-                                <td>{tour.tourCountry}</td>
-                                <td>{tour.tourCode} </td>
-                                <td> {tour.tourDaySub1}</td>
-                                <td>{tour.tourDaySub2}</td>
-                                <td>{tour.tourTransport}</td>
-                                <td>{tour.tourAccommodation}</td>
-                                <td>{tour.tourScheduledChooseDate}</td>
-                                <td>{tour.tourScheduledSelectedDate}</td>
-                                <td>{tour.departFrom}</td>
-                                <td>{tour.tourType}</td>
-                                <td>{tour.langSupport}</td>
-                                <td>{tour.tourPriceVND}</td>
-                                <td>{tour.tourPriceEN}</td>
-                                <td>{tour.tourDescriptionVI}</td>
-                                <td>{tour.tourDescriptionEN}</td>
-                                <td>{tour.tourHighlightVI}</td>
-                                <td>{tour.tourHighlightVI}</td>
-                                <td>{tour.tourDetailVI.map((item) => {
-
-                                    return (
-                                        <div key={item._id}>
-                                            <h3> {item.title}:</h3>
-                                            <p> {item.description}</p>
-                                        </div>
-
-                                    )
-
-                                })}</td>
-                                <td>{tour.tourDetailEN.map((item) => {
-
-                                    return (
-                                        <div key={item._id}>
-                                            <h3> {item.title}:</h3>
-                                            <p> {item.description}</p>
-                                        </div>
-
-                                    )
-
-                                })}</td>
-                                <td>
-                                    <button onClick={() => {
-                                        console.log("delete tour")
-                                    }}>Delete</button>
-                                    <button onClick={() => {
-                                        console.log("edit tour")
-                                    }}>Edit</button>
-                                </td>
-
-                            </tr>
-                        )
-                    })}
-                </tbody>
-
-            </table >
-
-        </div >
+        <>
+            <div className="container-tourAdmin">
+                <h1>
+                    List Tours
+                </h1>
+                {/* {isLoading ? (
+                    <div>Loading...</div>
+                ) : (
+                    <Table columns={columns} dataSource={activeTours} rowKey="_id" />
+                )}
+                <h1>Trash Tours</h1>
+                {isLoading ? (
+                    <div>Loading...</div>
+                ) : (
+                    <Table columns={columns} dataSource={trashTours} rowKey="_id" />
+                )} */}
+                {loading.active ? (
+                    <div>Loading...</div>
+                ) : (
+                    <Table columns={columns} dataSource={activeTours} rowKey="_id" />
+                )}
+                <h1>Trash Tours</h1>
+                {loading.trash ? (
+                    <div>Loading...</div>
+                ) : (
+                    <Table columns={columns} dataSource={trashTours} rowKey="_id" />
+                )}
+            </div>
+            <OpenDetailTour
+                open={isOpenModal}
+                setOpen={setIsOpenModal}
+                dataTour={dataTour}
+            />
+            <EditTourModal
+                edit={edit}
+                setEdit={setEdit}
+                dataTour={editDataTour}
+                setDataTour={setEditDataTour}
+            />
+        </>
     );
+
 };
 
 export default TourAdmin;

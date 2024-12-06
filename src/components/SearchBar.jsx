@@ -61,7 +61,10 @@ const SearchBar = (props) => {
     const [selectedTags, setSelectedTags] = useState([]);
     const handleChange = (tag, checked) => {
         const nextSelectedTags = checked ? [...selectedTags, tag] : selectedTags.filter((t) => t !== tag);
-        console.log('You are interested in: ', nextSelectedTags);
+        // console.log('You are interested in: ', nextSelectedTags);
+
+        // limit tags selected to 6
+        if (nextSelectedTags.length > 6) return;
         setSelectedTags(nextSelectedTags);
     };
 
