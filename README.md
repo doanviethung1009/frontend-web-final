@@ -54,3 +54,16 @@ npm install i18next react-i18next i18next-browser-languagedetector
   - <meta property="og:title" content="VEcoTra" />
   - <meta property="og:description" content="Hành trình xanh - Kết nối bền vững" />
   - <meta property="og:image" content="/logo-vecotra.png" />
+
+- CSS:
+-> primary color:
+  --> Pigment green: #23A655 (RGB: 35, 166, 85) (СМУК: 79, 0, 49, 35)
+  --> Xanthous: #F9B72D (RGB: 249, 183, 45) (СМУК: 0, 27, 82, 2)
+
+- Font:
+  -> Font Logo: Seagull-Black
+  -> Font Slogan: Lato
+
+- render string (which html)
+-> <td dangerouslySetInnerHTML={{__html: this.state.actions}} />
+-> <https://stackoverflow.com/questions/19266197/reactjs-convert-html-string-to-jsx>

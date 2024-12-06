@@ -9,6 +9,9 @@ import "../../styles/adminStyles/createTourComponent.scss"
 import dayjs from 'dayjs';
 import { MDXEditor } from '@mdxeditor/editor';
 import MarkdownModal from './modals/MarkdownModal';
+import DataSelectOptionTransportation from '../../contents/DataSelectOptionTransportation';
+import DataItemSelectState from '../../contents/DataItemSelectState';
+import DataItemSelectAccommodation from '../../contents/DataItemSelectAccommodation';
 
 const dateTimestamp = dayjs('2024-01-01').valueOf();
 
@@ -226,7 +229,7 @@ const CreateTourComponent = (props) => {
                             {...custLayout}
                         >
                             <Select mode="single" placeholder=""  {...custLayout}>
-                                <Option value="vietnam">Vietnam</Option>
+                                <Option value="vietnam">Viet nam</Option>
                                 {/* <Option value="laos">Laos</Option> */}
                             </Select>
                         </Form.Item>
@@ -240,17 +243,12 @@ const CreateTourComponent = (props) => {
                             {...config}
                             {...custLayout}
                         >
-                            <Select mode="multiple" placeholder=""  {...custLayout}>
-                                <Option value="HoChiMinh">Ho Chi Minh</Option>
-                                <Option value="DaNang">Da Nang</Option>
-                                <Option value="QuangNam">Quang Nam</Option>
-                                <Option value="QuangNgai">Quang Ngai</Option>
-                                <Option value="Hue">Hue</Option>
-                                <Option value="HaNoi">Ha Noi</Option>
-                                <Option value="HaiPhong">Hai Phong</Option>
-                                <Option value="QuangNinh">Quang Ninh</Option>
-                                <Option value="HaGiang">Ha Giang</Option>
-                                <Option value="ThaiNguyen">ThaiNguyen</Option>
+                            <Select
+                                mode="tags"
+                                placeholder=""  {...custLayout}
+                                virtual={false}
+                                options={DataItemSelectState}
+                            >
 
                             </Select>
                         </Form.Item>
@@ -361,25 +359,8 @@ const CreateTourComponent = (props) => {
                             {...config}
                             {...custLayout}
                         >
-                            <Select mode="multiple" placeholder=""  {...custLayout}>
-                                <Option value="Airplane">Airplane</Option>
-                                <Option value="Car">Car</Option>
-                                <Option value="Coach/Bus">Coach/Bus</Option>
-                                <Option value="Train">Train</Option>
-                                <Option value="Ferry/Boat">Ferry/Boat</Option>
-                                <Option value="CruiseShip">Cruise Ship</Option>
-                                <Option value="SmallBoat">Small Boat</Option>
-                                <Option value="Bicycle">Bicycle</Option>
-                                <Option value="Motorbike">Motorbike</Option>
-                                <Option value="Train">Train</Option>
-                                {/* <Option value="All-TerrainVehicle">All-Terrain Vehicle</Option>
-                                <Option value="CruiseShip">Cruise Ship</Option>
-                                <Option value="Helicopter">Helicopter</Option>
-                                <Option value="HotAirBalloon">Hot Air Balloon</Option>
-                                <Option value="CableCar">Cable Car</Option>
-                                <Option value="Rickshaw">Rickshaw</Option>
-                                <Option value="Walking">Walking</Option>
-                                <Option value="Others">Others</Option> */}
+                            <Select mode="multiple" placeholder=""  {...custLayout} virtual={false} options={DataSelectOptionTransportation}>
+
                             </Select>
                         </Form.Item>
                     </div>
@@ -388,9 +369,14 @@ const CreateTourComponent = (props) => {
                             name="tourAccommodation"
                             label="Accommodation"
                             {...rangeConfig} >
-                            <Select       {...custLayout} mode="multiple" placeholder="Please select  ">
-                                <Option value="resort">Resort</Option>
-                                <Option value="hotel">Hotel</Option>
+                            <Select
+                                {...custLayout}
+                                mode="multiple"
+                                placeholder="Please select "
+                                virtual={false}
+                                options={DataItemSelectAccommodation}
+                            >
+
                             </Select>
                         </Form.Item>
                     </div>
@@ -470,6 +456,8 @@ const CreateTourComponent = (props) => {
                                 {...custLayout}
                                 // addonAfter={selectAfter}
                                 // defaultValue={0}
+                                formatter={(value) => `${value}`.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                                parser={(value) => value?.replace(/\$\s?|(,*)/g, '')}
                                 min={0}
                                 placeholder='Input price for vnd here:'
                                 suffix="VND"
