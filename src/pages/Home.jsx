@@ -53,7 +53,7 @@ const Home = (props) => {
 
             {/* SEARCH_BAR */}
             <div>
-                <SearchBar />
+                {/* <SearchBar /> */}
             </div>
         </div >
 

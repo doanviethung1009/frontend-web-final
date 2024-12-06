@@ -13,8 +13,8 @@ const DataItemsPublic = [
     },
     {
         label: 'About us',
-        key: 'about',
-        labelKey: 'about',
+        key: 'about-us',
+        labelKey: 'about-us',
         // icon: <MailOutlined />,
     },
     {
