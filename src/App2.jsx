@@ -76,8 +76,7 @@ const App2 = () => {
                     // ]
                 },
                 {
-                    path: '/guide',
-                    element: <TravelGuide />,
+                    path: '/guide',element: <TravelGuide />,
                     children: [
                         {
                             path: ':title',
