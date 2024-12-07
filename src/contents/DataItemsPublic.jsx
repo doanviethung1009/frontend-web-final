@@ -120,30 +120,30 @@ const DataItemsPublic = [
         key: 'guide',
         label: "Travel Guide",
         labelKey: "guide",
-        children: [
-            {
-                label: "Vietnam Destinations",
-                labelKey:'vietnamDestinations',
-                key: 'travelGuide1',
-            },
-            {
-                label: "Sustainable Travel Tips",
-                key: 'travelGuide2',
-            },
-            {
-                label: "Cultural Etiquette",
-                key: 'travelGuide3',
-            },
-            {
-                label: "Local Food & Souvenirs",
-                key: 'travelGuide4',
-            },
-            {
-                label: "Travel Checklist",
-                key: 'travelGuide5',
-            },
+        // children: [
+        //     {
+        //         label: "Vietnam Destinations",
+        //         labelKey:'vietnamDestinations',
+        //         key: 'travelGuide1',
+        //     },
+        //     {
+        //         label: "Sustainable Travel Tips",
+        //         key: 'travelGuide2',
+        //     },
+        //     {
+        //         label: "Cultural Etiquette",
+        //         key: 'travelGuide3',
+        //     },
+        //     {
+        //         label: "Local Food & Souvenirs",
+        //         key: 'travelGuide4',
+        //     },
+        //     {
+        //         label: "Travel Checklist",
+        //         key: 'travelGuide5',
+        //     },
 
-        ]
+        // ]
     },
     {
         key: "language",
