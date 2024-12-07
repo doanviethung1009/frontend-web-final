@@ -77,6 +77,7 @@ const App2 = () => {
                 },
                 {
                     path: '/guide',
+                    element: <TravelGuide />
                     // children: [
                     //     {
                     //         path: '/guide/vietnamDestinations',
