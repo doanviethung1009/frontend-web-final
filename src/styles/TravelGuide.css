@@ -1,0 +1,23 @@
+.travel-guide-container{
+    margin: 400px 0px;
+    padding: 20px 15px;
+}
+.current-travel{
+    padding: 20px 0px;
+}
+.p-clamp{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 3;
+    -webkit-line-clamp: 3; 
+}
+.p-clamp2{
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-clamp: 5;
+    -webkit-line-clamp: 5; 
+}

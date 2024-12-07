@@ -23,8 +23,7 @@ import CreateTourComponent from './components/adminComponents/CreateTourComponen
 import MarkdownComponent from './components/adminComponents/MarkdownComponent';
 import Partner from './pages/publicPages/Partner';
 import ErrorPage from './pages/Error';
-
-
+import TravelGuide from './pages/publicPages/guides/TravelGuide'
 
 const App2 = () => {
     const [checkLang, setCheckLang] = useState('en')
@@ -78,9 +77,10 @@ const App2 = () => {
                 },
                 {
                     path: '/guide',
+                    element:<TravelGuide/>,
                     children: [
                         {
-                            path: '/guide/vietnamDestinations',
+                            path: ':title',
                             element: <VietnamDestinations />
                         },
                     ]
