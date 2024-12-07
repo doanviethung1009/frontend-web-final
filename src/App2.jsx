@@ -77,13 +77,12 @@ const App2 = () => {
                 },
                 {
                     path: '/guide',
-                    element:<TravelGuide/>,
-                    children: [
-                        {
-                            path: ':title',
-                            element: <VietnamDestinations />
-                        },
-                    ]
+                    // children: [
+                    //     {
+                    //         path: '/guide/vietnamDestinations',
+                    //         element: <VietnamDestinations />
+                    //     },
+                    // ]
                 }
 
             ]
