@@ -23,6 +23,8 @@ import MarkdownComponent from './components/adminComponents/MarkdownComponent';
 import Partner from './pages/publicPages/Partner';
 import ErrorPage from './pages/Error';
 import TravelGuide from './pages/publicPages/guides/TravelGuide'
+import TravelGuideDetail from './pages/publicPages/guides/TravelGuideDetail';
+import Products from './pages/publicPages/Products';
 
 const App2 = () => {
     const [checkLang, setCheckLang] = useState('en')
@@ -43,21 +45,23 @@ const App2 = () => {
                     element: <Home />
                 },
                 {
-                    path: '/about-us',
+                    path: 'about-us',
                     element: <About />
                 },
                 {
-                    path: '/products',
+                    //noted: need to create product layout and use outlet to store product
+                    path: 'products',
+                    element: <Products />,
                     children: [
                         {
-                            path: '/products/travelVietnam/',
+                            path: 'travelVietnam',
                             children: [
                                 {
-                                    path: '/products/travelVietnam/northernVietnam',
+                                    path: 'northernVietnam',
                                     element: <NorthernVietnam />
                                 },
                                 {
-                                    path: '/products/travelVietnam/centralVietnam',
+                                    path: 'centralVietnam',
                                     element: <CentralVietnam />
                                 }
                             ]
@@ -65,7 +69,7 @@ const App2 = () => {
                     ]
                 },
                 {
-                    path: '/partner',
+                    path: 'partner',
                     element: <Partner />
                     // children: [
                     //     {
@@ -75,15 +79,21 @@ const App2 = () => {
                     // ]
                 },
                 {
-                    path: '/guide',
-                    element: <TravelGuide />
+                    path: 'guide',
+                    element: <TravelGuide />,
                     // children: [
                     //     {
-                    //         path: '/guide/vietnamDestinations',
-                    //         element: <VietnamDestinations />
+                    //         // call detail travel guide with id
+                    //         path: 'details/:id',
+                    //         element: <TravelGuideDetail />
                     //     },
                     // ]
-                }
+                },
+                {
+                    // call detail travel guide with id not use outlet
+                    path: '/guide/details/:id',
+                    element: <TravelGuideDetail />
+                },
 
             ]
         },
