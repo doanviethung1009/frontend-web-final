@@ -1,0 +1,29 @@
+.slick-list {
+    border-radius: 10% !important;
+    margin-bottom: 20px !important;
+}
+
+.column {
+    height: fit-content;
+}
+
+.img-background {
+    height: 500px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.img-avatar {
+    height: 300px;
+}
+
+@media screen and (max-width: 992px) {
+    .container-slider .img-avatar {
+        display: none !important;
+    }
+
+    .container-slider .slick-dots {
+        display: none !important;
+    }
+}

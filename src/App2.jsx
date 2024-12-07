@@ -12,7 +12,6 @@ import { Fragment, useContext, useState } from 'react';
 import TourAdmin from './pages/adminPages/TourAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoute2 from './components/ProtectedRouteN';
-import Stories from './pages/publicPages/abouts/Stories';
 import VietnamDestinations from './pages/publicPages/guides/VietnamDestinations';
 import CreateTour from './pages/adminPages/CreateTour';
 import TestApi from './pages/adminPages/TestApi';
