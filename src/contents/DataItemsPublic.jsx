@@ -119,9 +119,11 @@ const DataItemsPublic = [
     {
         key: 'guide',
         label: "Travel Guide",
+        labelKey: "guide",
         children: [
             {
                 label: "Vietnam Destinations",
+                labelKey:'vietnamDestinations',
                 key: 'travelGuide1',
             },
             {

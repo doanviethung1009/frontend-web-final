@@ -21,9 +21,7 @@ import About from './pages/About';
 import { AuthContext, AutoWrapper } from './context/Auth.Context';
 import CreateTourComponent from './components/adminComponents/CreateTourComponent';
 import MarkdownComponent from './components/adminComponents/MarkdownComponent';
-
 import Partner from './pages/publicPages/Partner';
-
 import ErrorPage from './pages/Error';
 
 

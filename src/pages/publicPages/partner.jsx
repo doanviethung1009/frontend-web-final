@@ -8,7 +8,7 @@ import {
   Col,
   ConfigProvider,
 } from "antd";
-// import "./Partner.css";
+import "../../styles/Partner.css";
 
 const Partner = () => {
   const dataPartner = {
@@ -274,7 +274,7 @@ const Partner = () => {
             infinite={true}
             draggable={true}
             arrowSize={32}
-            style={{ backgroundColor: "#f5f5f5" }}
+            // style={{ backgroundColor: "#f5f5f5" }}
             responsive={[
               {
                 breakpoint: 468,
