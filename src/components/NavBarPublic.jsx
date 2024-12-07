@@ -93,7 +93,8 @@ const NavBarPublic = (props) => {
             key: item.key,
             // hungdv edited fix link for single navbar
             // label: t(item.key),
-            label: item.children ? t(item.key) : <Link to={`${item.labelKey}`}> {t(item.key)}</Link>,
+            label: item.children ? t(item.key) :
+             <Link to={`${item.labelKey}`}> {t(item.key)}</Link>,
             icon: item.icon,
             children: item.children?.map((child) => {
                 // Check if the child's key is "en" or "vi" and set the label accordingly
