@@ -17,6 +17,7 @@ const PublicLayout = (props) => {
                     setCheckLang={setCheckLang}
                 />
             </main>
+
         </div>
     );
 };

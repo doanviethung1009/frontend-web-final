@@ -20,6 +20,7 @@ const DataItemsPublic = [
     {
         label: 'Product',
         key: 'product',
+        labelKey: 'products',
         // icon: <SettingOutlined />,
         children: [
             {

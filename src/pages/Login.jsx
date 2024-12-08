@@ -7,7 +7,7 @@ import { AuthContext } from '../context/Auth.Context';
 
 
 const Login = () => {
-    const { setUser } = useContext(AuthContext)
+    const { user, setUser } = useContext(AuthContext)
     // const onFinish = (values) => {
     //     console.log('Success:', values);
     // };
@@ -40,83 +40,97 @@ const Login = () => {
         }
     }
     return (
+        <>
+            {
+                console.log(">>>> check user", user)
 
-        <div className="containerLogin">
-            <div className="headerLogin">
 
-            </div>
-            <div className="formLogin">
-                <Form
-                    name="basic"
-                    labelCol={{
-                        span: 8,
-                    }}
-                    wrapperCol={{
-                        span: 16,
-                    }}
-                    style={{
-                        maxWidth: 600,
-                    }}
-                    initialValues={{
-                        remember: true,
-                    }}
-                    // onFinish={onFinish}
-                    onFinish={handleOnLogin}
-                    onFinishFailed={onFinishFailed}
-                    autoComplete="off"
-                >
-                    <Form.Item
-                        label="Username"
-                        name="userName"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your username!',
-                            },
-                        ]}
-                    >
-                        <Input />
-                    </Form.Item>
+            }
+            {
+                !user._id ?
+                    <div className="containerLogin">
+                        <div className="headerLogin">
 
-                    <Form.Item
-                        label="Password"
-                        name="userPassword"
-                        rules={[
-                            {
-                                required: true,
-                                message: 'Please input your password!',
-                            },
-                        ]}
-                    >
-                        <Input.Password />
-                    </Form.Item>
+                        </div>
+                        <div className="formLogin">
 
-                    <Form.Item
-                        name="remember"
-                        valuePropName="checked"
-                        wrapperCol={{
-                            offset: 8,
-                            span: 16,
-                        }}
-                    >
-                        <Checkbox>Remember me</Checkbox>
-                    </Form.Item>
+                            <Form
+                                name="basic"
+                                labelCol={{
+                                    span: 8,
+                                }}
+                                wrapperCol={{
+                                    span: 16,
+                                }}
+                                style={{
+                                    maxWidth: 600,
+                                }}
+                                initialValues={{
+                                    remember: true,
+                                }}
+                                // onFinish={onFinish}
+                                onFinish={handleOnLogin}
+                                onFinishFailed={onFinishFailed}
+                                autoComplete="off"
+                            >
+                                <Form.Item
+                                    label="Username"
+                                    name="userName"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your username!',
+                                        },
+                                    ]}
+                                >
+                                    <Input />
+                                </Form.Item>
 
-                    <Form.Item
-                        wrapperCol={{
-                            offset: 8,
-                            span: 16,
-                        }}
-                    >
-                        <Button type="primary" htmlType="submit">
-                            Submit
-                        </Button>
-                    </Form.Item>
-                </Form>
-                {/* <ToastContainer position="top-right" autoClose={3000} /> */}
-            </div>
+                                <Form.Item
+                                    label="Password"
+                                    name="userPassword"
+                                    rules={[
+                                        {
+                                            required: true,
+                                            message: 'Please input your password!',
+                                        },
+                                    ]}
+                                >
+                                    <Input.Password />
+                                </Form.Item>
 
-        </div >
+                                <Form.Item
+                                    name="remember"
+                                    valuePropName="checked"
+                                    wrapperCol={{
+                                        offset: 8,
+                                        span: 16,
+                                    }}
+                                >
+                                    <Checkbox>Remember me</Checkbox>
+                                </Form.Item>
+
+                                <Form.Item
+                                    wrapperCol={{
+                                        offset: 8,
+                                        span: 16,
+                                    }}
+                                >
+                                    <Button type="primary" htmlType="submit">
+                                        Submit
+                                    </Button>
+                                </Form.Item>
+                            </Form>
+
+                        </div>
+
+                    </div >
+                    :
+                    navigate("/tourAdmin")
+            }
+
+        </>
+
     );
 };
 
