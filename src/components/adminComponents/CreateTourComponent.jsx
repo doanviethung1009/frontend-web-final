@@ -12,6 +12,7 @@ import MarkdownModal from './modals/MarkdownModal';
 import DataSelectOptionTransportation from '../../contents/DataSelectOptionTransportation';
 import DataItemSelectState from '../../contents/DataItemSelectState';
 import DataItemSelectAccommodation from '../../contents/DataItemSelectAccommodation';
+import DataItemSelectFIlterTag from '../../contents/DataItemSelectFIlterTag';
 
 const dateTimestamp = dayjs('2024-01-01').valueOf();
 
@@ -76,14 +77,17 @@ const CreateTourComponent = (props) => {
 
     const onFinish = async (values) => {
         // Extract filter tag and store it in an array
-        const splitFilterTag = values.filterTag.split("#");
+        const splitFilterTag = values.filterTag.split("@");
+        const splitSeoTag = values.seoTag.split("@");
+
         // console.log(splitFilterTag);
         // get data in array
         // const extractedValues = splitFilterTag[splitFilterTag.length - 1]
         // console.log(extractedValues);
         setListData({
             ...values,
-            splitFilterTag
+            splitFilterTag,
+            splitSeoTag
         });
         console.log('Received values from form: ', values);
         next();
@@ -98,8 +102,8 @@ const CreateTourComponent = (props) => {
         // return <Navigate to="/tourAdmin" replace />;
 
     };
-    const [component1Disabled, setComponent1Disabled] = useState("false");
-    const [component2Disabled, setComponent2Disabled] = useState("false");
+    const [component1Disabled, setComponent1Disabled] = useState(false);
+    const [component2Disabled, setComponent2Disabled] = useState(false);
 
     return (
         <div className="vecotra-CreateTour-Container">
@@ -199,6 +203,21 @@ const CreateTourComponent = (props) => {
                         </Form.Item>
 
                     </div>
+                    <div className="vecotra-Second seoTag">
+                        {/* input words use for seo  */}
+                        <Form.Item
+                            label="Seo tag"
+                            name="seoTag"
+                            style={{ width: "600px" }}
+                        >
+                            <Mentions style={{
+                                width: "100%"
+                            }}
+                                options={DataItemSelectFIlterTag}
+                            />
+                        </Form.Item>
+
+                    </div>
                 </div>
 
                 <div className="vecotra-Third">
@@ -262,9 +281,12 @@ const CreateTourComponent = (props) => {
                         >
                             <Space>
                                 <Checkbox checked={component1Disabled}
+                                    disabled={component2Disabled}
                                     onChange={(e) => {
                                         // console.log('Check e', e)
                                         setComponent1Disabled(e.target.checked)
+                                        setComponent2Disabled(false)
+
                                     }}
                                 />
                                 <Form.Item
@@ -282,9 +304,11 @@ const CreateTourComponent = (props) => {
                             <Space >
                                 <Checkbox
                                     checked={component2Disabled}
+                                    disabled={component1Disabled}
                                     onChange={(e) => {
                                         // console.log('Check e', e)
                                         setComponent2Disabled(e.target.checked)
+                                        setComponent1Disabled(false)
                                     }}
                                 />
                                 <Form.Item
