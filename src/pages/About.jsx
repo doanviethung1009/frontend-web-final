@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect } from 'react';
 import { Typography, Row, Col } from 'antd';
 import '../styles/publicStyles/About.css';
 import { useTranslation } from 'react-i18next';
@@ -39,23 +39,23 @@ const dataInfoLocate = [
 // data-other-business-sectors
 const dataOtherBusinessSectors = [
   {
-    icon: 'https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-advertising-market-research-and-event-organization.svg',
     title: 'title_data_other_business_sectors_1',
   },
   {
-    icon: 'https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-road-passenger-transport-and-transport-support.svg',
     title: 'title_data_other_business_sectors_2',
   },
   {
-    icon: 'https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-accommodation-and-restaurant-services.svg',
     title: 'title_data_other_business_sectors_3',
   },
   {
-    icon: 'https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-agency-brokerage-for-goods-cosmetics-food-and-beverages.svg',
     title: 'title_data_other_business_sectors_4',
   },
   {
-    icon: 'https://images.pexels.com/photos/417192/pexels-photo-417192.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-education-training-and-artistic-activities.svg',
     title: 'title_data_other_business_sectors_5',
   },
 ];
@@ -63,35 +63,35 @@ const dataOtherBusinessSectors = [
 // data-core-values
 const dataCoreValues = [
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-environmental-stewardship.svg',
     title: 'environmental_stewardship',
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-authentic-experiences.svg',
     title: 'authentic_experiences',
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-continuous-innovation.svg',
     title: 'continuous_innovation',
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-community-engagement.svg',
     title: 'community_engagement',
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-cultural-respect.svg',
     title: 'cultural_respect',
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-customer-centric-service.svg',
     title: 'customer_centric_service',
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-integrity-and-transparency.svg',
     title: 'integrity_and_transparency',
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-safety-and-wellbeing.svg',
     title: 'safety_and_wellbeing',
   },
 ];
@@ -247,12 +247,11 @@ const About = (props) => {
                 style={{
                   backgroundColor: '#fbfbfb',
                   borderRadius: '10px',
-                  padding: '20px 35px',
+                  padding: '35px 50px',
                   border: '1px solid #fbfbfb',
                   boxShadow:
                     'rgb(0 0 0 / 10%) 25px 35px 24px -11px, rgb(0 0 0 / 10%) 20px 25px 20px -10px',
                   margin: '20px 0px',
-                  width: 'fit-content',
                 }}
               >
                 <ol>
@@ -343,15 +342,15 @@ const About = (props) => {
                 <div className="column">
                   <div
                     style={{
-                      border: '4px solid white',
-                      width: '7%',
-                      position: 'absolute',
-                      right: '45px',
+                      border: "4px solid white",
+                      width: "7%",
+                      position: "absolute",
+                      right: "45px",
                     }}
                   ></div>
-                  <p style={{ paddingTop: '25px' }}>
+                  <p style={{ padding: "25px 0px" }}>
                     <span className="font-italic text-white">VEcoTra </span>
-                    <span className="font-normal" style={{ color: '#bff0c7' }}>
+                    <span className="font-normal" style={{ color: "#bff0c7" }}>
                       Travel Service Trading Company Limited (Vietnam Eco
                       Travel) is one of the leading companies in green and
                       sustainable tourism in Vietnam. Guided by s strategy to
@@ -359,59 +358,13 @@ const About = (props) => {
                       connections,
                     </span>
                     <span className="font-italic text-white">VEcoTra </span>
-                    <span className="font-normal" style={{ color: '#bff0c7' }}>
+                    <span className="font-normal" style={{ color: "#bff0c7" }}>
                       is dedicated to offering environmentally friendly travel
                       experiences while contributing to nature conservation and
                       preservation.
                     </span>
                   </p>
                 </div>
-
-                <Col flex="1 0 65%" className="column">
-                  <div className="block-info-left">
-                    <p>
-                      <span className="font-italic">VEcoTra </span>
-                      <span
-                        className="font-normal"
-                        style={{ color: '#bff0c7' }}
-                      >
-                        Travel Service Trading Company Limited (Vietnam Eco
-                        Travel) is one of the leading companies in green and
-                        sustainable tourism in Vietnam. Guided by s strategy to
-                        create eco-friendly journeys and foster lasting
-                        connections,
-                      </span>
-                      <span className="font-italic">VEcoTra </span>
-                      <span
-                        className="font-normal"
-                        style={{ color: '#bff0c7' }}
-                      >
-                        is dedicated to offering environmentally friendly travel
-                        experiences while contributing to nature conservation
-                        and preservation.
-                      </span>
-                    </p>
-                  </div>
-                </Col>
-                <Col flex="1 0 35%" className="column">
-                  <div className="block-info-right">
-                    <div>
-                      <div
-                        style={{
-                          border: '4px solid white',
-                          width: '20%',
-                          position: 'absolute',
-                          right: '20px',
-                        }}
-                      ></div>
-                      {/* <img
-                        alt="avatar"
-                        src={`${import.meta.env.VITE_API_URL}/images/logoVecotra/mainLogoVecotra.png`}
-                        className="img-avatar img-logo"
-                      /> */}
-                    </div>
-                  </div>
-                </Col>
               </Row>
             </div>
           </div>
@@ -561,7 +514,7 @@ const About = (props) => {
                     alt="avatar"
                     src={item.icon}
                     className="img-avatar"
-                    style={{ width: '100px', height: '100px' }}
+                    style={{ width: 'auto', height: '135px' }}
                   />
                 </div>
                 <Text style={{ color: 'white' }}>{t(item.title)}</Text>
@@ -584,7 +537,7 @@ const About = (props) => {
             <div className="image-icon">
               <img
                 alt="avatar"
-                src="https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src="/images/About/icon-core-values.svg"
                 className="img-avatar"
               />
             </div>
@@ -611,7 +564,7 @@ const About = (props) => {
                   alt="avatar"
                   src={item.icon}
                   className="img-avatar"
-                  style={{ width: '100px', height: '100px' }}
+                  style={{ width: 'auto', height: '135px' }}
                 />
               </div>
               <Title level={4} style={{ color: 'white' }}>
