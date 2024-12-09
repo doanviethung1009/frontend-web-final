@@ -13,6 +13,7 @@ import DataSelectOptionTransportation from '../../contents/DataSelectOptionTrans
 import DataItemSelectState from '../../contents/DataItemSelectState';
 import DataItemSelectAccommodation from '../../contents/DataItemSelectAccommodation';
 import DataItemSelectFIlterTag from '../../contents/DataItemSelectFIlterTag';
+import DataTags from '../../contents/DataTags';
 
 const dateTimestamp = dayjs('2024-01-01').valueOf();
 
@@ -56,6 +57,13 @@ const CreateTourComponent = (props) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [parentIndex, setParentIndex] = useState("");
     const [editingIndex, setEditingIndex] = useState("");
+    const [dataCheck, setDataCheck] = useState(
+        {
+            tourContinent: '',
+            tourCountryDisabled: true,
+            isClearCountry: false
+        }
+    )
 
     const showModal = (parent_Index, child_index) => {
         setParentIndex(parent_Index); // Store which object in the array is being edited
@@ -104,6 +112,16 @@ const CreateTourComponent = (props) => {
     };
     const [component1Disabled, setComponent1Disabled] = useState(false);
     const [component2Disabled, setComponent2Disabled] = useState(false);
+    const handleOnChangeContinent = (e) => {
+        console.log(">>> check handel on]]]]]]]", e)
+        setDataCheck(
+            {
+                tourContinent: e,
+                tourCountryDisabled: false,
+                isClearCountry: true,
+            }
+        )
+    }
 
     return (
         <div className="vecotra-CreateTour-Container">
@@ -213,7 +231,7 @@ const CreateTourComponent = (props) => {
                             <Mentions style={{
                                 width: "100%"
                             }}
-                                options={DataItemSelectFIlterTag}
+                                options={DataTags}
                             />
                         </Form.Item>
 
@@ -228,7 +246,7 @@ const CreateTourComponent = (props) => {
                             {...config}
                             {...custLayout}
                         >
-                            <Select mode="single" placeholder=""  {...custLayout}>
+                            <Select mode="single" placeholder=""  {...custLayout} onChange={(event) => handleOnChangeContinent(event)}>
                                 <Option value="asia">Asia</Option>
                                 <Option value="africa">Africa</Option>
                                 <Option value="northAmerica">North America</Option>
@@ -247,9 +265,13 @@ const CreateTourComponent = (props) => {
                             {...config}
                             {...custLayout}
                         >
-                            <Select mode="single" placeholder=""  {...custLayout}>
-                                <Option value="vietnam">Viet nam</Option>
-                                {/* <Option value="laos">Laos</Option> */}
+                            {/* {tourContinent === Asia} */}
+                            <Select mode="single" placeholder=""  {...custLayout} disabled={dataCheck.tourCountryDisabled} allowClear={dataCheck.isClearCountry}>
+                                {dataCheck.tourContinent === "asia" ?
+                                    <Option value="vietnam">Viet nam</Option>
+                                    :
+                                    <Option value="laos">Laos</Option>
+                                }
                             </Select>
                         </Form.Item>
 
@@ -518,7 +540,7 @@ const CreateTourComponent = (props) => {
                                 {...custLayout}
                                 min={0}
                                 max={5}
-                                defaultValue={3}
+                                // defaultValue={3}
 
                                 suffix="Star"
                                 value="tourStar" />
