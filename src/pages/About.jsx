@@ -99,20 +99,23 @@ const dataCoreValues = [
 // data-vision
 const dataVision = [
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-vision.svg',
     flex_css: '1 0 40%',
+    class_name: 'background-green',
     title: 'vision',
     contents: ['content_vision_1', 'content_vision_2'],
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-mission.svg',
     flex_css: '1 0 60%',
+    class_name: 'background-yellow',
     title: 'mission',
     contents: ['content_mission_1', 'content_mission_2', 'content_mission_3'],
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-short-term-goals.svg',
     flex_css: '1 0 60%',
+    class_name: 'background-yellow',
     title: 'short_term_goals',
     contents: [
       'content_short_term_goals_1',
@@ -123,8 +126,9 @@ const dataVision = [
     ],
   },
   {
-    icon: 'https://images.pexels.com/photos/2246476/pexels-photo-2246476.jpeg?auto=compress&cs=tinysrgb&w=600',
+    icon: '/images/About/icon-long-term-goals.svg',
     flex_css: '1 0 40%',
+    class_name: 'background-green',
     title: 'long_term_goals',
     contents: [
       'content_long_term_goals_1',
@@ -254,7 +258,7 @@ const About = (props) => {
                   margin: '20px 0px',
                 }}
               >
-                <ol>
+                <ol className="algin-left">
                   <li>
                     <Title level={5}>{t('company_name')}:</Title>
                     <p>
@@ -590,6 +594,7 @@ const About = (props) => {
                     height: '70px',
                     borderRadius: '10%',
                   }}
+                  className={item.class_name}
                 />
 
                 {/* title */}
@@ -605,7 +610,7 @@ const About = (props) => {
                 <div style={{ padding: '0px 30px' }}>
                   <ul>
                     {item.contents.map((content, index_content) => (
-                      <li key={index_content}>
+                      <li key={index_content} style={{ textAlign: 'left' }}>
                         <p>{t(content)}</p>
                       </li>
                     ))}
