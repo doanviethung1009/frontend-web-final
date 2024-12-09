@@ -42,7 +42,11 @@ npm install i18next react-i18next i18next-browser-languagedetector
 - lib config markdown
 => npm install marked @mdxeditor/editor react-markdown
 
-- long bổ sung >>  here
+- long bổ sung >> 
+- Install swiper reactjs
+=> npm install swiper
+document for swiper reactjs 
+-> <https://swiperjs.com/react>
 
 - chiến bổ sung here >>
 

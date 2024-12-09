@@ -3,9 +3,7 @@ import { Typography, Row, Col } from 'antd';
 import '../styles/publicStyles/About.css';
 import { useTranslation } from 'react-i18next';
 import ImageSlider from '../components/publicComponents/ImageSlider';
-import Slider from 'react-slick';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import ImageSwiper from '../components/publicComponents/ImageSwiper';
 
 const { Title, Text } = Typography;
 
@@ -139,27 +137,80 @@ const dataVision = [
   },
 ];
 
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'red', zIndex: 100 }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={className}
-      style={{ ...style, display: 'block', background: 'green', zIndex: 100 }}
-      onClick={onClick}
-    />
-  );
-}
+const dataWiperImage = [
+  {
+    id: 1,
+    src: 'https://images.pexels.com/photos/18876270/pexels-photo-18876270/free-photo-of-red-cabin-on-a-cliff.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+  {
+    id: 2,
+    src: 'https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+  {
+    id: 3,
+    src: 'https://images.pexels.com/photos/15985570/pexels-photo-15985570/free-photo-of-view-of-trees-and-snowcapped-mountains-from-a-road.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+  {
+    id: 4,
+    src: 'https://images.pexels.com/photos/18876270/pexels-photo-18876270/free-photo-of-red-cabin-on-a-cliff.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+  {
+    id: 5,
+    src: 'https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+  {
+    id: 6,
+    src: 'https://images.pexels.com/photos/15985570/pexels-photo-15985570/free-photo-of-view-of-trees-and-snowcapped-mountains-from-a-road.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+  {
+    id: 7,
+    src: 'https://images.pexels.com/photos/18876270/pexels-photo-18876270/free-photo-of-red-cabin-on-a-cliff.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+  {
+    id: 8,
+    src: 'https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+  {
+    id: 9,
+    src: 'https://images.pexels.com/photos/15985570/pexels-photo-15985570/free-photo-of-view-of-trees-and-snowcapped-mountains-from-a-road.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+    first_title: 'Vietnam Tourism',
+    second_title: 'ECO-TOURISM ON THE RISE: EXPLORE VIETNAM’S GREEN TRAVEL DESTINATIONS',
+    content: "With growing awareness about sustainable travel, eco-tourism is rapidly becoming the preferred choice for travelers seeking meaningful and environmentally-friendly experiences. Vietnam, with its stunning landscapes and diverse ecosystems, offers unique opportunities for eco-conscious visitors. Here are some top eco-tourism destinations that highlight Vietnam's natural beauty and commitment to conservation:",
+    footer_content: 'Published on November 15th, 2024'
+  },
+];
 
 const About = (props) => {
   const { checkLang } = props;
@@ -179,52 +230,6 @@ const About = (props) => {
     handleOnChangeLanguage(checkLang);
   }, [checkLang, handleOnChangeLanguage]);
 
-  const settings = {
-    className: 'center',
-    centerMode: true, // Center the main image
-    centerPadding: '50px', // No padding between images
-    slidesToShow: 3, // Show 3 slides (1 main + 2 blurred sub-images)
-    infinite: true, // Loop through images infinitely
-    speed: 500, // Animation speed
-    focusOnSelect: true, // Clicking selects the slide
-    arrows: true, // Hide navigation arrows
-    nextArrow: <SampleNextArrow style={{ zIndex: 100 }} />,
-    prevArrow: <SamplePrevArrow style={{ zIndex: 100 }} />,
-  };
-
-  const images = [
-    {
-      id: 1,
-      src: 'https://images.pexels.com/photos/18876270/pexels-photo-18876270/free-photo-of-red-cabin-on-a-cliff.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-      title: 'Eco-tourism in Vietnam',
-    },
-    {
-      id: 2,
-      src: 'https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-      title: 'Vietnamese Cuisine',
-    },
-    {
-      id: 3,
-      src: 'https://images.pexels.com/photos/15985570/pexels-photo-15985570/free-photo-of-view-of-trees-and-snowcapped-mountains-from-a-road.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-      title: 'Luxury Stay',
-    },
-    {
-      id: 4,
-      src: 'https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-      title: 'Vietnamese Cuisine',
-    },
-    {
-      id: 5,
-      src: 'https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-      title: 'Vietnamese Cuisine',
-    },
-    {
-      id: 6,
-      src: 'https://images.pexels.com/photos/26591086/pexels-photo-26591086/free-photo-of-portrait-of-blue-dacnis-sitting-on-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-      title: 'Vietnamese Cuisine',
-    },
-  ];
-
   return (
     <>
       {/* Image slider */}
@@ -233,7 +238,7 @@ const About = (props) => {
       {/* Company information */}
       <div className="container-block container-company-info">
         <Row className="row">
-          <Col flex="1 0 30%" className="column">
+          <Col flex="1 0 20%" className="column">
             <div className="block-info-left">
               <img
                 alt="avatar"
@@ -244,7 +249,7 @@ const About = (props) => {
               />
             </div>
           </Col>
-          <Col flex="1 0 70%" className="column">
+          <Col flex="1 0 75%" className="column">
             <div className="block-info-right">
               <Title className="info-title">{t('company_information')}</Title>
               <div
@@ -635,23 +640,19 @@ const About = (props) => {
           {t('our_network')}
         </Title>
 
-        {/* image */}
-        <img
-          alt="avatar"
-          src="https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"
-          style={{ width: '100%' }}
-        />
+        {/* google-map */}
+        <div>
+          <img
+            alt="avatar"
+            src="https://images.pexels.com/photos/302769/pexels-photo-302769.jpeg?auto=compress&cs=tinysrgb&w=600"
+            style={{ width: '100%' }}
+          />
+        </div>
       </div>
 
-      {/*  */}
+      {/* image-swiper */}
       <div className="container-block">
-        <Slider {...settings}>
-          {images.map((image, index) => (
-            <div key={index} className="carousel-slide">
-              <img alt="avatar" src={image.src} className="carousel-image" />
-            </div>
-          ))}
-        </Slider>
+        <ImageSwiper dataWiperImage={dataWiperImage} />
       </div>
     </>
   );
