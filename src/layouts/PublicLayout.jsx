@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import NavBarPublic from "../components/NavBarPublic";
+import Footer from "../components/publicComponents/Footer";
 
 const PublicLayout = (props) => {
     const { checkLang, setCheckLang } = props;
@@ -17,7 +18,7 @@ const PublicLayout = (props) => {
                     setCheckLang={setCheckLang}
                 />
             </main>
-
+            <Footer />
         </div>
     );
 };
