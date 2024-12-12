@@ -13,7 +13,7 @@ import TourAdmin from './pages/adminPages/TourAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoute2 from './components/ProtectedRouteN';
 import Stories from './pages/publicPages/abouts/Stories';
-import VietnamDestinations from './pages/publicPages/guides/VietnamDestinations';
+import DetailTravelGuide from './pages/publicPages/guides/DetailTravelGuide';
 import CreateTour from './pages/adminPages/CreateTour';
 import TestApi from './pages/adminPages/TestApi';
 import ProcessBar from './components/adminComponents/ProcessBar';
@@ -76,13 +76,12 @@ const App2 = () => {
                     // ]
                 },
                 {
-                    path: '/guide',element: <TravelGuide />,
-                    children: [
-                        {
-                            path: ':title',
-                            element: <VietnamDestinations />
-                        },
-                    ]
+                    path: '/guide',
+                    element: <TravelGuide />,
+                }, 
+                {
+                    path: '/guide/detail/:id/:title',       
+                    element: <DetailTravelGuide />
                 }
 
             ]

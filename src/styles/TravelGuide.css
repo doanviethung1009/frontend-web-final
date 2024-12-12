@@ -2,7 +2,12 @@
     margin: 400px 0px;
     padding: 20px 15px;
 }
-.current-travel{
+.travel-guide-container
+img{
+    width:100%;
+    border-radius: 10px;
+}
+.new-travel-guide{
     padding: 20px 0px;
 }
 .p-clamp{

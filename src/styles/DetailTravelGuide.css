@@ -1,0 +1,145 @@
+.blog-container{
+    margin: 400px 0px;
+    padding: 20px 15px;
+}
+.blog-container .ant-row {
+    margin: 20px 0px !important;
+}
+
+/* css blog header */
+.blog-header 
+.blog-title{
+    text-align: center;
+    color: var(--orange);
+}
+.blog-header 
+.blog-subtitle{
+    position: relative;
+    text-indent: 2em; 
+    font-style: italic;
+    font-weight: 300;
+    line-height: 1.5;
+  
+}
+.blog-header 
+.blog-subtitle::after{
+  display: flex;
+  position: absolute;
+  content: '';
+  border: 1px solid  ;
+  width: 70%;
+  margin-top: 20px;
+}
+/* css link  to location */
+.blog-link{
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px 15px 10px 30px;
+    margin-top: 15px;
+    
+}
+.blog-link-navigate{
+    padding: 5px 15px;
+    text-align: start;
+}
+.blog-link-navigate li{
+    padding: 5px;
+    color: black;
+    text-decoration: underline;  
+    
+ }
+
+ /* css detail location */
+
+ .blog-content{
+    margin: 20px 0px;
+}
+
+.location-wrap{
+    margin-bottom: 30px;
+}
+
+.location-wrap 
+.title-location{
+    color: var(--orange);
+}
+
+.location-wrap 
+.location-content{
+    margin: 15px 0px;
+    position: relative;
+
+}
+
+.location-wrap p{
+    margin-bottom: 15px;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+.location-wrap strong{
+    font-size: 16px;
+    line-height: 1.8;
+}
+.location-wrap
+img{
+    width: 100%;
+    border-radius:10px ;
+    
+}
+
+.location-wrap
+span{
+    font-size: 15px;
+    position: absolute;
+    bottom: -20px;
+    right: 30px;
+}
+
+/* css slider travel guide */
+
+.slider-travel-guide{
+margin: 20px 0px;
+padding-left: 0px ;
+}
+.slider-travel-guide
+.carousel-item{
+    margin-bottom: 10px;
+    position: relative;
+}
+ /* .slick-slide:nth-child() ::after {
+    bottom: -1px;
+    position: absolute;
+    content: '';
+    border: 1px solid  ;
+    width: 70%;
+    margin-top: 20px;
+}
+ .slick-slide:nth-child(2) ::after {
+    display: flex;
+    position: absolute;
+    content: '';
+    border: 1px solid  ;
+    width: 100%;
+    margin-top: 20px;
+} */
+
+/* .slider-travel-guide 
+.slick-dots li button {
+    width: 17px;
+    height: 17px;
+    border-radius: 50%; 
+    transition: green 0.3s ease;
+  } */
+
+  @media (min-width: 768px){
+    .slider-travel-guide{
+        padding-left: 0px !important;
+        }
+  }
+
+
+
+
+
+
