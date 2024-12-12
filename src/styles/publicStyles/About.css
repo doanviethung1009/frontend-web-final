@@ -1,0 +1,212 @@
+.container-block {
+  margin-top: 20px;
+}
+
+.info-title {
+  color: #f7b835 !important;
+  text-transform: uppercase;
+}
+
+/* ------ container-company-information ------ */
+.container-company-info .column {
+  padding: 0px !important;
+}
+
+.container-company-info .img-avatar {
+  max-width: 350px;
+  height: 460px;
+  border-top-right-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+
+.container-company-info .block-info-right {
+  padding: 40px 0px;
+}
+
+.container-company-info .algin-left li {
+  text-align: left;
+}
+
+/* ------ container-company-information ------ */
+
+/* ------ container-our-story ------ */
+.first-block .sub-block {
+  padding: 20px;
+  background-color: #3ab54a;
+}
+
+.first-block .sub-block .block-info-left {
+  color: white;
+}
+
+.first-block .sub-block .block-info-left,
+.first-block .sub-block .block-info-right {
+  padding: 0px 20px;
+}
+
+.second-block {
+  padding: 20px;
+}
+
+.second-block .img-avatar {
+  position: absolute;
+  right: 20px;
+  top: -60px;
+  border: 1px solid #3ab54a;
+  border-radius: 5%;
+  background-color: white;
+  max-width: 55%;
+}
+
+.second-block .block-info-left {
+  color: #e9b853;
+}
+
+.second-block .block-info-right {
+  padding: 0px 20px;
+}
+
+@media screen and (max-width: 1250px) {
+  .second-block .block-info-right .img-avatar {
+    max-width: 70% !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .second-block .block-info-right .img-avatar {
+    display: none !important;
+  }
+}
+
+/* ------ container-our-story ------ */
+
+/* ------ container-business-sectors ------ */
+.container-business-sectors {
+  padding: 20px;
+}
+
+.other-business-block {
+  background-color: #3ab54a;
+  color: white !important;
+  width: 240px;
+  transition: transform 0.3s;
+  border-radius: 10px;
+  height: 250px;
+}
+
+.other-business-block .img-avatar {
+  padding: 25px 15px 15px;
+  display: flex;
+  margin: auto;
+}
+
+.other-business-block:hover {
+  background-color: #e9b853 !important;
+  color: white !important;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+/* ------ container-business-sectors ------ */
+
+/* ------ container-core-values ------ */
+.container-core-values {
+  padding: 20px;
+  background-color: #3ab54a;
+  color: white !important;
+  transition: transform 0.3s;
+}
+
+.core-values-main-block {
+  color: white !important;
+  transition: transform 0.3s;
+  border-radius: 10px;
+}
+
+.core-values-main-block .img-avatar {
+  display: flex;
+  margin: auto;
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.core-values-block {
+  color: white !important;
+  width: 280px;
+  transition: transform 0.3s;
+  border-radius: 10px;
+  height: 250px;
+}
+
+.core-values-block .img-avatar {
+  display: flex;
+  margin: auto;
+}
+
+@media screen and (max-width: 2560px) {
+  .container-core-values .core-values-list {
+    padding: 0px 190px !important;
+  }
+}
+
+@media screen and (max-width: 1650px) {
+  .container-core-values .core-values-list {
+    padding: 0px 130px !important;
+  }
+}
+
+@media screen and (max-width: 1440px) {
+  .container-core-values .core-values-list {
+    padding: 0px 45px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container-core-values .core-values-list {
+    padding: unset !important;
+  }
+}
+
+/* ------ container-core-values ------ */
+
+/* ------ container-vison ------ */
+.container-vision {
+  padding: 20px;
+}
+
+.container-vision .block-vision {
+  background-color: #fbfbfb;
+  border-radius: 10px;
+  padding: 20px 35px;
+  border: 1px solid #fbfbfb;
+  box-shadow: rgb(0 0 0 / 10%) 25px 35px 24px -11px, rgb(0 0 0 / 10%) 20px 25px 20px -10px;
+  margin: 20px 0px;
+  min-height: 335px;
+}
+
+@media screen and (max-width: 1440px) {
+  .container-vision .block-vision {
+    min-height: 260px !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container-vision .block-vision {
+    min-height: 305px !important;
+  }
+}
+
+/* ------ container-vison ------ */
+
+/* ------ container-our-network ------ */
+.container-our-network {
+  padding: 20px;
+}
+
+/* ------ container-our-network ------ */
+
+/*----------------------------------------*/
+
+
+
+/*----------------------------------------*/

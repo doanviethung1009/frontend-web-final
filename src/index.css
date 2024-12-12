@@ -67,6 +67,14 @@
     color: white !important;
 }
 
+.background-green {
+    background-color: #3ab54a !important;
+}
+
+.background-yellow {
+    background-color: #e9b853 !important;
+}
+
 .text-slogan {
     font-family: "Lato" !important;
 }

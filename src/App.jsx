@@ -12,7 +12,6 @@ import { Fragment } from 'react';
 import TourAdmin from './pages/adminPages/TourAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoute2 from './components/ProtectedRouteN';
-import Stories from './pages/publicPages/abouts/Stories';
 const App = () => {
 
     return (
@@ -23,7 +22,6 @@ const App = () => {
                     {/* public layouts */}
                     <Route element={<PublicLayout />}>
                         <Route path="/" element={<Home />} />
-                        <Route path='/about/story' element={<Stories />} />
                         <Route path='/products/travelVietnam/northernVietnam' element={<NorthernVietnam />} />
                         <Route path='/products/travelVietnam/centralVietnam' element={<CentralVietnam />} />
                     </Route>

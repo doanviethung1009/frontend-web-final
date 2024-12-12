@@ -12,8 +12,8 @@ import { Fragment, useContext, useState } from 'react';
 import TourAdmin from './pages/adminPages/TourAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoute2 from './components/ProtectedRouteN';
-import Stories from './pages/publicPages/abouts/Stories';
-import DetailTravelGuide from './pages/publicPages/guides/DetailTravelGuide';
+// import Stories from './pages/publicPages/abouts/Stories';
+import DetailTravelGuide from './pages/publicPages/guides/VietnamDestinations';
 import CreateTour from './pages/adminPages/CreateTour';
 import TestApi from './pages/adminPages/TestApi';
 import ProcessBar from './components/adminComponents/ProcessBar';
@@ -24,6 +24,8 @@ import MarkdownComponent from './components/adminComponents/MarkdownComponent';
 import Partner from './pages/publicPages/Partner';
 import ErrorPage from './pages/Error';
 import TravelGuide from './pages/publicPages/guides/TravelGuide'
+import TravelGuideDetail from './pages/publicPages/guides/TravelGuideDetail';
+import Products from './pages/publicPages/Products';
 
 const App2 = () => {
     const [checkLang, setCheckLang] = useState('en')
@@ -44,21 +46,23 @@ const App2 = () => {
                     element: <Home />
                 },
                 {
-                    path: '/about-us',
+                    path: 'about-us',
                     element: <About />
                 },
                 {
-                    path: '/products',
+                    //noted: need to create product layout and use outlet to store product
+                    path: 'products',
+                    element: <Products />,
                     children: [
                         {
-                            path: '/products/travelVietnam/',
+                            path: 'travelVietnam',
                             children: [
                                 {
-                                    path: '/products/travelVietnam/northernVietnam',
+                                    path: 'northernVietnam',
                                     element: <NorthernVietnam />
                                 },
                                 {
-                                    path: '/products/travelVietnam/centralVietnam',
+                                    path: 'centralVietnam',
                                     element: <CentralVietnam />
                                 }
                             ]
@@ -66,7 +70,7 @@ const App2 = () => {
                     ]
                 },
                 {
-                    path: '/partner',
+                    path: 'partner',
                     element: <Partner />
                     // children: [
                     //     {
@@ -77,9 +81,14 @@ const App2 = () => {
                 },
                 {
                     path: '/guide',
-                    element: <TravelGuide />,
-                }, 
-                {
+                    element: <TravelGuide />
+                    // children: [
+                    //     {
+                    //         path: '/guide/vietnamDestinations',
+                    //         element: <VietnamDestinations />
+                    //     },
+                    // ]
+                },{
                     path: '/guide/detail/:id/:title',       
                     element: <DetailTravelGuide />
                 }
