@@ -1,4 +1,5 @@
 import React from "react";
+import Slider from "react-slick";
 import {
   Carousel,
   Flex,
@@ -132,8 +133,38 @@ const Partner = () => {
       ],
     },
   };
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "red",borderRadius: "50%", zIndex: 100 }}
+        onClick={onClick}
+      />
+    );
+  }
+  
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props;
+    return (
+      <div
+        className={className}
+        style={{ ...style, display: "block", background: "yellow",borderRadius: "50%", zIndex: 100 }}
+        onClick={onClick}
+      />
+    );
+  }
   const { Paragraph, Text, Link, Title } = Typography;
-
+  var settings = {
+    dots: false,
+    arrows:true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow style={{ zIndex: 100, }} />,
+    prevArrow: <SamplePrevArrow style={{ zIndex: 100 }} />
+  };
   return (
     <div className="partner-container container">
       {/*session Join */}
@@ -152,7 +183,7 @@ const Partner = () => {
                 <span style={{ opacity: "0.5" }}>
                   {dataPartner.session1.title.text2}{" "}
                 </span>
-                <span style={{ color: "#E9B853" }}>
+                <span style={{ color: "#E9B853" }} className="text-orange">
                   {dataPartner.session1.title.text3}
                 </span>
                 <div style={{ display: "inline-block ", paddingLeft: "10px" }}>
@@ -250,15 +281,8 @@ const Partner = () => {
           }}
         >
           OUR PARTNERS
-        </Title>
-        {/* <div
-          style={{
-            borderImage: "linear-gradient(to bottom, #E9B853, green) 1",
-            borderWidth: "4px",
-            borderStyle: "solid",
-          }}
-        > */}
-        <ConfigProvider
+        </Title>    
+        {/* <ConfigProvider
           theme={{
             components: {
               Carousel: {
@@ -269,11 +293,14 @@ const Partner = () => {
         >
           <Carousel
             arrows
+            additionalTransfrom={1}
             dots={false}
             slidesToShow={5}
             infinite={true}
             draggable={true}
-            arrowSize={32}
+            nextArrow={<div>a</div>}
+            prevArrow={<div>b</div>}
+            slidesToScroll={1}
             // style={{ backgroundColor: "#f5f5f5" }}
             responsive={[
               {
@@ -318,8 +345,23 @@ const Partner = () => {
               </Row>
             ))}
           </Carousel>
-        </ConfigProvider>
-        {/* </div> */}
+        </ConfigProvider> */}
+        <Slider {...settings}>
+        {dataPartner.session3.iconPartner.map((item, index) => (
+              <Row
+                justify="center"
+                align="middle"
+                className="img-container"
+                key={item.title}
+              >
+              <Col>  <img
+                  src={item.src}
+                  alt={`Slide ${index}`}
+                  style={{ width: "80%" }}
+                /></Col>
+              </Row>
+            ))}
+        </Slider>
       </div>
     </div>
   );
