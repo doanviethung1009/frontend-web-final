@@ -61,10 +61,9 @@ const CreateTourComponent = (props) => {
         {
             tourContinent: '',
             tourCountryDisabled: true,
-            isClearCountry: false
         }
     )
-
+    const [tourCountrySelected, setTourCountrySelected] = useState()
     const showModal = (parent_Index, child_index) => {
         setParentIndex(parent_Index); // Store which object in the array is being edited
         setEditingIndex(child_index); // Store which object in the array is being edited
@@ -113,14 +112,14 @@ const CreateTourComponent = (props) => {
     const [component1Disabled, setComponent1Disabled] = useState(false);
     const [component2Disabled, setComponent2Disabled] = useState(false);
     const handleOnChangeContinent = (e) => {
-        console.log(">>> check handel on]]]]]]]", e)
+        console.log(">>> check handel on", e)
         setDataCheck(
             {
                 tourContinent: e,
                 tourCountryDisabled: false,
-                isClearCountry: true,
             }
         )
+        setTourCountrySelected(null)
     }
 
     return (
@@ -266,7 +265,7 @@ const CreateTourComponent = (props) => {
                             {...custLayout}
                         >
                             {/* {tourContinent === Asia} */}
-                            <Select mode="single" placeholder=""  {...custLayout} disabled={dataCheck.tourCountryDisabled} allowClear={dataCheck.isClearCountry}>
+                            <Select mode="single" placeholder=""  {...custLayout} disabled={dataCheck.tourCountryDisabled} onChange={value => setTourCountrySelected(value)} value={tourCountrySelected}>
                                 {dataCheck.tourContinent === "asia" ?
                                     <Option value="vietnam">Viet nam</Option>
                                     :
