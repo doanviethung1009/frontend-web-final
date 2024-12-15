@@ -12,7 +12,8 @@ import { Fragment, useContext, useState } from 'react';
 import TourAdmin from './pages/adminPages/TourAdmin';
 import ProtectedRoute from './components/ProtectedRoute';
 import ProtectedRoute2 from './components/ProtectedRouteN';
-import VietnamDestinations from './pages/publicPages/guides/VietnamDestinations';
+// import Stories from './pages/publicPages/abouts/Stories';
+import DetailTravelGuide from './pages/publicPages/guides/VietnamDestinations';
 import CreateTour from './pages/adminPages/CreateTour';
 import TestApi from './pages/adminPages/TestApi';
 import ProcessBar from './components/adminComponents/ProcessBar';
@@ -79,21 +80,18 @@ const App2 = () => {
                     // ]
                 },
                 {
-                    path: 'guide',
-                    element: <TravelGuide />,
+                    path: '/guide',
+                    element: <TravelGuide />
                     // children: [
                     //     {
-                    //         // call detail travel guide with id
-                    //         path: 'details/:id',
-                    //         element: <TravelGuideDetail />
+                    //         path: '/guide/vietnamDestinations',
+                    //         element: <VietnamDestinations />
                     //     },
                     // ]
-                },
-                {
-                    // call detail travel guide with id not use outlet
-                    path: '/guide/details/:id',
-                    element: <TravelGuideDetail />
-                },
+                },{
+                    path: '/guide/detail/:id/:title',       
+                    element: <DetailTravelGuide />
+                }
 
             ]
         },
