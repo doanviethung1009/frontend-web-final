@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Typography, Row, Col } from 'antd';
 import '../styles/publicStyles/About.css';
 import { useTranslation } from 'react-i18next';
@@ -215,6 +215,7 @@ const dataWiperImage = [
 const About = (props) => {
   const { checkLang } = props;
   const { t, i18n } = useTranslation();
+  const [dataImageOurStory, setDataImageOurStory] = useState("");
 
   // Memoize handleOnChangeLanguage to ensure it doesn't change on each render
   const handleOnChangeLanguage = useCallback(
@@ -229,6 +230,23 @@ const About = (props) => {
   useEffect(() => {
     handleOnChangeLanguage(checkLang);
   }, [checkLang, handleOnChangeLanguage]);
+
+  // Function to set the image our story based on the current language
+  const handleSetImageOurStory = useCallback(() => {
+    const linkImageOurStoryEN = `${import.meta.env.VITE_API_URL}/images/logoVecotra/mainLogoVecotra.png`;
+    const linkImageOurStoryVI = `${import.meta.env.VITE_API_URL}/images/aboutUsImage/CEOVecotraImage.jpg`;
+  
+    if (i18n.language === 'en') {
+      setDataImageOurStory(linkImageOurStoryEN);
+    } else {
+      setDataImageOurStory(linkImageOurStoryVI);
+    }
+  }, [i18n.language]); // Dependency for `i18n.language` ensures this function updates correctly.
+  
+  useEffect(() => {
+    handleSetImageOurStory();
+  }, [handleSetImageOurStory]);
+  // End function
 
   return (
     <>
@@ -449,9 +467,7 @@ const About = (props) => {
                     ></div>
                     <img
                       alt="avatar"
-                      src={`${
-                        import.meta.env.VITE_API_URL
-                      }/images/logoVecotra/mainLogoVecotra.png`}
+                      src={dataImageOurStory}
                       className="img-avatar"
                     />
                   </div>
