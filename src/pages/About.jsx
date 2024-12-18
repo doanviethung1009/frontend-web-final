@@ -362,11 +362,11 @@ const About = (props) => {
                     <span className="font-normal" style={{ color: "#bff0c7" }}>
                       Travel Service Trading Company Limited (Vietnam Eco
                       Travel) is one of the leading companies in green and
-                      sustainable tourism in Vietnam. Guided by s strategy to
+                      sustainable tourism in Vietnam. Guided by a strategy to
                       create eco-friendly journeys and foster lasting
                       connections,
                     </span>
-                    <span className="font-italic text-white">VEcoTra </span>
+                    <span className="font-italic text-white"> VEcoTra </span>
                     <span className="font-normal" style={{ color: "#bff0c7" }}>
                       is dedicated to offering environmentally friendly travel
                       experiences while contributing to nature conservation and
@@ -402,7 +402,7 @@ const About = (props) => {
                             impact and honor local cultures. With a team of
                             passionate and professional staff,
                           </span>
-                          <span className="font-italic text-yellow">VEcoTra </span>
+                          <span className="font-italic text-yellow"> VEcoTra </span>
                           <span className="font-normal font-italic">
                             is committed to providing you with memorable and
                             meaningful travel experiences.
