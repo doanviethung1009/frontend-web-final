@@ -357,7 +357,7 @@ const About = (props) => {
                       right: "45px",
                     }}
                   ></div>
-                  <p style={{ padding: "25px 0px" }}>
+                  <Title level={5} style={{ padding: "25px 0px" }}>
                     <span className="font-italic text-white">VEcoTra </span>
                     <span className="font-normal" style={{ color: "#bff0c7" }}>
                       Travel Service Trading Company Limited (Vietnam Eco
@@ -372,7 +372,7 @@ const About = (props) => {
                       experiences while contributing to nature conservation and
                       preservation.
                     </span>
-                  </p>
+                  </Title>
                 </div>
               </Row>
             </div>
@@ -394,62 +394,46 @@ const About = (props) => {
                       }}
                     ></div>
                     <div>
-                      <p>
-                        <span
-                          className="font-normal font-italic"
-                          style={{ color: '#565656' }}
-                        >
-                          From the beginning, we have taken pride in pioneering
-                          green tourism solutions that minimize environmental
-                          impact and honor local cultures. With a team of
-                          passionate and professional staff,
-                        </span>
-                        <span className="font-italic">VEcoTra </span>
-                        <span
-                          className="font-normal font-italic"
-                          style={{ color: '#565656' }}
-                        >
-                          is committed to providing you with memorable and
-                          meaningful travel experiences.
-                        </span>
-                      </p>
-                      <p>
-                        <span
-                          className="font-normal"
-                          style={{ color: '#565656' }}
-                        >
-                          At{' '}
-                        </span>
-                        <span className="font-italic">VEcoTra, </span>
-                        <span
-                          className="font-normal"
-                          style={{ color: '#565656' }}
-                        >
-                          we believe that travel is not only about exploring new
-                          destinations but also about protecting and valuing
-                          natural and cultural treasures. Embracing our motto,
-                          &quot;Green Journeys - Sustainable Connections,&quot;
-                          we aim to build a sustainable and environmentally
-                          friendly tourism future.
-                        </span>
-                      </p>
-                      <p>
-                        <span
-                          className="font-normal"
-                          style={{ color: '#565656' }}
-                        >
-                          Join{' '}
-                        </span>
-                        <span className="font-italic">VEcoTra </span>
-                        <span
-                          className="font-normal"
-                          style={{ color: '#565656' }}
-                        >
-                          to explore and experience the wonders of
-                          Vietnam&apos;s nature in a completely new and
-                          sustainable way.
-                        </span>
-                      </p>
+                      <Title level={5}>
+                        <div style={{ marginBottom: '10px' }}>
+                          <span className="font-normal font-italic">
+                            From the beginning, we have taken pride in pioneering
+                            green tourism solutions that minimize environmental
+                            impact and honor local cultures. With a team of
+                            passionate and professional staff,
+                          </span>
+                          <span className="font-italic text-yellow">VEcoTra </span>
+                          <span className="font-normal font-italic">
+                            is committed to providing you with memorable and
+                            meaningful travel experiences.
+                          </span>
+                        </div>
+                        <div style={{ marginBottom: '10px' }}>
+                          <span className="font-normal">
+                            At{' '}
+                          </span>
+                          <span className="font-italic text-yellow">VEcoTra, </span>
+                          <span className="font-normal">
+                            we believe that travel is not only about exploring new
+                            destinations but also about protecting and valuing
+                            natural and cultural treasures. Embracing our motto,
+                            &quot;Green Journeys - Sustainable Connections,&quot;
+                            we aim to build a sustainable and environmentally
+                            friendly tourism future.
+                          </span>
+                        </div>
+                        <div>
+                          <span className="font-normal">
+                            Join{' '}
+                          </span>
+                          <span className="font-italic text-yellow">VEcoTra </span>
+                          <span className="font-normal">
+                            to explore and experience the wonders of
+                            Vietnam&apos;s nature in a completely new and
+                            sustainable way.
+                          </span>
+                        </div>
+                      </Title>
                     </div>
                   </div>
                 </Col>
@@ -651,7 +635,7 @@ const About = (props) => {
       </div>
 
       {/* image-swiper */}
-      <div className="container-block">
+      <div className="container-block container-image-swiper">
         <ImageSwiper dataWiperImage={dataWiperImage} />
       </div>
     </>
