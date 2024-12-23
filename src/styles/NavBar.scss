@@ -65,7 +65,6 @@
         }
     }
 
-
     .MenuAdmin {
         display: flex !important;
         justify-content: center !important;
@@ -85,11 +84,8 @@
             font-weight: 100;
             background-color: transparent !important;
 
-
             //edit css for menu
             li {
-
-
                 :hover {
                     color: #bbc657 !important;
                     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
@@ -110,10 +106,6 @@
                     text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
                     animation: effect 3s infinite alternate;
                     padding: 10px 20px;
-
-
-
-
                 }
             }
         }
@@ -142,10 +134,10 @@
         justify-content: flex-end;
         // width: 100%;
         margin: 0 0;
-        padding-top: 20px;
+        padding-top: 14px;
 
         .btnLang {
-            color: white;
+            color: #d9d9d9;
             background-color: transparent !important;
             border-radius: 10%;
         }
@@ -185,7 +177,6 @@
         }
 
         .containerLang {
-
             visibility: hidden;
             clear: both;
             float: left;
@@ -194,7 +185,6 @@
             display: none;
         }
     }
-
 }
 
 //iphone 12pro
@@ -215,7 +205,6 @@
             margin-right: 20px;
             // display: block;
             float: left;
-
         }
 
         .MenuAdmin {
@@ -227,11 +216,9 @@
             float: right;
             // padding-right: 20px;
             padding-left: 120px;
-
         }
 
         .containerLang {
-
             visibility: hidden;
             clear: both;
             float: left;
