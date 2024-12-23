@@ -17,7 +17,7 @@ import DetailTravelGuide from './pages/publicPages/guides/VietnamDestinations';
 import CreateTour from './pages/adminPages/CreateTour';
 import TestApi from './pages/adminPages/TestApi';
 import ProcessBar from './components/adminComponents/ProcessBar';
-import About from './pages/About';
+import About from './pages/publicPages/About';
 import { AuthContext, AutoWrapper } from './context/Auth.Context';
 import CreateTourComponent from './components/adminComponents/CreateTourComponent';
 import MarkdownComponent from './components/adminComponents/MarkdownComponent';

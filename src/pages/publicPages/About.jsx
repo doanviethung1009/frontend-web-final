@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Typography, Row, Col } from 'antd';
-import '../styles/publicStyles/About.css';
+import '../../styles/publicStyles/About.css';
 import { useTranslation } from 'react-i18next';
 import ImageSlider from '../../components/publicComponents/ImageSlider';
 import ImageSwiper from '../../components/publicComponents/ImageSwiper';
